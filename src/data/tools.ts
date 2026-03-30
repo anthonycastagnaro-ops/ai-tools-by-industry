@@ -1,0 +1,469 @@
+import type { Tool } from "@/lib/types";
+
+export const tools: Tool[] = [
+  {
+    slug: "chatgpt",
+    name: "ChatGPT",
+    category: "AI assistant",
+    tagline: "Flexible general-purpose assistant for research, writing, and planning.",
+    description:
+      "ChatGPT is a versatile AI assistant that helps teams write, brainstorm, analyze, and automate common business work faster.",
+    overview:
+      "ChatGPT works well as the everyday AI layer for teams that need faster content creation, clearer internal documentation, and better first drafts across many workflows.",
+    bestUseCase: "Drafting content, summarizing information, and building repeatable prompt-based workflows.",
+    pricing: "Free plan available; paid plans and team tiers available.",
+    affiliateUrl: "https://example.com/out/chatgpt",
+    website: "https://chatgpt.com",
+    features: [
+      "Long-form drafting and editing support",
+      "Brainstorming, ideation, and strategy help",
+      "Document summarization and synthesis",
+      "Custom GPT and workflow support for repeated tasks",
+    ],
+    pros: [
+      "Useful across nearly every department",
+      "Strong for first drafts and idea generation",
+      "Easy entry point for businesses adopting AI",
+    ],
+    cons: [
+      "Output quality depends on prompt clarity",
+      "Needs human review for factual or regulated content",
+      "Can feel broad rather than specialist in niche workflows",
+    ],
+    alternatives: ["claude", "perplexity", "notion-ai"],
+  },
+  {
+    slug: "perplexity",
+    name: "Perplexity",
+    category: "AI research",
+    tagline: "Fast answer engine for market research, sourcing, and citations.",
+    description:
+      "Perplexity helps business users research topics quickly by combining conversational answers with source-backed results.",
+    overview:
+      "Perplexity is ideal when teams need rapid competitive research, local market insights, or a starting point with visible sources before producing a final asset.",
+    bestUseCase: "Research-heavy workflows where source visibility matters.",
+    pricing: "Free plan available; pro tier available.",
+    affiliateUrl: "https://example.com/out/perplexity",
+    website: "https://www.perplexity.ai",
+    features: [
+      "Source-backed search answers",
+      "Fast topic exploration and follow-up questions",
+      "Useful for competitor, pricing, and trend research",
+      "Good for turning messy questions into clearer summaries",
+    ],
+    pros: [
+      "Faster than manual search for many business questions",
+      "Helpful citations improve trust and verification",
+      "Great fit for research-first teams",
+    ],
+    cons: [
+      "Less suited to deep content production than writing-focused tools",
+      "Still needs source validation on important decisions",
+      "Not built for complex internal workflow automation",
+    ],
+    alternatives: ["chatgpt", "claude", "surfer-seo"],
+  },
+  {
+    slug: "jasper",
+    name: "Jasper",
+    category: "AI marketing",
+    tagline: "Brand-aware AI writing platform for marketing teams.",
+    description:
+      "Jasper is built for teams that need on-brand campaign copy, landing pages, and channel-specific messaging at scale.",
+    overview:
+      "Jasper is strongest when a business needs structured marketing output with repeatable templates, team collaboration, and tighter brand control than a generic assistant.",
+    bestUseCase: "Campaign copy, landing page copy, and multi-channel marketing production.",
+    pricing: "Paid plans available for individuals and teams.",
+    affiliateUrl: "https://example.com/out/jasper",
+    website: "https://www.jasper.ai",
+    features: [
+      "Brand voice and style guidance",
+      "Campaign and channel-specific writing workflows",
+      "Team collaboration features",
+      "Templates for sales and marketing assets",
+    ],
+    pros: [
+      "Better fit for structured marketing production than general tools",
+      "Helpful brand consistency controls",
+      "Designed for teams publishing frequently",
+    ],
+    cons: [
+      "Less flexible outside marketing tasks",
+      "Paid plans can feel expensive for smaller teams",
+      "Teams still need an editor for final approvals",
+    ],
+    alternatives: ["copy-ai", "chatgpt", "grammarly"],
+  },
+  {
+    slug: "copy-ai",
+    name: "Copy.ai",
+    category: "AI marketing",
+    tagline: "AI GTM assistant for outbound copy, messaging, and sales enablement.",
+    description:
+      "Copy.ai helps teams create sales, marketing, and prospecting content quickly with workflow-friendly templates.",
+    overview:
+      "Copy.ai is useful for lean go-to-market teams that need speed across emails, outbound sequences, product messaging, and campaign ideation.",
+    bestUseCase: "Outbound sequences, sales messaging, and quick-turn marketing copy.",
+    pricing: "Free plan available; paid plans for teams.",
+    affiliateUrl: "https://example.com/out/copy-ai",
+    website: "https://www.copy.ai",
+    features: [
+      "Outbound and sales writing templates",
+      "Marketing copy workflows",
+      "Messaging ideation for offers and positioning",
+      "Team-friendly prompt and workflow setup",
+    ],
+    pros: [
+      "Strong fit for growth teams and agencies",
+      "Quick to learn and deploy",
+      "Good range of sales and marketing templates",
+    ],
+    cons: [
+      "Less differentiated for broad business tasks",
+      "Needs editing to avoid generic sounding output",
+      "Some teams may overlap this with existing AI tools",
+    ],
+    alternatives: ["jasper", "chatgpt", "hubspot-ai"],
+  },
+  {
+    slug: "notion-ai",
+    name: "Notion AI",
+    category: "Knowledge management",
+    tagline: "AI inside a workspace for notes, docs, and operating systems.",
+    description:
+      "Notion AI helps teams summarize meetings, clean up internal docs, and turn scattered information into usable knowledge.",
+    overview:
+      "For businesses that already run processes inside Notion, Notion AI becomes a practical content and operations layer that helps documentation stay current and easier to use.",
+    bestUseCase: "Internal documentation, meeting notes, SOPs, and workspace cleanup.",
+    pricing: "Workspace plans available with AI add-ons or bundled tiers.",
+    affiliateUrl: "https://example.com/out/notion-ai",
+    website: "https://www.notion.so/product/ai",
+    features: [
+      "Summaries and writing support inside docs",
+      "Meeting note cleanup and action item extraction",
+      "Knowledge base drafting and updating",
+      "Useful for SOP and operations documentation",
+    ],
+    pros: [
+      "Fits naturally into teams already using Notion",
+      "Great for internal knowledge workflows",
+      "Useful mix of writing and summarization features",
+    ],
+    cons: [
+      "Value is lower if the team does not live in Notion",
+      "Not the best specialist for design or automation",
+      "Can become messy without workspace governance",
+    ],
+    alternatives: ["chatgpt", "claude", "fireflies"],
+  },
+  {
+    slug: "grammarly",
+    name: "Grammarly",
+    category: "Writing assistant",
+    tagline: "Polishes business writing and keeps client communication clear.",
+    description:
+      "Grammarly helps teams improve clarity, grammar, and professionalism across emails, documents, and marketing copy.",
+    overview:
+      "Grammarly is especially useful for businesses where client trust depends on clean communication and consistent writing quality across the team.",
+    bestUseCase: "Editing email, proposals, reports, and customer-facing copy.",
+    pricing: "Free plan available; premium and business plans available.",
+    affiliateUrl: "https://example.com/out/grammarly",
+    website: "https://www.grammarly.com",
+    features: [
+      "Grammar and clarity suggestions",
+      "Tone adjustments for business writing",
+      "Rewriting support across common apps",
+      "Helpful guardrails for client-facing communication",
+    ],
+    pros: [
+      "Easy win for improving day-to-day communication",
+      "Low friction to adopt across teams",
+      "Helpful for proposals, emails, and reports",
+    ],
+    cons: [
+      "Less useful as a strategy or ideation tool",
+      "Suggestions can smooth out brand voice too much",
+      "Teams may still need a stronger drafting tool",
+    ],
+    alternatives: ["chatgpt", "jasper", "claude"],
+  },
+  {
+    slug: "claude",
+    name: "Claude",
+    category: "AI assistant",
+    tagline: "Strong long-form reasoning assistant for analysis and polished drafts.",
+    description:
+      "Claude is well suited for businesses that need thoughtful writing, document analysis, and clearer outputs from long source material.",
+    overview:
+      "Claude tends to shine in workflows that involve synthesis, structured thinking, and turning dense notes or documents into polished responses.",
+    bestUseCase: "Long-form writing, document analysis, and nuanced internal planning.",
+    pricing: "Free plan available; paid plans for higher usage.",
+    affiliateUrl: "https://example.com/out/claude",
+    website: "https://claude.ai",
+    features: [
+      "Strong long-form writing support",
+      "Useful for analyzing lengthy source material",
+      "Thoughtful drafting for policy, proposals, and strategy",
+      "Good fit for teams that work with dense documents",
+    ],
+    pros: [
+      "Often produces polished first drafts",
+      "Helpful for synthesis and summarization",
+      "Good fit for service businesses with complex communication",
+    ],
+    cons: [
+      "Broader workflow tooling may be lighter than specialized apps",
+      "Still requires fact checking and business judgment",
+      "Not a dedicated design or automation platform",
+    ],
+    alternatives: ["chatgpt", "perplexity", "notion-ai"],
+  },
+  {
+    slug: "midjourney",
+    name: "Midjourney",
+    category: "Image generation",
+    tagline: "AI image generation for concepts, campaigns, and visual ideation.",
+    description:
+      "Midjourney helps teams generate striking visuals for creative direction, campaign ideation, and mood boards.",
+    overview:
+      "Midjourney is strongest when a business needs fast visual exploration before moving into final design production or client review.",
+    bestUseCase: "Concept art, campaign visuals, and creative inspiration.",
+    pricing: "Paid plans available.",
+    affiliateUrl: "https://example.com/out/midjourney",
+    website: "https://www.midjourney.com",
+    features: [
+      "High-quality image generation",
+      "Strong for style exploration and mood boards",
+      "Fast iteration for creative concepts",
+      "Useful inspiration engine for design-led teams",
+    ],
+    pros: [
+      "Creates eye-catching concepts quickly",
+      "Useful for pre-production and brainstorming",
+      "Great for visual-first businesses",
+    ],
+    cons: [
+      "Not ideal for polished brand systems on its own",
+      "Licensing and usage policies should be reviewed",
+      "Teams still need design judgment and post-processing",
+    ],
+    alternatives: ["canva", "descript", "chatgpt"],
+  },
+  {
+    slug: "canva",
+    name: "Canva",
+    category: "Design",
+    tagline: "Fast design and content production for non-designers.",
+    description:
+      "Canva combines templates, collaboration, and AI features to help teams produce graphics, decks, and short-form assets quickly.",
+    overview:
+      "Canva is one of the easiest ways for small businesses to create polished visuals without waiting on a dedicated designer for every task.",
+    bestUseCase: "Social graphics, presentations, print collateral, and lightweight brand design.",
+    pricing: "Free plan available; paid plans for teams and advanced assets.",
+    affiliateUrl: "https://example.com/out/canva",
+    website: "https://www.canva.com",
+    features: [
+      "Ready-made templates for many formats",
+      "Simple team collaboration",
+      "AI-assisted writing and design tools",
+      "Fast turnaround for sales and marketing assets",
+    ],
+    pros: [
+      "Very easy for non-designers to use",
+      "Fast path to polished business assets",
+      "Useful across social, web, and print workflows",
+    ],
+    cons: [
+      "Can look generic without brand discipline",
+      "Not a substitute for advanced design systems",
+      "Teams may outgrow it for complex production needs",
+    ],
+    alternatives: ["midjourney", "descript", "jasper"],
+  },
+  {
+    slug: "zapier",
+    name: "Zapier",
+    category: "Automation",
+    tagline: "Connects apps and automates repetitive work without heavy engineering.",
+    description:
+      "Zapier lets teams move lead data, trigger follow-ups, and automate admin tasks across the tools they already use.",
+    overview:
+      "Zapier is an easy entry point for businesses that want measurable ROI from automation without building custom integrations from scratch.",
+    bestUseCase: "Simple no-code automations between common business apps.",
+    pricing: "Free plan available; paid plans based on tasks and complexity.",
+    affiliateUrl: "https://example.com/out/zapier",
+    website: "https://zapier.com",
+    features: [
+      "Large app integration library",
+      "Trigger-action automation builder",
+      "Useful for lead routing and follow-up workflows",
+      "Accessible for non-technical teams",
+    ],
+    pros: [
+      "Fast to launch simple automations",
+      "Works with many common SaaS tools",
+      "Clear ROI for repetitive admin tasks",
+    ],
+    cons: [
+      "Complex workflows can get expensive",
+      "Multi-step logic may become harder to manage over time",
+      "Advanced use cases may push teams toward more technical tools",
+    ],
+    alternatives: ["make", "hubspot-ai", "notion-ai"],
+  },
+  {
+    slug: "make",
+    name: "Make",
+    category: "Automation",
+    tagline: "Visual automation builder for more complex workflows and data routing.",
+    description:
+      "Make helps teams build deeper multi-step automations with branching logic, transformations, and app connections.",
+    overview:
+      "Make is a strong fit for businesses ready to go beyond basic automations and build more customized operational systems without a full engineering team.",
+    bestUseCase: "Complex no-code or low-code automations with logic and routing.",
+    pricing: "Free plan available; paid plans scale with operations and features.",
+    affiliateUrl: "https://example.com/out/make",
+    website: "https://www.make.com",
+    features: [
+      "Visual workflow builder",
+      "Better support for complex multi-step automations",
+      "Useful data transformation and routing options",
+      "Great for operations-heavy businesses",
+    ],
+    pros: [
+      "More flexible than simple trigger-action tools",
+      "Strong for custom operational workflows",
+      "Good fit for scaling businesses with repeatable processes",
+    ],
+    cons: [
+      "Takes longer to learn than basic automation tools",
+      "Can be intimidating for first-time automation users",
+      "Needs documentation to stay maintainable",
+    ],
+    alternatives: ["zapier", "hubspot-ai", "fireflies"],
+  },
+  {
+    slug: "hubspot-ai",
+    name: "HubSpot AI",
+    category: "CRM and sales",
+    tagline: "AI-powered help inside a CRM for marketing, sales, and service teams.",
+    description:
+      "HubSpot AI helps businesses enrich CRM workflows with smarter content, follow-up support, and customer pipeline visibility.",
+    overview:
+      "HubSpot AI is a good fit for businesses where lead management, lifecycle marketing, and sales follow-up are central to revenue growth.",
+    bestUseCase: "Lead nurturing, CRM workflows, and sales-enablement content.",
+    pricing: "HubSpot plan pricing varies by hub, seats, and features.",
+    affiliateUrl: "https://example.com/out/hubspot-ai",
+    website: "https://www.hubspot.com/artificial-intelligence",
+    features: [
+      "AI assistance inside CRM workflows",
+      "Marketing and sales content support",
+      "Lead and customer lifecycle automation",
+      "Useful reporting and customer context",
+    ],
+    pros: [
+      "Strong for revenue teams already using HubSpot",
+      "Connects AI to customer data and follow-up",
+      "Reduces tool sprawl for some businesses",
+    ],
+    cons: [
+      "Can be overkill for very small teams",
+      "Value depends on CRM adoption quality",
+      "Pricing can increase as teams scale",
+    ],
+    alternatives: ["copy-ai", "zapier", "chatgpt"],
+  },
+  {
+    slug: "surfer-seo",
+    name: "Surfer SEO",
+    category: "SEO",
+    tagline: "Content optimization platform for search-focused teams.",
+    description:
+      "Surfer SEO helps teams plan, optimize, and refresh content with search visibility in mind.",
+    overview:
+      "Surfer SEO is useful for publishers, agencies, and in-house teams that treat organic search as a repeatable acquisition channel and want better briefs and optimization guidance.",
+    bestUseCase: "SEO briefs, on-page optimization, and content refresh workflows.",
+    pricing: "Paid plans available.",
+    affiliateUrl: "https://example.com/out/surfer-seo",
+    website: "https://surferseo.com",
+    features: [
+      "SEO content editor and optimization guidance",
+      "Keyword and content planning workflows",
+      "Useful for updating underperforming pages",
+      "Better structure for search-driven publishing teams",
+    ],
+    pros: [
+      "Useful for teams serious about organic growth",
+      "Makes SEO briefs more actionable",
+      "Good complement to writing tools",
+    ],
+    cons: [
+      "Not a full replacement for SEO strategy",
+      "Can encourage over-optimization if used blindly",
+      "Best value comes with steady publishing volume",
+    ],
+    alternatives: ["perplexity", "jasper", "chatgpt"],
+  },
+  {
+    slug: "descript",
+    name: "Descript",
+    category: "Audio and video",
+    tagline: "Edit podcasts and videos like documents with AI-assisted production tools.",
+    description:
+      "Descript helps businesses create, edit, and repurpose audio and video content without a traditional post-production workflow.",
+    overview:
+      "Descript is especially useful for creators, agencies, and experts who need faster video and podcast turnaround for distribution and client delivery.",
+    bestUseCase: "Podcast editing, talking-head video production, and content repurposing.",
+    pricing: "Free plan available; paid creator and business plans available.",
+    affiliateUrl: "https://example.com/out/descript",
+    website: "https://www.descript.com",
+    features: [
+      "Transcript-based editing",
+      "AI cleanup for audio and filler words",
+      "Repurposing workflows for clips and captions",
+      "Useful collaboration for content teams",
+    ],
+    pros: [
+      "Massively speeds up content post-production",
+      "Great for teams without advanced editors",
+      "Strong fit for creator and agency workflows",
+    ],
+    cons: [
+      "Not a full replacement for high-end video suites",
+      "Some complex edits still need manual refinement",
+      "Best value comes with recurring content production",
+    ],
+    alternatives: ["canva", "midjourney", "fireflies"],
+  },
+  {
+    slug: "fireflies",
+    name: "Fireflies",
+    category: "Meetings",
+    tagline: "AI meeting notes and follow-up tracking for busy teams.",
+    description:
+      "Fireflies records, transcribes, and summarizes meetings so teams can capture action items and reduce note-taking overhead.",
+    overview:
+      "Fireflies is valuable for sales, service, and consulting teams that spend significant time in calls and need clearer follow-up without manual note wrangling.",
+    bestUseCase: "Meeting transcription, summaries, and action-item capture.",
+    pricing: "Free plan available; paid plans for deeper team needs.",
+    affiliateUrl: "https://example.com/out/fireflies",
+    website: "https://fireflies.ai",
+    features: [
+      "Automated meeting transcription",
+      "AI summaries and action items",
+      "Searchable call history",
+      "Useful for handoffs and follow-up workflows",
+    ],
+    pros: [
+      "Cuts down on manual meeting notes",
+      "Improves accountability after calls",
+      "Useful for client-facing teams with many conversations",
+    ],
+    cons: [
+      "Teams still need a process for acting on notes",
+      "Meeting-heavy value proposition may not fit every business",
+      "Accuracy can vary by audio quality",
+    ],
+    alternatives: ["notion-ai", "descript", "zapier"],
+  },
+];

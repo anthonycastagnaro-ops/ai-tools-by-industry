@@ -1,65 +1,104 @@
-import Image from "next/image";
+import Link from "next/link";
 
-export default function Home() {
+import { Container } from "@/components/container";
+import { IndustryCard } from "@/components/industry-card";
+import { SectionHeading } from "@/components/section-heading";
+import { ToolCard } from "@/components/tool-card";
+import { getFeaturedIndustries, getFeaturedTools } from "@/lib/utils";
+
+const featuredIndustries = getFeaturedIndustries();
+const featuredTools = getFeaturedTools();
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div className="pb-20">
+      <section className="relative overflow-hidden border-b border-slate-200/70">
+        <Container className="grid gap-16 py-20 lg:grid-cols-[1.2fr_0.8fr] lg:py-28">
+          <div className="space-y-8">
+            <p className="text-sm font-semibold tracking-[0.24em] text-[var(--brand)] uppercase">
+              Programmatic SEO for AI software buyers
+            </p>
+            <div className="space-y-6">
+              <h1 className="max-w-4xl font-serif text-5xl leading-tight tracking-tight text-slate-950 sm:text-6xl">
+                Find the Best AI Tools for Any Business
+              </h1>
+              <p className="max-w-2xl text-lg leading-8 text-slate-600">
+                Explore industry-specific buyer guides, tool reviews, and
+                head-to-head comparisons built to help business owners choose the
+                right AI stack faster.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-4">
+              <Link
+                href="/industries"
+                className="rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+              >
+                Browse industries
+              </Link>
+              <Link
+                href="/tools/chatgpt"
+                className="rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+              >
+                Explore featured tools
+              </Link>
+            </div>
+          </div>
+          <div className="grid gap-4 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-xl shadow-slate-200/60">
+            {[
+              "20 launch-ready industry pages",
+              "15 tool pages with pricing, pros, and alternatives",
+              "105 comparison pages for internal-link growth",
+            ].map((item) => (
+              <div
+                key={item}
+                className="rounded-2xl bg-[var(--surface-alt)] px-5 py-4 text-sm font-medium text-slate-700"
+              >
+                {item}
+              </div>
+            ))}
+            <div className="rounded-3xl bg-slate-950 p-6 text-white">
+              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-white/70">
+                Revenue-ready structure
+              </p>
+              <p className="mt-3 text-lg leading-8 text-white/90">
+                Every template includes internal links, comparison hooks, and
+                affiliate CTAs so the site can scale without redesigning the
+                content model later.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-20">
+        <Container className="space-y-10">
+          <SectionHeading
+            eyebrow="Featured Industries"
+            title="High-intent AI buyer guides by niche"
+            description="Each page is optimized around a specific industry pain point and links naturally into tool reviews and comparison pages."
+          />
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {featuredIndustries.map((industry) => (
+              <IndustryCard key={industry.slug} industry={industry} />
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-20">
+        <Container className="space-y-10">
+          <SectionHeading
+            eyebrow="Featured Tools"
+            title="Popular AI software buyers keep comparing"
+            description="These tool pages anchor the site’s internal linking structure and make it easy to expand into new verticals."
+          />
+          <div className="grid gap-6 lg:grid-cols-3">
+            {featuredTools.map((tool) => (
+              <ToolCard key={tool.slug} tool={tool} />
+            ))}
+          </div>
+        </Container>
+      </section>
     </div>
   );
 }
