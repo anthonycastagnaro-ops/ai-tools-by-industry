@@ -97,6 +97,7 @@ export default async function IndustryPage({ params }: Props) {
     tool.category,
     tool.pricing,
   ]);
+  const primaryRecommendation = quickPicks[0]?.tool;
 
   return (
     <div className="pb-20">
@@ -187,6 +188,28 @@ export default async function IndustryPage({ params }: Props) {
           />
           <div className="grid gap-4 md:grid-cols-3">
             {painPoints.map((item) => (
+              <div
+                key={item}
+                className="rounded-3xl border border-slate-200 bg-white p-6 text-sm leading-7 text-slate-600 shadow-sm"
+              >
+                {item}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="space-y-8">
+          <SectionHeading
+            eyebrow="How To Choose"
+            title={`How to choose an AI tool for ${industry.name.toLowerCase()}`}
+            description="Most teams do better by buying for the first bottleneck they need to fix, not by trying to cover everything at once."
+          />
+          <div className="grid gap-4 md:grid-cols-3">
+            {[
+              `Start with the task that slows down revenue or delivery the most, such as ${industry.jobsToBeDone[0].toLowerCase()}.`,
+              `If your team is small, favor tools that are easy to adopt and fit the way ${industry.audience.toLowerCase()} teams already work.`,
+              `Use comparison pages after you shortlist two options. That is usually where the final decision gets clearer.`,
+            ].map((item) => (
               <div
                 key={item}
                 className="rounded-3xl border border-slate-200 bg-white p-6 text-sm leading-7 text-slate-600 shadow-sm"
@@ -302,6 +325,67 @@ export default async function IndustryPage({ params }: Props) {
             headers={["Tool", "Best Use Case", "Category", "Pricing"]}
             rows={comparisonRows}
           />
+        </section>
+
+        {primaryRecommendation ? (
+          <section className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+            <SectionHeading
+              eyebrow="Final Recommendation"
+              title={`If most ${industry.name.toLowerCase()} businesses only try one tool first, start with ${primaryRecommendation.name}`}
+              description={`${primaryRecommendation.name} is the best place to start for most ${industry.name.toLowerCase()} teams because it offers the broadest upside without forcing a heavy implementation process on day one.`}
+            />
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href={getToolUrl(primaryRecommendation.slug)}
+                className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+              >
+                See Why It&apos;s #1
+              </Link>
+              <a
+                href={primaryRecommendation.website}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+              >
+                View Pricing
+              </a>
+            </div>
+          </section>
+        ) : null}
+
+        <section className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+          <SectionHeading
+            eyebrow="Next Step"
+            title={`What most ${industry.name.toLowerCase()} buyers should do next`}
+            description="The best next move is usually to open one full review and one comparison page before cutting the shortlist to two tools."
+          />
+          <div className="mt-8 flex flex-wrap gap-3">
+            {primaryRecommendation ? (
+              <Link
+                href={getToolUrl(primaryRecommendation.slug)}
+                className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+              >
+                Read the top recommendation
+              </Link>
+            ) : null}
+            {industry.featuredComparisonSlugs[0] ? (
+              <Link
+                href={getComparisonUrl(
+                  industry.featuredComparisonSlugs[0].split("-vs-")[0],
+                  industry.featuredComparisonSlugs[0].split("-vs-")[1],
+                )}
+                className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+              >
+                Open the top comparison
+              </Link>
+            ) : null}
+            <Link
+              href="/industries"
+              className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+            >
+              Browse more industries
+            </Link>
+          </div>
         </section>
 
         <section className="space-y-8">

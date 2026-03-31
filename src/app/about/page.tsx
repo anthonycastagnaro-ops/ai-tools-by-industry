@@ -53,14 +53,23 @@ export default function AboutPage() {
           </p>
         </article>
         <article className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
-          <h2 className="text-2xl font-semibold text-slate-950">How the site is structured</h2>
+          <h2 className="text-2xl font-semibold text-slate-950">Editorial standards</h2>
           <p className="mt-4 text-sm leading-8 text-slate-600">
-            Industry pages identify common bottlenecks, tool pages explain fit
-            and tradeoffs, and comparison pages help buyers decide between
-            overlapping options. That structure is meant to support real buying
-            journeys, not just search traffic.
+            Pages are meant to be commercially useful without becoming thin or
+            overly promotional. The standard is simple: every page should help a
+            real buyer move toward a better decision with clearer reasoning,
+            stronger context, and obvious next steps.
           </p>
         </article>
+      </div>
+      <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+        <h2 className="text-2xl font-semibold text-slate-950">How the site is structured</h2>
+        <p className="mt-4 text-sm leading-8 text-slate-600">
+          Industry pages identify common bottlenecks, tool pages explain fit and
+          tradeoffs, and comparison pages help buyers decide between overlapping
+          options. That structure is meant to support real buying journeys, not
+          just search traffic.
+        </p>
       </div>
       <WhyTrust
         items={[

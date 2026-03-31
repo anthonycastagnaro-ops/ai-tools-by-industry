@@ -194,6 +194,24 @@ export default async function ToolPage({ params }: Props) {
               </div>
             ))}
           </div>
+          <div className="flex flex-wrap gap-3">
+            <a
+              href={tool.affiliateUrl}
+              target="_blank"
+              rel="noreferrer noopener sponsored"
+              className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+            >
+              Try {tool.name}
+            </a>
+            <a
+              href={tool.website}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+            >
+              View Pricing
+            </a>
+          </div>
         </section>
 
         <section className="grid gap-8 lg:grid-cols-2">
@@ -220,7 +238,7 @@ export default async function ToolPage({ params }: Props) {
             <SectionHeading
               eyebrow="Best Industries"
               title={`Where ${tool.name} fits best`}
-              description="These industry pages recommend this tool as part of the core stack."
+              description="These industry pages recommend this tool because the workflow fit is strong, not just because it is popular."
             />
             <div className="flex flex-wrap gap-3">
               {bestIndustries.map((industry) => (
@@ -238,7 +256,7 @@ export default async function ToolPage({ params }: Props) {
             <SectionHeading
               eyebrow="Alternatives"
               title={`Alternatives to ${tool.name}`}
-              description="These tools come up most often when buyers are comparing adjacent workflows or categories."
+              description="These are the tools most likely to come up when a buyer likes the category but is not fully convinced this is the right fit."
             />
             <div className="space-y-3">
               {alternatives.map((alternative) => (
@@ -251,6 +269,43 @@ export default async function ToolPage({ params }: Props) {
                 </Link>
               ))}
             </div>
+            <div className="flex flex-wrap gap-3">
+              {comparisonCandidates.map((candidate) => (
+                <Link
+                  key={`alt-${candidate.slug}`}
+                  href={getComparisonUrl(tool.slug, candidate.slug)}
+                  className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+                >
+                  {tool.name} vs {candidate.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+          <SectionHeading
+            eyebrow="Bottom Line"
+            title={`Should you seriously consider ${tool.name}?`}
+            description={`${tool.name} is worth serious consideration if your team needs ${tool.bestUseCase.toLowerCase()} and wants a tool that already shows up in real buyer shortlists. If your needs are narrower or more budget-sensitive, the alternative and comparison links above are the best next click.`}
+          />
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href={tool.affiliateUrl}
+              target="_blank"
+              rel="noreferrer noopener sponsored"
+              className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+            >
+              Try {tool.name}
+            </a>
+            <a
+              href={tool.website}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+            >
+              View Pricing
+            </a>
           </div>
         </section>
 

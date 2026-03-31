@@ -15,6 +15,23 @@ import {
 const featuredIndustries = getFeaturedIndustries();
 const featuredTools = getFeaturedTools();
 const topToolsThisMonth = getTopToolsThisMonth();
+const featuredComparisons = [
+  {
+    href: "/compare/chatgpt-vs-claude",
+    title: "ChatGPT vs Claude",
+    body: "Best for buyers choosing between a broad AI assistant and a more writing-first option.",
+  },
+  {
+    href: "/compare/zapier-vs-make",
+    title: "Zapier vs Make",
+    body: "Best for teams deciding whether they need quick no-code automation or more workflow depth.",
+  },
+  {
+    href: "/compare/jasper-vs-copy-ai",
+    title: "Jasper vs Copy.ai",
+    body: "Best for marketing teams comparing brand control against faster go-to-market execution.",
+  },
+];
 const curatedTopToolNotes: Record<string, string> = {
   chatgpt: "Best broad-use pick for businesses that want one tool to cover content, research, and internal execution.",
   canva: "Best design-side pick for teams that need fast visual output without hiring extra help.",
@@ -38,9 +55,11 @@ export default function HomePage() {
                 Find the best AI tools to save time, grow revenue, and run your business more efficiently
               </h1>
               <p className="max-w-2xl text-lg leading-8 text-slate-600">
-                Explore industry-specific buyer guides, tool reviews, and
-                head-to-head comparisons built to help business owners increase
-                revenue, cut manual work, and choose the right AI stack faster.
+                This site helps business owners, operators, freelancers, and
+                agencies find the right AI tools for their specific workflow,
+                not just browse a generic software list. Start with your
+                industry, review the strongest options, and use comparisons when
+                you are down to finalists.
               </p>
             </div>
             <div className="flex flex-wrap gap-4">
@@ -89,8 +108,8 @@ export default function HomePage() {
         <Container className="space-y-10">
           <SectionHeading
             eyebrow="Featured Industries"
-            title="High-intent AI buyer guides by niche"
-            description="Each page is optimized around a specific industry pain point and links naturally into tool reviews and comparison pages."
+            title="Start with the industry that matches your business"
+            description="The fastest way to use the site is to open the guide that matches how you actually make money. Each one is built around the bottlenecks, tools, and buying questions that matter in that niche."
           />
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {featuredIndustries.map((industry) => (
@@ -111,21 +130,21 @@ export default function HomePage() {
             {[
               {
                 title: "1. Pick your industry",
-                body: "Every industry page is tailored around the bottlenecks that matter most in that niche.",
+                body: "Open the page closest to your business model so the recommendations are tied to your actual bottlenecks, not general AI hype.",
                 href: "/industries",
-                label: "Browse industries",
+                label: "See best tools by industry",
               },
               {
                 title: "2. Review the top tools",
-                body: "Tool pages explain strengths, tradeoffs, best-fit industries, and close alternatives.",
+                body: "Tool pages explain who each product is really for, what tradeoffs to expect, and when an alternative is the smarter choice.",
                 href: "/tools/chatgpt",
-                label: "See a tool page",
+                label: "Review a top tool",
               },
               {
                 title: "3. Use a comparison page",
-                body: "Head-to-head pages are meant to make final decisions clearer when two tools overlap.",
+                body: "Comparison pages are built for buyers who are close to a decision and need a more specific recommendation.",
                 href: "/compare/chatgpt-vs-claude",
-                label: "Open a comparison",
+                label: "Compare top picks",
               },
             ].map((item) => (
               <article
@@ -135,9 +154,9 @@ export default function HomePage() {
                 <h3 className="text-xl font-semibold text-slate-950">{item.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-600">{item.body}</p>
                 <Link
-                href={item.href}
-                className="mt-5 inline-flex rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
-              >
+                  href={item.href}
+                  className="mt-5 inline-flex rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+                >
                   {item.label}
                 </Link>
               </article>
@@ -149,10 +168,11 @@ export default function HomePage() {
       <section className="py-20">
         <Container>
           <WhyTrust
+            description="The site is built to feel like an editorial buyer-guide brand: researched, commercial in intent, but still useful enough to help a real buyer make a smarter decision."
             items={[
-              "Pages are organized around business workflows and real buying questions, not generic software lists.",
-              "Tool reviews and comparison pages are designed to help buyers understand fit, tradeoffs, and likely ROI before clicking out.",
-              "The site includes clear About, Contact, Privacy, and Disclosure pages so affiliate partners and readers can evaluate the property like a real publication.",
+              "Recommendations are organized around workflows, fit, tradeoffs, and buyer intent rather than generic software roundups.",
+              "Tool and comparison pages are written to help buyers choose, not just skim features.",
+              "Trust pages are visible and professional so readers and affiliate partners can evaluate the site like a real publication.",
             ]}
           />
         </Container>
@@ -163,7 +183,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="Top Tools This Month"
             title="Top AI tools this month"
-            description="This shortlist is meant to feel curated, not exhaustive. These are the tools I would send a business owner to first if they wanted clear upside, practical fit, and a realistic path to ROI."
+            description="This shortlist is curated, not exhaustive. These are the tools most often worth reviewing first when a buyer wants practical upside, strong fit, and a realistic path to ROI."
           />
           <div className="grid gap-6 lg:grid-cols-3">
             {topToolsThisMonth.map((tool) => (
@@ -173,6 +193,33 @@ export default function HomePage() {
                   {curatedTopToolNotes[tool.slug]}
                 </p>
               </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-20">
+        <Container className="space-y-10">
+          <SectionHeading
+            eyebrow="Featured Comparisons"
+            title="Comparison pages readers use before making a decision"
+            description="These pages tend to be the best next click when you already know the category and want help choosing between two strong options."
+          />
+          <div className="grid gap-6 lg:grid-cols-3">
+            {featuredComparisons.map((item) => (
+              <article
+                key={item.href}
+                className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
+              >
+                <h3 className="text-2xl font-semibold text-slate-950">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-600">{item.body}</p>
+                <Link
+                  href={item.href}
+                  className="mt-5 inline-flex rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+                >
+                  Open comparison
+                </Link>
+              </article>
             ))}
           </div>
         </Container>

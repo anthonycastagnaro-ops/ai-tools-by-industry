@@ -173,6 +173,25 @@ export default async function ComparisonPage({ params }: Props) {
           </div>
         </section>
 
+        <section className="grid gap-6 md:grid-cols-2">
+          <article className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+            <h2 className="text-2xl font-semibold text-slate-950">
+              Choose {toolA.name} if...
+            </h2>
+            <p className="mt-4 text-sm leading-8 text-slate-600">
+              {toolA.name} is the better fit for teams that need {toolA.bestUseCase.toLowerCase()} and care more about that workflow than about {toolB.bestUseCase.toLowerCase()}.
+            </p>
+          </article>
+          <article className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+            <h2 className="text-2xl font-semibold text-slate-950">
+              Choose {toolB.name} if...
+            </h2>
+            <p className="mt-4 text-sm leading-8 text-slate-600">
+              {toolB.name} wins when your team cares more about {toolB.bestUseCase.toLowerCase()} and is comfortable trading away some of what makes {toolA.name} more broadly attractive.
+            </p>
+          </article>
+        </section>
+
         <section className="space-y-8">
           <SectionHeading
             eyebrow="Feature Comparison"
