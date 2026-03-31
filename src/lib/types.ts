@@ -9,6 +9,11 @@ export type Tool = {
   pricing: string;
   affiliateUrl: string;
   website: string;
+  scores: {
+    overall: number;
+    beginner: number;
+    value: number;
+  };
   features: string[];
   pros: string[];
   cons: string[];

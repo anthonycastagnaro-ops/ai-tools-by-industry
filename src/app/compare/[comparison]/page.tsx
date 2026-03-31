@@ -5,9 +5,16 @@ import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { ComparisonTable } from "@/components/comparison-table";
 import { Container } from "@/components/container";
+import { EmailCapture } from "@/components/email-capture";
 import { SectionHeading } from "@/components/section-heading";
 import { buildAbsoluteUrl } from "@/lib/site";
-import { allComparisonSlugs, getComparisonPairFromSlug, getToolUrl } from "@/lib/utils";
+import {
+  allComparisonSlugs,
+  getBestIndustriesForTool,
+  getComparisonPairFromSlug,
+  getIndustryUrl,
+  getToolUrl,
+} from "@/lib/utils";
 
 type Props = {
   params: Promise<{ comparison: string }>;
@@ -62,6 +69,23 @@ export default async function ComparisonPage({ params }: Props) {
   const verdict = sameCategory
     ? `${toolA.name} is usually the better choice if you want ${toolA.bestUseCase.toLowerCase()}, while ${toolB.name} is a stronger fit if your priority is ${toolB.bestUseCase.toLowerCase()}.`
     : `${toolA.name} and ${toolB.name} solve different problems. Choose ${toolA.name} when your biggest bottleneck is ${toolA.bestUseCase.toLowerCase()}, and choose ${toolB.name} when the higher priority is ${toolB.bestUseCase.toLowerCase()}.`;
+  const bestOverall =
+    toolA.scores.overall >= toolB.scores.overall ? toolA : toolB;
+  const bestForBeginners =
+    toolA.scores.beginner >= toolB.scores.beginner ? toolA : toolB;
+  const bestValue = toolA.scores.value >= toolB.scores.value ? toolA : toolB;
+  const quickPicks: Array<{ label: string; tool: typeof toolA }> = [
+    { label: "Best Overall", tool: bestOverall },
+    { label: "Best for Beginners", tool: bestForBeginners },
+    { label: "Best Value", tool: bestValue },
+  ];
+  const linkedIndustries = Array.from(
+    new Map(
+      [...getBestIndustriesForTool(toolA.slug), ...getBestIndustriesForTool(toolB.slug)].map(
+        (industry) => [industry.slug, industry],
+      ),
+    ).values(),
+  ).slice(0, 6);
 
   return (
     <div className="pb-20">
@@ -83,8 +107,35 @@ export default async function ComparisonPage({ params }: Props) {
           </h1>
           <p className="mt-5 max-w-4xl text-lg leading-8 text-slate-600">
             Compare these tools across features, pricing posture, and buyer fit
-            so you can choose the right platform for your workflow.
+            so you can choose the right platform faster, save time on research,
+            and move toward the tool that best supports revenue.
           </p>
+        </section>
+
+        <section className="space-y-8">
+          <SectionHeading
+            eyebrow="Quick Picks"
+            title="Fastest way to decide"
+            description="If you do not need a full feature-by-feature breakdown, start with these buyer shortcuts."
+          />
+          <div className="grid gap-4 md:grid-cols-3">
+            {quickPicks.map(({ label, tool }) => (
+              <div
+                key={label}
+                className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
+              >
+                <p className="text-xs font-semibold tracking-[0.18em] text-[var(--brand)] uppercase">
+                  {label}
+                </p>
+                <h2 className="mt-3 text-2xl font-semibold text-slate-950">
+                  {tool.name}
+                </h2>
+                <p className="mt-3 text-sm leading-7 text-slate-600">
+                  {tool.tagline}
+                </p>
+              </div>
+            ))}
+          </div>
         </section>
 
         <section className="space-y-8">
@@ -163,12 +214,43 @@ export default async function ComparisonPage({ params }: Props) {
                   rel="noreferrer noopener sponsored"
                   className="rounded-full bg-slate-950 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-800"
                 >
-                  Try Tool
+                  Try {tool.name}
+                </a>
+                <a
+                  href={tool.website}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+                >
+                  Visit Website
                 </a>
               </div>
             </article>
           ))}
         </section>
+
+        <section className="space-y-8">
+          <SectionHeading
+            eyebrow="Where These Tools Fit"
+            title="Industry pages that link back to this decision"
+            description="These guides recommend one or both of these tools and provide more context on how they fit into specific business workflows."
+          />
+          <div className="flex flex-wrap gap-3">
+            {linkedIndustries.map((industry) => (
+              <Link
+                key={industry.slug}
+                href={getIndustryUrl(industry.slug)}
+                className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+              >
+                {industry.name}
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <EmailCapture
+          description="Get curated comparison pages and buyer guides so you can choose faster and put AI tools to work sooner."
+        />
       </Container>
     </div>
   );

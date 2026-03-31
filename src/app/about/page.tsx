@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
+import { WhyTrust } from "@/components/why-trust";
 
 export const metadata: Metadata = {
   title: "About",
@@ -14,25 +16,52 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <Container className="space-y-8 py-16">
+    <Container className="space-y-10 py-16">
       <SectionHeading
         eyebrow="About"
-        title="Built to help business buyers choose AI tools faster"
-        description="This site organizes AI recommendations around industry workflows instead of generic lists. The goal is to make software research easier for operators, marketers, and service teams with real revenue pressure."
+        title="An editorial-style site for AI software buyers"
+        description="AI Tools by Industry is designed to help business owners, operators, and service teams research AI software with more confidence. The site is organized around business models and workflows instead of generic top-10 lists."
       />
-      <div className="grid gap-6 lg:grid-cols-3">
-        {[
-          "Every industry page is built around practical jobs-to-be-done, not empty feature lists.",
-          "Tool pages explain where a product fits, where it falls short, and which alternatives buyers should compare.",
-          "Comparison pages turn high-intent search traffic into clearer decisions and stronger internal linking.",
-        ].map((item) => (
-          <div
-            key={item}
-            className="rounded-3xl border border-slate-200 bg-white p-6 text-sm leading-7 text-slate-600 shadow-sm"
-          >
-            {item}
-          </div>
-        ))}
+      <div className="grid gap-6 lg:grid-cols-2">
+        <article className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+          <h2 className="text-2xl font-semibold text-slate-950">How the site is structured</h2>
+          <p className="mt-4 text-sm leading-8 text-slate-600">
+            Industry pages identify common bottlenecks, tool pages explain fit
+            and tradeoffs, and comparison pages help buyers decide between
+            overlapping options. That structure is meant to support real buying
+            journeys, not just search traffic.
+          </p>
+        </article>
+        <article className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+          <h2 className="text-2xl font-semibold text-slate-950">Editorial approach</h2>
+          <p className="mt-4 text-sm leading-8 text-slate-600">
+            Recommendations are framed around likely use cases, operational fit,
+            and workflow impact. Pages are written to be clear enough for
+            readers and credible enough for affiliate partners reviewing the
+            site before approval.
+          </p>
+        </article>
+      </div>
+      <WhyTrust
+        items={[
+          "Content is organized around decision support and internal clarity, not thin filler pages.",
+          "Core trust pages are visible and written in a professional, publication-style format.",
+          "The site is structured to be maintainable as more industries, tools, and comparisons are added over time.",
+        ]}
+      />
+      <div className="flex flex-wrap gap-3">
+        <Link
+          href="/industries"
+          className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+        >
+          Browse industries
+        </Link>
+        <Link
+          href="/disclosure"
+          className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+        >
+          Read disclosure
+        </Link>
       </div>
     </Container>
   );

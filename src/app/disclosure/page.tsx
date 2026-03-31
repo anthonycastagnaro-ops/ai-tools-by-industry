@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
@@ -14,19 +15,44 @@ export const metadata: Metadata = {
 
 export default function DisclosurePage() {
   return (
-    <Container className="space-y-8 py-16">
+    <Container className="space-y-10 py-16">
       <SectionHeading
         eyebrow="Disclosure"
         title="Affiliate disclosure"
-        description="Some links on this site are affiliate links. If a visitor clicks through and signs up, the site may earn a commission at no additional cost to the buyer."
+        description="Some outbound links on this site may be affiliate links. If a reader clicks through and later purchases or signs up, the site may earn a commission at no additional cost to that reader."
       />
-      <div className="rounded-[2rem] border border-slate-200 bg-white p-8 text-sm leading-8 text-slate-600 shadow-sm">
-        <p>
-          Editorial recommendations are organized around product fit,
-          usefulness, and business workflow alignment. Monetization does not
-          guarantee a tool placement, and buyers should always validate current
-          pricing, terms, and capabilities before purchasing.
-        </p>
+      <div className="grid gap-6 lg:grid-cols-2">
+        <div className="rounded-[2rem] border border-slate-200 bg-white p-8 text-sm leading-8 text-slate-600 shadow-sm">
+          <h2 className="text-2xl font-semibold text-slate-950">Editorial intent</h2>
+          <p className="mt-4">
+            Recommendations are organized around product fit, workflow
+            usefulness, and buyer clarity. Monetization does not guarantee tool
+            placement, and not every reviewed page needs to push readers toward
+            an affiliate action.
+          </p>
+        </div>
+        <div className="rounded-[2rem] border border-slate-200 bg-white p-8 text-sm leading-8 text-slate-600 shadow-sm">
+          <h2 className="text-2xl font-semibold text-slate-950">Reader responsibility</h2>
+          <p className="mt-4">
+            Buyers should still validate current pricing, product availability,
+            support terms, and policy details directly with the vendor before
+            making a purchase decision.
+          </p>
+        </div>
+      </div>
+      <div className="flex flex-wrap gap-3">
+        <Link
+          href="/about"
+          className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+        >
+          About the site
+        </Link>
+        <Link
+          href="/contact"
+          className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+        >
+          Contact us
+        </Link>
       </div>
     </Container>
   );

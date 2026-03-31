@@ -5,14 +5,17 @@ import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { ComparisonTable } from "@/components/comparison-table";
 import { Container } from "@/components/container";
+import { EmailCapture } from "@/components/email-capture";
 import { FaqList } from "@/components/faq-list";
 import { SectionHeading } from "@/components/section-heading";
+import { WhyTrust } from "@/components/why-trust";
 import { industries } from "@/data/industries";
 import { buildAbsoluteUrl } from "@/lib/site";
 import {
   getComparisonUrl,
   getIndustryBySlug,
   getIndustryFaqs,
+  getIndustryPainPoints,
   getIndustryUrl,
   getToolHighlightsForIndustry,
   getToolUrl,
@@ -84,6 +87,7 @@ export default async function IndustryPage({ params }: Props) {
 
   const tools = getToolsForIndustry(industry);
   const faqs = getIndustryFaqs(industry);
+  const painPoints = getIndustryPainPoints(industry);
   const comparisonRows = tools.map((tool) => [
     tool.name,
     tool.bestUseCase,
@@ -112,9 +116,10 @@ export default async function IndustryPage({ params }: Props) {
             </h1>
             <p className="text-lg leading-8 text-slate-600">{industry.intro}</p>
             <p className="text-base leading-8 text-slate-600">
-              This guide focuses on teams dealing with {industry.painPoint}. The
-              goal is to help {industry.audience.toLowerCase()} choose software
-              that saves time, improves consistency, and supports revenue.
+              This guide is written for {industry.audience.toLowerCase()} dealing
+              with {industry.painPoint}. The aim is to help you identify which
+              tools create meaningful leverage now, not just add one more tool
+              to evaluate.
             </p>
           </div>
           <div className="rounded-[1.75rem] bg-[var(--surface-alt)] p-6">
@@ -133,9 +138,27 @@ export default async function IndustryPage({ params }: Props) {
 
         <section className="space-y-8">
           <SectionHeading
+            eyebrow="Pain Points"
+            title={`What ${industry.name.toLowerCase()} teams usually need help with`}
+            description="These are the recurring problems this guide is designed to solve."
+          />
+          <div className="grid gap-4 md:grid-cols-3">
+            {painPoints.map((item) => (
+              <div
+                key={item}
+                className="rounded-3xl border border-slate-200 bg-white p-6 text-sm leading-7 text-slate-600 shadow-sm"
+              >
+                {item}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="space-y-8">
+          <SectionHeading
             eyebrow="Top Picks"
             title={`Top AI tools for ${industry.name.toLowerCase()}`}
-            description="Use these recommendations as a starting stack, then visit the tool pages for pricing, alternatives, and direct comparisons."
+            description="Use these recommendations as a starting stack, then open the linked reviews and comparisons to narrow your shortlist."
           />
           <div className="space-y-6">
             {tools.map((tool, index) => {
@@ -173,7 +196,15 @@ export default async function IndustryPage({ params }: Props) {
                         rel="noreferrer noopener sponsored"
                         className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
                       >
-                        Try Tool
+                        Try {tool.name}
+                      </a>
+                      <a
+                        href={tool.website}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+                      >
+                        Visit Website
                       </a>
                     </div>
                   </div>
@@ -205,11 +236,21 @@ export default async function IndustryPage({ params }: Props) {
           </div>
         </section>
 
+        <WhyTrust
+          title="Why trust this guide"
+          description={`This ${industry.name.toLowerCase()} page is built around actual workflow friction, buyer intent, and how well a tool fits the way ${industry.audience.toLowerCase()} teams operate.`}
+          items={[
+            `Recommendations are tied to the work ${industry.audience.toLowerCase()} teams actually need to improve, such as ${industry.jobsToBeDone[0].toLowerCase()}.`,
+            "Every featured tool connects to dedicated review pages and comparison pages so you can validate tradeoffs before making a shortlist.",
+            "The content is designed to be useful for a real purchase process, not just to rank for a broad keyword.",
+          ]}
+        />
+
         <section className="space-y-8">
           <SectionHeading
             eyebrow="Comparison Table"
             title={`Quick comparison for ${industry.name.toLowerCase()} buyers`}
-            description="Use this table to shortlist the right mix of assistant, workflow, and specialist tools for your business."
+            description="Use this table to shortlist the right mix of assistant, workflow, and specialist tools so your team can save time and move faster."
           />
           <ComparisonTable
             headers={["Tool", "Best Use Case", "Category", "Pricing"]}
@@ -271,6 +312,10 @@ export default async function IndustryPage({ params }: Props) {
             </div>
           </div>
         </section>
+
+        <EmailCapture
+          description={`Get curated AI tool picks for ${industry.name.toLowerCase()} teams that want to automate more work, improve follow-up, and increase revenue.`}
+        />
       </Container>
     </div>
   );

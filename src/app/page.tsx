@@ -1,13 +1,20 @@
 import Link from "next/link";
 
 import { Container } from "@/components/container";
+import { EmailCapture } from "@/components/email-capture";
 import { IndustryCard } from "@/components/industry-card";
 import { SectionHeading } from "@/components/section-heading";
 import { ToolCard } from "@/components/tool-card";
-import { getFeaturedIndustries, getFeaturedTools } from "@/lib/utils";
+import { WhyTrust } from "@/components/why-trust";
+import {
+  getFeaturedIndustries,
+  getFeaturedTools,
+  getTopToolsThisMonth,
+} from "@/lib/utils";
 
 const featuredIndustries = getFeaturedIndustries();
 const featuredTools = getFeaturedTools();
+const topToolsThisMonth = getTopToolsThisMonth();
 
 export default function HomePage() {
   return (
@@ -16,16 +23,16 @@ export default function HomePage() {
         <Container className="grid gap-16 py-20 lg:grid-cols-[1.2fr_0.8fr] lg:py-28">
           <div className="space-y-8">
             <p className="text-sm font-semibold tracking-[0.24em] text-[var(--brand)] uppercase">
-              Programmatic SEO for AI software buyers
+              AI buyer guides for operators who want faster growth
             </p>
             <div className="space-y-6">
               <h1 className="max-w-4xl font-serif text-5xl leading-tight tracking-tight text-slate-950 sm:text-6xl">
-                Find the Best AI Tools for Any Business
+                Find AI tools that save time, automate work, and make your business more money
               </h1>
               <p className="max-w-2xl text-lg leading-8 text-slate-600">
                 Explore industry-specific buyer guides, tool reviews, and
-                head-to-head comparisons built to help business owners choose the
-                right AI stack faster.
+                head-to-head comparisons built to help business owners increase
+                revenue, cut manual work, and choose the right AI stack faster.
               </p>
             </div>
             <div className="flex flex-wrap gap-4">
@@ -45,9 +52,9 @@ export default function HomePage() {
           </div>
           <div className="grid gap-4 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-xl shadow-slate-200/60">
             {[
-              "20 launch-ready industry pages",
-              "15 tool pages with pricing, pros, and alternatives",
-              "105 comparison pages for internal-link growth",
+              "20 tailored industry buyer guides",
+              "15 editorial-style tool reviews",
+              "105 comparison pages for deeper decision support",
             ].map((item) => (
               <div
                 key={item}
@@ -61,9 +68,9 @@ export default function HomePage() {
                 Revenue-ready structure
               </p>
               <p className="mt-3 text-lg leading-8 text-white/90">
-                Every template includes internal links, comparison hooks, and
-                affiliate CTAs so the site can scale without redesigning the
-                content model later.
+                Pages are built to help buyers shortlist tools quickly, validate
+                fit, and keep moving through the site without feeling pushed
+                into a decision too early.
               </p>
             </div>
           </div>
@@ -88,6 +95,79 @@ export default function HomePage() {
       <section className="py-20">
         <Container className="space-y-10">
           <SectionHeading
+            eyebrow="How To Use The Site"
+            title="Start with the business model, then narrow by workflow"
+            description="Most visitors get the best results by reading the industry guide first, opening two or three tool reviews, and then using a comparison page when they are down to finalists."
+          />
+          <div className="grid gap-4 md:grid-cols-3">
+            {[
+              {
+                title: "1. Pick your industry",
+                body: "Every industry page is tailored around the bottlenecks that matter most in that niche.",
+                href: "/industries",
+                label: "Browse industries",
+              },
+              {
+                title: "2. Review the top tools",
+                body: "Tool pages explain strengths, tradeoffs, best-fit industries, and close alternatives.",
+                href: "/tools/chatgpt",
+                label: "See a tool page",
+              },
+              {
+                title: "3. Use a comparison page",
+                body: "Head-to-head pages are meant to make final decisions clearer when two tools overlap.",
+                href: "/compare/chatgpt-vs-claude",
+                label: "Open a comparison",
+              },
+            ].map((item) => (
+              <article
+                key={item.title}
+                className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
+              >
+                <h3 className="text-xl font-semibold text-slate-950">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-600">{item.body}</p>
+                <Link
+                  href={item.href}
+                  className="mt-5 inline-flex rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+                >
+                  {item.label}
+                </Link>
+              </article>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-20">
+        <Container>
+          <WhyTrust
+            items={[
+              "Pages are organized around business workflows and real buying questions, not generic software lists.",
+              "Tool reviews and comparison pages are designed to help buyers understand fit, tradeoffs, and likely ROI before clicking out.",
+              "The site includes clear About, Contact, Privacy, and Disclosure pages so affiliate partners and readers can evaluate the property like a real publication.",
+            ]}
+          />
+        </Container>
+      </section>
+
+      <section className="py-20">
+        <Container className="space-y-10">
+          <SectionHeading
+            eyebrow="Top Tools This Month"
+            title="The tools buyers are using to save time and grow faster"
+            description="These are the strongest all-around picks on the site right now for operators who want clear ROI, fast setup, and real workflow leverage."
+          />
+          <div className="grid gap-6 lg:grid-cols-3">
+            {topToolsThisMonth.map((tool) => (
+              <ToolCard key={tool.slug} tool={tool} />
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-20">
+        <Container className="space-y-10">
+          <SectionHeading
             eyebrow="Featured Tools"
             title="Popular AI software buyers keep comparing"
             description="These tool pages anchor the site’s internal linking structure and make it easy to expand into new verticals."
@@ -99,6 +179,10 @@ export default function HomePage() {
           </div>
         </Container>
       </section>
+
+      <Container>
+        <EmailCapture />
+      </Container>
     </div>
   );
 }

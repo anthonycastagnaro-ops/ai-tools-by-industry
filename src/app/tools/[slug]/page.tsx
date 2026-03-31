@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { Container } from "@/components/container";
+import { EmailCapture } from "@/components/email-capture";
 import { SectionHeading } from "@/components/section-heading";
 import { tools } from "@/data/tools";
 import { buildAbsoluteUrl } from "@/lib/site";
@@ -88,7 +89,8 @@ export default async function ToolPage({ params }: Props) {
             </h1>
             <p className="text-lg leading-8 text-slate-600">{tool.overview}</p>
             <p className="text-base leading-8 text-slate-600">
-              Best for: {tool.bestUseCase}
+              Best for: {tool.bestUseCase} if you want to save time, automate
+              repeatable work, and improve output quality faster.
             </p>
           </div>
           <div className="rounded-[1.75rem] bg-[var(--surface-alt)] p-6">
@@ -105,7 +107,7 @@ export default async function ToolPage({ params }: Props) {
                 rel="noreferrer noopener sponsored"
                 className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
               >
-                Try Tool
+                Try {tool.name}
               </a>
               <a
                 href={tool.website}
@@ -113,7 +115,7 @@ export default async function ToolPage({ params }: Props) {
                 rel="noreferrer noopener"
                 className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
               >
-                Visit website
+                Visit Website
               </a>
             </div>
           </div>
@@ -213,6 +215,10 @@ export default async function ToolPage({ params }: Props) {
             ))}
           </div>
         </section>
+
+        <EmailCapture
+          description={`Get more buyer guides like this one plus side-by-side recommendations that help you pick tools with clearer ROI.`}
+        />
       </Container>
     </div>
   );
