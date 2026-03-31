@@ -21,6 +21,9 @@ export default function ContactPage() {
         title="Editorial feedback, corrections, and partnership inquiries"
         description="Use this page if you need to suggest a correction, recommend a tool for review, or reach out about a legitimate partnership or affiliate program relationship."
       />
+      <p className="text-sm font-medium text-slate-500">
+        Editorial inbox reviewed monthly. Last updated March 2026.
+      </p>
       <div className="grid gap-6 lg:grid-cols-2">
         <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
           <p className="text-sm leading-8 text-slate-600">
@@ -35,6 +38,10 @@ export default function ContactPage() {
           <p className="mt-4 text-sm leading-8 text-slate-600">
             Response goal: within two business days for editorial corrections,
             partnership inquiries, and site feedback.
+          </p>
+          <p className="mt-4 text-sm leading-8 text-slate-600">
+            Please use a business email for vendor, media, and affiliate
+            outreach so requests can be reviewed and routed faster.
           </p>
         </div>
         <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">

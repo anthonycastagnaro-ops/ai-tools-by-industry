@@ -232,7 +232,7 @@ export default async function ComparisonPage({ params }: Props) {
           <SectionHeading
             eyebrow="Pricing Comparison"
             title="Pricing snapshot"
-            description="These are placeholder pricing summaries designed for an affiliate-style buyer guide until live pricing tracking is added."
+            description="Pricing changes often, so use this section as a quick buying snapshot and confirm the latest plan details on each vendor site before you choose."
           />
           <ComparisonTable
             headers={["Tool", "Pricing", "Tradeoff"]}

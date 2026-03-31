@@ -21,6 +21,9 @@ export default function DisclosurePage() {
         title="Affiliate disclosure"
         description="Some outbound links on this site may be affiliate links. If a reader clicks through and later purchases or signs up, the site may earn a commission at no additional cost to that reader."
       />
+      <p className="text-sm font-medium text-slate-500">
+        Last reviewed March 2026.
+      </p>
       <div className="grid gap-6 lg:grid-cols-2">
         <div className="rounded-[2rem] border border-slate-200 bg-white p-8 text-sm leading-8 text-slate-600 shadow-sm">
           <h2 className="text-2xl font-semibold text-slate-950">Editorial intent</h2>
@@ -39,6 +42,15 @@ export default function DisclosurePage() {
             making a purchase decision.
           </p>
         </div>
+      </div>
+      <div className="rounded-[2rem] border border-slate-200 bg-white p-8 text-sm leading-8 text-slate-600 shadow-sm">
+        <h2 className="text-2xl font-semibold text-slate-950">How links are handled</h2>
+        <p className="mt-4">
+          When affiliate relationships exist, they should be disclosed clearly
+          and used within editorial pages that are designed to help readers
+          compare software, not pressure them into a purchase. Editorial
+          judgment should come before monetization.
+        </p>
       </div>
       <div className="flex flex-wrap gap-3">
         <Link

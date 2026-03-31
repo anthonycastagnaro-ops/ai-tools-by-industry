@@ -21,6 +21,9 @@ export default function PrivacyPage() {
         title="Privacy policy"
         description="AI Tools by Industry is an informational publishing site. This page explains how basic analytics, email communication, and outbound links are handled."
       />
+      <p className="text-sm font-medium text-slate-500">
+        Last reviewed March 2026.
+      </p>
       <div className="grid gap-6 lg:grid-cols-2">
         <div className="rounded-[2rem] border border-slate-200 bg-white p-8 text-sm leading-8 text-slate-600 shadow-sm">
           <h2 className="text-2xl font-semibold text-slate-950">Data we may collect</h2>
@@ -40,6 +43,15 @@ export default function PrivacyPage() {
             independently before sharing personal or business information.
           </p>
         </div>
+      </div>
+      <div className="rounded-[2rem] border border-slate-200 bg-white p-8 text-sm leading-8 text-slate-600 shadow-sm">
+        <h2 className="text-2xl font-semibold text-slate-950">Policy updates</h2>
+        <p className="mt-4">
+          Privacy practices may change as the site adds analytics, newsletter
+          tools, or affiliate relationships. Material updates should be
+          reflected on this page so readers can review the latest policy before
+          submitting information or clicking through to vendors.
+        </p>
       </div>
       <div className="flex flex-wrap gap-3">
         <Link
