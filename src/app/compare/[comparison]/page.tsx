@@ -11,6 +11,7 @@ import { buildAbsoluteUrl } from "@/lib/site";
 import {
   allComparisonSlugs,
   getBestIndustriesForTool,
+  getComparisonQuickPicks,
   getComparisonRecommendation,
   getComparisonPairFromSlug,
   getIndustryUrl,
@@ -66,21 +67,12 @@ export default async function ComparisonPage({ params }: Props) {
   }
 
   const { toolA, toolB } = pair;
+  const recommendation = getComparisonRecommendation(toolA, toolB);
   const sameCategory = toolA.category === toolB.category;
   const verdict = sameCategory
-    ? `${toolA.name} is usually the better choice if you want ${toolA.bestUseCase.toLowerCase()}, while ${toolB.name} is a stronger fit if your priority is ${toolB.bestUseCase.toLowerCase()}.`
-    : `${toolA.name} and ${toolB.name} solve different problems. Choose ${toolA.name} when your biggest bottleneck is ${toolA.bestUseCase.toLowerCase()}, and choose ${toolB.name} when the higher priority is ${toolB.bestUseCase.toLowerCase()}.`;
-  const bestOverall =
-    toolA.scores.overall >= toolB.scores.overall ? toolA : toolB;
-  const bestForBeginners =
-    toolA.scores.beginner >= toolB.scores.beginner ? toolA : toolB;
-  const bestValue = toolA.scores.value >= toolB.scores.value ? toolA : toolB;
-  const quickPicks: Array<{ label: string; tool: typeof toolA }> = [
-    { label: "Best Overall", tool: bestOverall },
-    { label: "Best for Beginners", tool: bestForBeginners },
-    { label: "Best Value", tool: bestValue },
-  ];
-  const recommendation = getComparisonRecommendation(toolA, toolB);
+    ? `If you want the safer all-around recommendation, start with ${recommendation.winner.name}. If your workflow leans more heavily toward ${toolA.name === recommendation.winner.name ? toolB.bestUseCase.toLowerCase() : toolA.bestUseCase.toLowerCase()}, the other tool deserves a serious look.`
+    : `${toolA.name} and ${toolB.name} are not really substitutes in the purest sense. The better choice depends on whether you need broader day-to-day leverage or a tool built around a narrower, more specific workflow.`;
+  const quickPicks = getComparisonQuickPicks(toolA, toolB);
   const linkedIndustries = Array.from(
     new Map(
       [...getBestIndustriesForTool(toolA.slug), ...getBestIndustriesForTool(toolB.slug)].map(

@@ -15,6 +15,14 @@ import {
 const featuredIndustries = getFeaturedIndustries();
 const featuredTools = getFeaturedTools();
 const topToolsThisMonth = getTopToolsThisMonth();
+const curatedTopToolNotes: Record<string, string> = {
+  chatgpt: "Best broad-use pick for businesses that want one tool to cover content, research, and internal execution.",
+  canva: "Best design-side pick for teams that need fast visual output without hiring extra help.",
+  zapier: "Best quick-win automation choice for businesses trying to remove repetitive admin first.",
+  claude: "Best for buyers who care more about polished long-form output than fast, rough drafts.",
+  make: "Best value automation option for teams that need more logic than simple trigger tools allow.",
+  grammarly: "Best lightweight upgrade for teams that want stronger client-facing communication immediately.",
+};
 
 export default function HomePage() {
   return (
@@ -155,11 +163,16 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="Top Tools This Month"
             title="Top AI tools this month"
-            description="These are the strongest all-around picks on the site right now for operators who want clear ROI, fast setup, and real workflow leverage."
+            description="This shortlist is meant to feel curated, not exhaustive. These are the tools I would send a business owner to first if they wanted clear upside, practical fit, and a realistic path to ROI."
           />
           <div className="grid gap-6 lg:grid-cols-3">
             {topToolsThisMonth.map((tool) => (
-              <ToolCard key={tool.slug} tool={tool} />
+              <div key={tool.slug} className="space-y-4">
+                <ToolCard tool={tool} />
+                <p className="px-2 text-sm leading-7 text-slate-600">
+                  {curatedTopToolNotes[tool.slug]}
+                </p>
+              </div>
             ))}
           </div>
         </Container>

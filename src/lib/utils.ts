@@ -448,6 +448,681 @@ const industrySpecificFaqs: Record<string, IndustryFaq[]> = {
   ],
 };
 
+const industryToolOverrides: Record<
+  string,
+  Record<
+    string,
+    {
+      description: string;
+      bestUseCase: string;
+      pros: string[];
+      cons: string[];
+      reason: string;
+    }
+  >
+> = {
+  restaurants: {
+    chatgpt: {
+      description:
+        "ChatGPT is a practical fit for restaurant operators who need campaign ideas, promo copy, staff-facing SOP drafts, and fast responses to everyday marketing bottlenecks.",
+      bestUseCase:
+        "Best when a restaurant needs one flexible tool for promotions, guest messaging, and operational writing.",
+      pros: [
+        "Quickly turns rough offer ideas into usable promo copy.",
+        "Useful for drafting replies to reviews, guest questions, and event inquiries.",
+        "Helps owners create SOPs and internal docs without starting from a blank page.",
+      ],
+      cons: [
+        "Needs clear prompting to avoid generic hospitality copy.",
+        "Does not replace a reservation, POS, or CRM workflow on its own.",
+        "Staff still need to review anything customer-facing before publishing.",
+      ],
+      reason:
+        "It fits restaurants because it can support both marketing and operations on the same day, which matters for small teams wearing multiple hats.",
+    },
+    canva: {
+      description:
+        "Canva works well for restaurants that need polished social posts, menu promos, event flyers, and local ad creative without depending on a designer.",
+      bestUseCase:
+        "Best for creating recurring visual marketing assets quickly and keeping the brand present across local channels.",
+      pros: [
+        "Makes weekly promo graphics and in-store collateral much faster to produce.",
+        "Good fit for restaurants running social, events, and seasonal specials.",
+        "Easy for non-design staff to use after a short setup period.",
+      ],
+      cons: [
+        "Templates can look generic without a simple brand system.",
+        "Not meant for advanced custom design work.",
+        "Still needs someone on the team to keep creative output consistent.",
+      ],
+      reason:
+        "Restaurants usually need frequency more than complexity, and Canva is one of the fastest ways to maintain that visual consistency.",
+    },
+    zapier: {
+      description:
+        "Zapier is a strong choice for restaurants that want to connect forms, email tools, booking workflows, and internal notifications without heavy technical setup.",
+      bestUseCase:
+        "Best for automating repetitive admin like lead routing, inquiry follow-up, and internal alerts.",
+      pros: [
+        "Can automate event inquiries, lead notifications, and lightweight follow-up.",
+        "Helps operators reduce small manual tasks that pile up every week.",
+        "Usually easier to launch than more complex automation platforms.",
+      ],
+      cons: [
+        "The value depends on whether the restaurant already uses connected tools.",
+        "Complex automations can become harder to manage over time.",
+        "Not every restaurant needs automation before fixing simpler process issues.",
+      ],
+      reason:
+        "It is especially useful when a restaurant is already getting leads but losing time to repetitive handoffs and missed follow-up.",
+    },
+    "hubspot-ai": {
+      description:
+        "HubSpot AI fits restaurant groups, event-heavy venues, and operators with active lead funnels who want more structure around nurture and follow-up.",
+      bestUseCase:
+        "Best for restaurants that treat private dining, catering, or multi-location growth as a serious revenue channel.",
+      pros: [
+        "Useful for managing event, catering, and lead nurture workflows in one place.",
+        "Stronger long-term option for operators with a real sales process.",
+        "Can support more disciplined follow-up than basic inbox management.",
+      ],
+      cons: [
+        "Too much CRM for many single-location operators.",
+        "Needs process discipline to deliver strong ROI.",
+        "Pricing and setup make more sense for bigger revenue opportunities.",
+      ],
+      reason:
+        "It makes the most sense when restaurant revenue depends on structured inquiry follow-up rather than walk-in traffic alone.",
+    },
+    grammarly: {
+      description:
+        "Grammarly helps restaurants clean up guest communication, event replies, proposal emails, and web copy so the brand feels more polished and trustworthy.",
+      bestUseCase:
+        "Best for teams that already write a lot of customer-facing copy and want it to sound tighter and more professional.",
+      pros: [
+        "Improves clarity in guest-facing emails and proposal responses.",
+        "Low-friction tool for managers who communicate across many channels.",
+        "Useful for editing copy created by broader AI tools.",
+      ],
+      cons: [
+        "It polishes writing but does not create a marketing system by itself.",
+        "Less valuable if the team rarely writes beyond short messages.",
+        "Can smooth away brand personality if used too aggressively.",
+      ],
+      reason:
+        "For hospitality businesses, tone matters, and Grammarly helps prevent sloppy communication from undermining the experience.",
+    },
+    perplexity: {
+      description:
+        "Perplexity is useful for restaurant teams researching local trends, competitor offers, pricing ideas, and content angles before launching new promotions.",
+      bestUseCase:
+        "Best for quick market research before planning offers, menus, or local marketing campaigns.",
+      pros: [
+        "Faster than manual search for local inspiration and competitor checks.",
+        "Helpful when operators need source-backed answers quickly.",
+        "A good support tool for strategy before content production starts.",
+      ],
+      cons: [
+        "Not a replacement for local intuition or direct market knowledge.",
+        "More useful for planning than for execution.",
+        "Smaller teams may prioritize content or automation tools first.",
+      ],
+      reason:
+        "It earns its place when a restaurant wants sharper local strategy before spending time or money on promotion.",
+    },
+  },
+  "real-estate": {
+    chatgpt: {
+      description:
+        "ChatGPT fits real estate teams that need listing copy, follow-up drafts, market updates, and marketing ideas without slowing down daily client work.",
+      bestUseCase:
+        "Best for agents who want one flexible assistant for listing, nurture, and content support.",
+      pros: [
+        "Useful for writing listing descriptions and follow-up emails quickly.",
+        "Helps solo agents stay more consistent with marketing output.",
+        "Can turn notes into client-facing drafts fast.",
+      ],
+      cons: [
+        "Needs agent review to sound local and specific.",
+        "Does not handle pipeline structure by itself.",
+        "Generic prompts can produce generic listing language.",
+      ],
+      reason:
+        "Real estate teams often need range more than specialization, and ChatGPT covers a lot of that day-to-day writing surface area well.",
+    },
+    "hubspot-ai": {
+      description:
+        "HubSpot AI is a strong fit for brokerages and lead-driven teams that need tighter follow-up, pipeline visibility, and better long-term nurture.",
+      bestUseCase:
+        "Best for real estate businesses that already have meaningful lead flow and need better conversion systems.",
+      pros: [
+        "Supports structured follow-up around buyer and seller pipelines.",
+        "Useful for teams that want AI inside an actual CRM workflow.",
+        "Can improve consistency across nurture, outreach, and reporting.",
+      ],
+      cons: [
+        "Often too heavy for agents with very simple workflows.",
+        "Value depends on real CRM adoption, not just sign-up.",
+        "Requires more operational maturity than a lightweight writing tool.",
+      ],
+      reason:
+        "It is a better fit for growth-minded teams treating lead management like a system, not just a series of inbox tasks.",
+    },
+    canva: {
+      description:
+        "Canva works well for real estate teams producing listing graphics, neighborhood guides, social content, and presentation materials at a steady pace.",
+      bestUseCase:
+        "Best for agents who need polished visual assets without waiting on outside design help.",
+      pros: [
+        "Makes listing and social creative faster to produce.",
+        "Useful for buyer guides, market recaps, and branded presentations.",
+        "Easy for agents and coordinators to keep using consistently.",
+      ],
+      cons: [
+        "Strong templates still need local personality layered in.",
+        "Not ideal for custom design-heavy brokerages.",
+        "Can become repetitive if the team does not refresh creative direction.",
+      ],
+      reason:
+        "Real estate is visual, and Canva shortens the time between a new listing and a usable marketing package.",
+    },
+    fireflies: {
+      description:
+        "Fireflies is helpful for real estate teams juggling buyer calls, seller updates, and handoffs where follow-up details can easily get lost.",
+      bestUseCase:
+        "Best for teams running lots of calls and wanting more reliable summaries and action items.",
+      pros: [
+        "Cuts down on manual note-taking after buyer and seller conversations.",
+        "Makes handoffs smoother across assistants, coordinators, and agents.",
+        "Useful when client communication volume is high.",
+      ],
+      cons: [
+        "Most valuable for teams that are actually call-heavy.",
+        "Still needs a follow-up process after the summary is generated.",
+        "Less important than CRM or writing tools for some solo agents.",
+      ],
+      reason:
+        "It fits real estate because missed details and inconsistent follow-up are expensive, especially when volume increases.",
+    },
+    zapier: {
+      description:
+        "Zapier helps real estate teams connect lead forms, CRMs, calendars, and internal notifications so promising inquiries do not sit untouched.",
+      bestUseCase:
+        "Best for automating lead routing and basic follow-up triggers across common tools.",
+      pros: [
+        "Can improve response speed without adding more manual admin.",
+        "Useful for connecting forms, email, and CRM tools.",
+        "A practical first automation layer for many brokerages.",
+      ],
+      cons: [
+        "Not every team needs automation before fixing messaging and process.",
+        "More advanced workflows may outgrow the simplest setup.",
+        "The ROI depends on already having steady lead volume.",
+      ],
+      reason:
+        "It matters most when a team already knows where leads are slipping through the cracks and needs a simple fix.",
+    },
+    claude: {
+      description:
+        "Claude is a strong fit for real estate professionals who want more polished long-form writing for market commentary, seller packets, and thoughtful client communication.",
+      bestUseCase:
+        "Best for teams that want more refined writing than a quick general assistant draft.",
+      pros: [
+        "Produces stronger long-form market and advisory content.",
+        "Helpful for thoughtful client communication and seller materials.",
+        "Good for turning rough notes into cleaner narratives.",
+      ],
+      cons: [
+        "Less broad than ChatGPT for mixed operational tasks.",
+        "Not a substitute for CRM or design tooling.",
+        "Some teams may not need its strengths if they mostly need quick drafts.",
+      ],
+      reason:
+        "It earns a spot when positioning, market commentary, and polished communication matter as much as speed.",
+    },
+  },
+  "law-firms": {
+    claude: {
+      description:
+        "Claude fits law firms that need careful long-form drafting, document synthesis, and more polished written output from dense source material.",
+      bestUseCase:
+        "Best for firms using AI to summarize documents and draft thoughtful internal or client-facing writing under review.",
+      pros: [
+        "Strong at working through long documents and producing cleaner summaries.",
+        "Useful for turning rough legal or business notes into structured drafts.",
+        "Often produces more measured output than lighter drafting tools.",
+      ],
+      cons: [
+        "Still requires lawyer review on anything substantive.",
+        "Not a practice-management tool.",
+        "The quality depends on giving it the right material and context.",
+      ],
+      reason:
+        "For law firms, the value is less about speed alone and more about making complex material easier to work with.",
+    },
+    chatgpt: {
+      description:
+        "ChatGPT works well for law firms that want a broader assistant for internal drafting, client update drafts, brainstorms, and process support.",
+      bestUseCase:
+        "Best for firms looking for a flexible general-purpose AI assistant rather than a single-purpose legal workflow tool.",
+      pros: [
+        "Useful across admin, drafting, and research organization tasks.",
+        "A practical first AI tool for firms still learning where AI fits.",
+        "Helps reduce blank-page time for internal and external communication.",
+      ],
+      cons: [
+        "Needs tighter prompting to avoid generic or overly broad output.",
+        "Requires strong review standards inside the firm.",
+        "Less specialized for dense document work than Claude.",
+      ],
+      reason:
+        "It fits firms that want versatility across many smaller tasks instead of optimizing around one specific document-heavy use case.",
+    },
+    "notion-ai": {
+      description:
+        "Notion AI is most useful for law firms trying to turn scattered internal notes, SOPs, and knowledge fragments into a more searchable operating system.",
+      bestUseCase:
+        "Best for internal knowledge management, playbooks, and recurring process documentation.",
+      pros: [
+        "Helps capture institutional knowledge that usually stays trapped in scattered docs.",
+        "Useful for SOPs, internal templates, and team onboarding material.",
+        "Fits firms trying to build repeatable internal systems.",
+      ],
+      cons: [
+        "Only worth it if the firm is serious about documentation.",
+        "Less useful if the team does not already work in Notion.",
+        "Not a replacement for stronger drafting or analysis tools.",
+      ],
+      reason:
+        "It stands out when the operational problem is not drafting speed but knowledge that never becomes reusable.",
+    },
+    grammarly: {
+      description:
+        "Grammarly is a practical support tool for law firms that need client updates, proposals, and day-to-day written communication to stay polished.",
+      bestUseCase:
+        "Best for editing and tightening written communication before it goes to clients or referral partners.",
+      pros: [
+        "Raises the baseline quality of emails, memos, and client-facing drafts.",
+        "Low-effort tool to roll out across a firm.",
+        "Pairs well with broader drafting assistants.",
+      ],
+      cons: [
+        "It improves writing quality but does not create legal judgment.",
+        "Less impactful than summarization tools for document-heavy practices.",
+        "Can feel limited if a firm needs deeper drafting help.",
+      ],
+      reason:
+        "For many firms, credibility shows up in the details, and Grammarly improves those details quickly.",
+    },
+    fireflies: {
+      description:
+        "Fireflies works best for law firms that spend a lot of time in consultations, internal meetings, and case-related discussions that generate follow-up tasks.",
+      bestUseCase:
+        "Best for capturing meeting takeaways and reducing manual note friction.",
+      pros: [
+        "Makes post-meeting summaries and action items easier to track.",
+        "Useful for intake-heavy or communication-heavy practices.",
+        "Can reduce note burden across busy teams.",
+      ],
+      cons: [
+        "Value depends on call volume and internal adoption.",
+        "Still needs a clear process around confidentiality and review.",
+        "Not every practice will prioritize meeting tooling early.",
+      ],
+      reason:
+        "It is a support tool, but a useful one, when too much billable and non-billable context gets trapped in meetings.",
+    },
+    perplexity: {
+      description:
+        "Perplexity is most useful for firms doing quick market, business, or background research where source visibility matters early in the process.",
+      bestUseCase:
+        "Best for research-heavy support work that benefits from source-backed exploration.",
+      pros: [
+        "Helps firms move faster when exploring unfamiliar topics or industries.",
+        "Useful citations make it easier to verify starting points.",
+        "A practical supplement to broader drafting tools.",
+      ],
+      cons: [
+        "It is a research aid, not a final answer engine.",
+        "Some firms may get more immediate value from drafting and knowledge tools first.",
+        "Source review still matters on anything important.",
+      ],
+      reason:
+        "Its value is highest when research speed matters but credibility still needs a paper trail.",
+    },
+  },
+  dentists: {
+    chatgpt: {
+      description:
+        "ChatGPT is a practical fit for dental practices that need patient communication drafts, recall messaging, educational content, and lighter front-desk writing support.",
+      bestUseCase:
+        "Best for practices that want one flexible AI tool for patient-facing communication and marketing support.",
+      pros: [
+        "Useful for patient FAQs, recall outreach, and treatment education drafts.",
+        "Helps practices keep content and communication moving with small teams.",
+        "A strong general-purpose assistant for offices just starting with AI.",
+      ],
+      cons: [
+        "Needs staff review before sending patient-facing material.",
+        "Does not replace scheduling or practice-management systems.",
+        "Generic prompts can produce bland healthcare copy.",
+      ],
+      reason:
+        "It fits dentistry because it helps both the front desk and marketing side of the practice without needing a complex setup.",
+    },
+    "hubspot-ai": {
+      description:
+        "HubSpot AI makes sense for dental groups or growth-focused practices that care deeply about lead nurture, treatment inquiry follow-up, and pipeline visibility.",
+      bestUseCase:
+        "Best for practices treating consultation and treatment acceptance as structured growth workflows.",
+      pros: [
+        "Better fit than lightweight tools when lead management matters.",
+        "Can organize inquiry follow-up more consistently.",
+        "Useful for practices investing in serious patient acquisition.",
+      ],
+      cons: [
+        "Often too much CRM for smaller offices.",
+        "Requires process discipline to pay off.",
+        "Not every dental practice needs a full system here first.",
+      ],
+      reason:
+        "It earns its place when patient acquisition is a real growth machine, not just an occasional campaign.",
+    },
+    canva: {
+      description:
+        "Canva works well for dental practices creating educational graphics, social content, referral material, and local promotional assets.",
+      bestUseCase:
+        "Best for keeping visual marketing polished and consistent without relying on a designer.",
+      pros: [
+        "Makes patient education and local promo assets easier to produce.",
+        "Useful for practices posting regularly across social and email.",
+        "Simple enough for in-house teams to maintain.",
+      ],
+      cons: [
+        "Templates still need a recognizable brand layer.",
+        "Less useful if the practice barely publishes visual content.",
+        "Not a substitute for deeper marketing strategy.",
+      ],
+      reason:
+        "Dentistry is trust-driven, and cleaner visual communication helps practices look more modern and reliable.",
+    },
+    zapier: {
+      description:
+        "Zapier helps dental practices connect forms, reminders, simple follow-up flows, and internal notifications without custom development.",
+      bestUseCase:
+        "Best for offices trying to reduce manual admin around inquiries and communication.",
+      pros: [
+        "Can reduce repetitive front-desk tasks.",
+        "Useful for connecting intake, reminders, and notifications.",
+        "A straightforward first step into automation.",
+      ],
+      cons: [
+        "Only as valuable as the tools it connects.",
+        "May be unnecessary before fixing simpler office workflows.",
+        "More complex use cases can get messy.",
+      ],
+      reason:
+        "It is most useful when the office knows where routine admin work is slowing response times down.",
+    },
+    grammarly: {
+      description:
+        "Grammarly is a small but useful upgrade for practices that want patient emails, treatment explanations, and referral communication to sound clearer and more polished.",
+      bestUseCase:
+        "Best for tightening writing quality across the team with very little setup.",
+      pros: [
+        "Improves clarity in patient-facing communication quickly.",
+        "Low-friction tool for busy office teams.",
+        "Useful as a final pass on copy drafted elsewhere.",
+      ],
+      cons: [
+        "Its role is supportive rather than transformational.",
+        "Does not fix process or follow-up gaps on its own.",
+        "Some offices may get more value from broader writing tools first.",
+      ],
+      reason:
+        "For healthcare businesses, cleaner communication strengthens trust, even when the tool itself is simple.",
+    },
+    fireflies: {
+      description:
+        "Fireflies is useful for larger or treatment-focused dental practices that handle lots of consult calls, handoffs, and team meetings.",
+      bestUseCase:
+        "Best for practices that want stronger summaries and follow-up after patient or team conversations.",
+      pros: [
+        "Reduces note-taking burden after calls and meetings.",
+        "Useful for handoffs between treatment coordinators and clinical staff.",
+        "Can make follow-up tasks more visible.",
+      ],
+      cons: [
+        "Less important for smaller practices with low call complexity.",
+        "Still needs a process for acting on summaries.",
+        "Meeting tools are rarely the first AI investment for every office.",
+      ],
+      reason:
+        "It fits best when communication volume and coordination complexity are already high enough to justify it.",
+    },
+  },
+  "med-spas": {
+    chatgpt: {
+      description:
+        "ChatGPT works well for med spas that need consultation follow-up drafts, campaign copy, treatment explainers, and content ideas without slowing staff down.",
+      bestUseCase:
+        "Best for med spas that want one versatile tool to support both nurture and marketing.",
+      pros: [
+        "Useful for promo copy, treatment education, and lead nurture drafts.",
+        "Helps teams create more consistent messaging around offers and bookings.",
+        "Can support both marketing and front-desk workflows.",
+      ],
+      cons: [
+        "Needs human review to keep premium brand tone intact.",
+        "Generic prompts can flatten the brand.",
+        "Does not replace CRM or booking systems.",
+      ],
+      reason:
+        "It is a strong fit because med spas need both speed and polish, often from the same small team.",
+    },
+    canva: {
+      description:
+        "Canva is especially useful for med spas that need polished promotional assets, story graphics, launch visuals, and branded before-and-after support content.",
+      bestUseCase:
+        "Best for keeping aesthetic marketing output consistent across weekly campaigns.",
+      pros: [
+        "Fast way to create premium-looking visuals without a design bottleneck.",
+        "Useful for promotions, announcements, and educational posts.",
+        "Easy for in-house teams to reuse and maintain.",
+      ],
+      cons: [
+        "Requires brand discipline to avoid template-heavy visuals.",
+        "Not a substitute for higher-end creative direction.",
+        "Less impactful if the bigger issue is lead conversion rather than awareness.",
+      ],
+      reason:
+        "The med spa category is highly visual, and Canva helps teams maintain that standard without slowing down.",
+    },
+    "hubspot-ai": {
+      description:
+        "HubSpot AI fits med spas that are serious about lead capture, consultation nurture, and retention flows rather than just ad hoc follow-up.",
+      bestUseCase:
+        "Best for growing med spas that need a more structured patient acquisition and retention engine.",
+      pros: [
+        "Useful for consultation follow-up and nurture at scale.",
+        "Helps larger teams organize lead stages more clearly.",
+        "Can support repeat-visit marketing inside a single system.",
+      ],
+      cons: [
+        "Too much system for some smaller operators.",
+        "Needs operational follow-through to work well.",
+        "Higher lift than simpler content or automation tools.",
+      ],
+      reason:
+        "It matters most when the med spa is already buying attention and now needs a better system to convert it.",
+    },
+    zapier: {
+      description:
+        "Zapier works well for med spas that want lighter automation around lead notifications, follow-up triggers, and admin tasks tied to marketing and booking workflows.",
+      bestUseCase:
+        "Best for removing repetitive process gaps without implementing a heavier system first.",
+      pros: [
+        "Can tighten up internal follow-up and lead handling quickly.",
+        "Useful for connecting inquiry points to team alerts and reminders.",
+        "Lower-friction automation than more advanced platforms.",
+      ],
+      cons: [
+        "Limited if the underlying funnel process is weak.",
+        "Not a full CRM replacement.",
+        "Complex scenarios may eventually need more structure.",
+      ],
+      reason:
+        "It is a practical middle ground when a med spa needs better execution before it needs a full CRM overhaul.",
+    },
+    midjourney: {
+      description:
+        "Midjourney is valuable for med spa brands that want concept exploration, mood-board style creative ideas, and premium visual inspiration before final campaign design.",
+      bestUseCase:
+        "Best for concepting campaigns and refining a more elevated visual direction.",
+      pros: [
+        "Useful for generating higher-end creative directions and campaign inspiration.",
+        "Can speed up ideation for launches or new offers.",
+        "Helps teams think beyond overused local-medical creative patterns.",
+      ],
+      cons: [
+        "It is more inspiration engine than daily production tool.",
+        "Final marketing assets usually need refinement elsewhere.",
+        "Not the first tool to buy if follow-up is the bigger problem.",
+      ],
+      reason:
+        "It earns a spot when the brand needs more visual distinction, not just more content volume.",
+    },
+    grammarly: {
+      description:
+        "Grammarly helps med spas tighten promotional copy, patient communication, and follow-up messaging so the brand feels more polished and credible.",
+      bestUseCase:
+        "Best as a quality-control layer for email, SMS, and website messaging.",
+      pros: [
+        "Quickly improves clarity and professionalism in patient-facing writing.",
+        "Low-friction tool for busy teams.",
+        "Works well alongside broader drafting tools.",
+      ],
+      cons: [
+        "It refines copy but does not solve content strategy or lead management.",
+        "Less important than stronger conversion tools for some businesses.",
+        "Can over-smooth tone if no one checks final voice.",
+      ],
+      reason:
+        "In a trust-sensitive category, cleaner copy helps support the premium experience the business is selling.",
+    },
+  },
+  salons: {
+    canva: {
+      description:
+        "Canva is often the easiest high-impact tool for salons because it helps owners create polished promos, stylist spotlights, and local content without waiting on outside design help.",
+      bestUseCase:
+        "Best for salons that need frequent visual marketing but do not need a full designer.",
+      pros: [
+        "Makes it easier to promote openings, offers, and seasonal campaigns.",
+        "Strong fit for social-first local marketing.",
+        "Fast enough for salon owners and managers to keep using regularly.",
+      ],
+      cons: [
+        "Needs a simple brand system to avoid template fatigue.",
+        "Not meant for advanced design work.",
+        "Content frequency still needs an owner inside the business.",
+      ],
+      reason:
+        "Salons win with consistency and presentation, and Canva helps with both more immediately than most tools.",
+    },
+    chatgpt: {
+      description:
+        "ChatGPT is useful for salons that need caption ideas, local promo copy, client communication drafts, and fast marketing support without a big planning process.",
+      bestUseCase:
+        "Best for salons that want a flexible assistant for writing, brainstorming, and day-to-day communication.",
+      pros: [
+        "Helps owners move faster on captions, promos, and email copy.",
+        "Useful for client-facing messaging and staff-facing SOP drafts.",
+        "A practical tool for small salons with limited admin capacity.",
+      ],
+      cons: [
+        "Still needs editing to sound like the salon’s actual brand.",
+        "Does not create visual assets or automation by itself.",
+        "Generic prompts can make the content feel interchangeable.",
+      ],
+      reason:
+        "It works well when the problem is not just what to post, but how to keep communicating consistently at all.",
+    },
+    zapier: {
+      description:
+        "Zapier fits salons that already know where their booking, inquiry, or reminder workflows are getting missed and want a lighter automation layer.",
+      bestUseCase:
+        "Best for basic automation around forms, notifications, and small front-desk process gaps.",
+      pros: [
+        "Can improve response speed without adding more manual admin.",
+        "Useful for connecting salon tools to notifications and follow-up steps.",
+        "Usually easier to launch than a more complex automation setup.",
+      ],
+      cons: [
+        "Not every salon needs automation before fixing simpler consistency problems.",
+        "Depends on what tools are already in place.",
+        "The payoff is weaker if the team rarely follows a defined process.",
+      ],
+      reason:
+        "It matters most for salons that already have demand but keep losing time to repetitive task switching.",
+    },
+    grammarly: {
+      description:
+        "Grammarly helps salon teams tighten client communication, website copy, and promotional writing so the brand feels more polished and deliberate.",
+      bestUseCase:
+        "Best for salons that care about tone and professionalism in everyday client messaging.",
+      pros: [
+        "Improves clarity in appointment, referral, and promo communication.",
+        "Low-lift tool with a quick learning curve.",
+        "Useful for polishing copy from broader AI tools.",
+      ],
+      cons: [
+        "It is a refinement tool rather than a growth engine on its own.",
+        "Some salons may see bigger returns from design or automation first.",
+        "Can only help if the team is actually writing regularly.",
+      ],
+      reason:
+        "It is a subtle but useful trust-builder in a category where brand feel matters almost as much as the service itself.",
+    },
+    "hubspot-ai": {
+      description:
+        "HubSpot AI is a better fit for multi-stylist or growth-focused salons that treat lead follow-up, campaigns, and retention as structured revenue systems.",
+      bestUseCase:
+        "Best for salons with enough lead volume to justify a more serious nurture setup.",
+      pros: [
+        "Useful for follow-up workflows and stronger campaign organization.",
+        "Can support retention and repeat-visit communication more systematically.",
+        "More strategic long-term option for scaling businesses.",
+      ],
+      cons: [
+        "Too much CRM for many salons.",
+        "Requires consistency and process ownership to work well.",
+        "Not the right first purchase for every small local business.",
+      ],
+      reason:
+        "It belongs on the list because some salons are running a real growth engine, not just filling a chair one appointment at a time.",
+    },
+    midjourney: {
+      description:
+        "Midjourney is useful for salons that want more distinctive campaign concepts, launch visuals, or creative inspiration than template-driven tools can provide.",
+      bestUseCase:
+        "Best for visual concepting when the salon brand wants a more distinctive look.",
+      pros: [
+        "Helps teams think beyond standard local beauty creative.",
+        "Useful for concept boards and campaign ideation.",
+        "Can elevate the visual direction of launches or seasonal promos.",
+      ],
+      cons: [
+        "Not a daily-use tool for every salon.",
+        "Needs refinement before visuals become real brand assets.",
+        "Less urgent than Canva or ChatGPT for many owners.",
+      ],
+      reason:
+        "It is more of a creative edge tool than a foundational one, but it can be valuable for brands that want stronger differentiation.",
+    },
+  },
+};
+
 export const formatList = (items: string[]) =>
   new Intl.ListFormat("en", { style: "long", type: "conjunction" }).format(
     items,
@@ -506,6 +1181,12 @@ export const getComparisonPairFromSlug = (slug: string) => {
 };
 
 export const getToolHighlightsForIndustry = (industry: Industry, tool: Tool) => {
+  const override = industryToolOverrides[industry.slug]?.[tool.slug];
+
+  if (override) {
+    return override;
+  }
+
   const jobs = industry.jobsToBeDone;
   const useCaseSeed = jobs[0] || `save time in ${industry.name.toLowerCase()}`;
 
@@ -583,15 +1264,68 @@ export const getIndustryQuickPicks = (industry: Industry) => {
 };
 
 export const getToolRecommendationReason = (industry: Industry, tool: Tool) =>
+  industryToolOverrides[industry.slug]?.[tool.slug]?.reason ||
   `${tool.name} fits ${industry.name.toLowerCase()} particularly well because it helps teams ${industry.jobsToBeDone[0].toLowerCase()}, supports ${industry.jobsToBeDone[1].toLowerCase()}, and reduces friction around ${industry.painPoint.toLowerCase()}.`;
+
+export const getComparisonQuickPicks = (toolA: Tool, toolB: Tool) => {
+  const freeBias = (tool: Tool) => (tool.pricing.toLowerCase().includes("free") ? 1 : 0);
+  const pickHigher = (
+    scoreKey: "overall" | "beginner" | "value",
+    fallbackBias = false,
+  ) => {
+    const aScore = toolA.scores[scoreKey] + (fallbackBias ? freeBias(toolA) : 0);
+    const bScore = toolB.scores[scoreKey] + (fallbackBias ? freeBias(toolB) : 0);
+    return aScore >= bScore ? toolA : toolB;
+  };
+
+  const overall = pickHigher("overall");
+  let beginner = pickHigher("beginner", true);
+  let value = pickHigher("value", true);
+
+  if (beginner.slug === overall.slug) {
+    const other = overall.slug === toolA.slug ? toolB : toolA;
+    if (other.scores.beginner >= overall.scores.beginner - 1 || freeBias(other)) {
+      beginner = other;
+    }
+  }
+
+  if (value.slug === overall.slug || value.slug === beginner.slug) {
+    const other = value.slug === toolA.slug ? toolB : toolA;
+    if (other.scores.value >= value.scores.value - 1 || freeBias(other)) {
+      value = other;
+    }
+  }
+
+  return [
+    { label: "Best Overall", tool: overall },
+    { label: "Best for Beginners", tool: beginner },
+    { label: "Best Value", tool: value },
+  ];
+};
 
 export const getComparisonRecommendation = (toolA: Tool, toolB: Tool) => {
   const winner = toolA.scores.overall >= toolB.scores.overall ? toolA : toolB;
   const runnerUp = winner.slug === toolA.slug ? toolB : toolA;
+  const gap = Math.abs(toolA.scores.overall - toolB.scores.overall);
+  const sameCategory = toolA.category === toolB.category;
+
+  if (sameCategory && gap <= 1) {
+    return {
+      winner,
+      summary: `This is a close call. ${winner.name} has the slightly stronger all-around case, but ${runnerUp.name} is still the better pick if your day-to-day priority is ${runnerUp.bestUseCase.toLowerCase()}.`,
+    };
+  }
+
+  if (sameCategory) {
+    return {
+      winner,
+      summary: `${winner.name} is the more complete option for most buyers in this category, while ${runnerUp.name} makes more sense when the deciding factor is ${runnerUp.bestUseCase.toLowerCase()}.`,
+    };
+  }
 
   return {
     winner,
-    summary: `${winner.name} is the stronger all-around pick for most buyers, while ${runnerUp.name} is a better fit when your priority is ${runnerUp.bestUseCase.toLowerCase()}.`,
+    summary: `${winner.name} is the stronger recommendation if you need broader impact right away, but ${runnerUp.name} is the smarter buy when your main constraint is ${runnerUp.bestUseCase.toLowerCase()}.`,
   };
 };
 

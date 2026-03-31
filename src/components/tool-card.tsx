@@ -21,6 +21,9 @@ export function ToolCard({
       </p>
       <h3 className="mt-3 text-2xl font-semibold text-slate-950">{tool.name}</h3>
       <p className="mt-3 text-sm leading-7 text-slate-600">{tool.description}</p>
+      <p className="mt-3 text-sm font-medium leading-7 text-slate-800">
+        {tool.popularityNote}
+      </p>
       <div className="mt-5 flex flex-wrap gap-3">
         <a
           href={tool.affiliateUrl}
