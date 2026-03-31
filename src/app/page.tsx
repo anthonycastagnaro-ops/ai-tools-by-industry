@@ -27,7 +27,7 @@ export default function HomePage() {
             </p>
             <div className="space-y-6">
               <h1 className="max-w-4xl font-serif text-5xl leading-tight tracking-tight text-slate-950 sm:text-6xl">
-                Find AI tools that save time, automate work, and make your business more money
+                Find the best AI tools to save time, grow revenue, and run your business more efficiently
               </h1>
               <p className="max-w-2xl text-lg leading-8 text-slate-600">
                 Explore industry-specific buyer guides, tool reviews, and
@@ -40,13 +40,13 @@ export default function HomePage() {
                 href="/industries"
                 className="rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
               >
-                Browse industries
+                See Best Tools
               </Link>
               <Link
-                href="/tools/chatgpt"
+                href="/compare/chatgpt-vs-claude"
                 className="rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
               >
-                Explore featured tools
+                Compare Top Picks
               </Link>
             </div>
           </div>
@@ -96,8 +96,8 @@ export default function HomePage() {
         <Container className="space-y-10">
           <SectionHeading
             eyebrow="How To Use The Site"
-            title="Start with the business model, then narrow by workflow"
-            description="Most visitors get the best results by reading the industry guide first, opening two or three tool reviews, and then using a comparison page when they are down to finalists."
+            title="How this site works"
+            description="The site is designed to move buyers from broad research to a focused shortlist without making the process feel overwhelming."
           />
           <div className="grid gap-4 md:grid-cols-3">
             {[
@@ -127,9 +127,9 @@ export default function HomePage() {
                 <h3 className="text-xl font-semibold text-slate-950">{item.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-600">{item.body}</p>
                 <Link
-                  href={item.href}
-                  className="mt-5 inline-flex rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
-                >
+                href={item.href}
+                className="mt-5 inline-flex rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+              >
                   {item.label}
                 </Link>
               </article>
@@ -154,7 +154,7 @@ export default function HomePage() {
         <Container className="space-y-10">
           <SectionHeading
             eyebrow="Top Tools This Month"
-            title="The tools buyers are using to save time and grow faster"
+            title="Top AI tools this month"
             description="These are the strongest all-around picks on the site right now for operators who want clear ROI, fast setup, and real workflow leverage."
           />
           <div className="grid gap-6 lg:grid-cols-3">
@@ -170,7 +170,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="Featured Tools"
             title="Popular AI software buyers keep comparing"
-            description="These tool pages anchor the site’s internal linking structure and make it easy to expand into new verticals."
+            description="These review pages anchor the site’s internal linking structure and help readers move from discovery to a stronger final decision."
           />
           <div className="grid gap-6 lg:grid-cols-3">
             {featuredTools.map((tool) => (

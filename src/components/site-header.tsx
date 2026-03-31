@@ -12,6 +12,13 @@ const navItems = [
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-slate-200/70 bg-white/85 backdrop-blur">
+      <div className="border-b border-slate-200 bg-[var(--surface-alt)]">
+        <Container className="flex flex-wrap items-center gap-x-6 gap-y-2 py-2 text-xs font-medium text-slate-700">
+          <span>Updated monthly</span>
+          <span>Researched tools</span>
+          <span>Independent recommendations</span>
+        </Container>
+      </div>
       <Container className="flex h-18 items-center justify-between gap-6">
         <Link href="/" className="flex items-center gap-3">
           <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[var(--brand)] text-sm font-bold text-white">

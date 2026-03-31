@@ -15,8 +15,10 @@ import {
   getComparisonUrl,
   getIndustryBySlug,
   getIndustryFaqs,
+  getIndustryQuickPicks,
   getIndustryPainPoints,
   getIndustryUrl,
+  getToolRecommendationReason,
   getToolHighlightsForIndustry,
   getToolUrl,
   getToolsForIndustry,
@@ -88,6 +90,7 @@ export default async function IndustryPage({ params }: Props) {
   const tools = getToolsForIndustry(industry);
   const faqs = getIndustryFaqs(industry);
   const painPoints = getIndustryPainPoints(industry);
+  const quickPicks = getIndustryQuickPicks(industry);
   const comparisonRows = tools.map((tool) => [
     tool.name,
     tool.bestUseCase,
@@ -138,6 +141,46 @@ export default async function IndustryPage({ params }: Props) {
 
         <section className="space-y-8">
           <SectionHeading
+            eyebrow="Quick Picks"
+            title={`Best AI Tools for ${industry.name} (Quick Picks)`}
+            description="If you want the fastest shortlist, start with these labeled picks before reading the full recommendations."
+          />
+          <div className="grid gap-4 md:grid-cols-3">
+            {quickPicks.map(({ label, tool }) => (
+              <article
+                key={`${label}-${tool.slug}`}
+                className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
+              >
+                <p className="text-xs font-semibold tracking-[0.2em] text-[var(--brand)] uppercase">
+                  {label}
+                </p>
+                <h2 className="mt-3 text-2xl font-semibold text-slate-950">{tool.name}</h2>
+                <p className="mt-3 text-sm leading-7 text-slate-600">
+                  {getToolRecommendationReason(industry, tool)}
+                </p>
+                <div className="mt-5 flex flex-wrap gap-3">
+                  <Link
+                    href={getToolUrl(tool.slug)}
+                    className="rounded-full bg-slate-950 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-800"
+                  >
+                    See Why It&apos;s #1
+                  </Link>
+                  <a
+                    href={tool.website}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+                  >
+                    View Pricing
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="space-y-8">
+          <SectionHeading
             eyebrow="Pain Points"
             title={`What ${industry.name.toLowerCase()} teams usually need help with`}
             description="These are the recurring problems this guide is designed to solve."
@@ -179,6 +222,9 @@ export default async function IndustryPage({ params }: Props) {
                       <p className="text-base leading-8 text-slate-600">
                         {highlights.description}
                       </p>
+                      <p className="text-sm leading-7 text-slate-600">
+                        {getToolRecommendationReason(industry, tool)}
+                      </p>
                       <p className="text-sm font-medium leading-7 text-slate-800">
                         Best use case: {highlights.bestUseCase}
                       </p>
@@ -188,7 +234,7 @@ export default async function IndustryPage({ params }: Props) {
                         href={getToolUrl(tool.slug)}
                         className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
                       >
-                        Read review
+                        See Why It&apos;s #1
                       </Link>
                       <a
                         href={tool.affiliateUrl}
@@ -204,7 +250,7 @@ export default async function IndustryPage({ params }: Props) {
                         rel="noreferrer noopener"
                         className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
                       >
-                        Visit Website
+                        View Pricing
                       </a>
                     </div>
                   </div>
@@ -310,6 +356,12 @@ export default async function IndustryPage({ params }: Props) {
                 </Link>
               ))}
             </div>
+            <Link
+              href="/industries"
+              className="inline-flex rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+            >
+              Explore more industries
+            </Link>
           </div>
         </section>
 

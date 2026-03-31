@@ -11,6 +11,7 @@ import { buildAbsoluteUrl } from "@/lib/site";
 import {
   allComparisonSlugs,
   getBestIndustriesForTool,
+  getComparisonRecommendation,
   getComparisonPairFromSlug,
   getIndustryUrl,
   getToolUrl,
@@ -79,6 +80,7 @@ export default async function ComparisonPage({ params }: Props) {
     { label: "Best for Beginners", tool: bestForBeginners },
     { label: "Best Value", tool: bestValue },
   ];
+  const recommendation = getComparisonRecommendation(toolA, toolB);
   const linkedIndustries = Array.from(
     new Map(
       [...getBestIndustriesForTool(toolA.slug), ...getBestIndustriesForTool(toolB.slug)].map(
@@ -105,11 +107,33 @@ export default async function ComparisonPage({ params }: Props) {
           <h1 className="mt-4 font-serif text-4xl tracking-tight text-slate-950 sm:text-5xl">
             {toolA.name} vs {toolB.name}
           </h1>
+          <div className="mt-4 inline-flex rounded-full bg-[var(--surface-alt)] px-4 py-2 text-sm font-semibold text-slate-900">
+            Winner: {recommendation.winner.name}
+          </div>
           <p className="mt-5 max-w-4xl text-lg leading-8 text-slate-600">
             Compare these tools across features, pricing posture, and buyer fit
             so you can choose the right platform faster, save time on research,
             and move toward the tool that best supports revenue.
           </p>
+          <p className="mt-4 max-w-4xl text-base leading-8 text-slate-700">
+            {recommendation.summary}
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href={recommendation.winner.affiliateUrl}
+              target="_blank"
+              rel="noreferrer noopener sponsored"
+              className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+            >
+              Try {recommendation.winner.name}
+            </a>
+            <Link
+              href={getToolUrl(recommendation.winner.slug)}
+              className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+            >
+              See Why It&apos;s #1
+            </Link>
+          </div>
         </section>
 
         <section className="space-y-8">
@@ -133,8 +157,27 @@ export default async function ComparisonPage({ params }: Props) {
                 <p className="mt-3 text-sm leading-7 text-slate-600">
                   {tool.tagline}
                 </p>
+                <p className="mt-3 text-xs font-medium uppercase tracking-[0.18em] text-slate-500">
+                  Best for {tool.bestUseCase.toLowerCase()}
+                </p>
               </div>
             ))}
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <a
+              href={recommendation.winner.affiliateUrl}
+              target="_blank"
+              rel="noreferrer noopener sponsored"
+              className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+            >
+              Try {recommendation.winner.name}
+            </a>
+            <Link
+              href={getToolUrl(toolA.slug)}
+              className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+            >
+              Read both reviews
+            </Link>
           </div>
         </section>
 
@@ -154,6 +197,24 @@ export default async function ComparisonPage({ params }: Props) {
               ["Workflow depth", toolA.features[1], toolB.features[1]],
             ]}
           />
+          <div className="flex flex-wrap gap-3">
+            <a
+              href={toolA.affiliateUrl}
+              target="_blank"
+              rel="noreferrer noopener sponsored"
+              className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+            >
+              Try {toolA.name}
+            </a>
+            <a
+              href={toolB.affiliateUrl}
+              target="_blank"
+              rel="noreferrer noopener sponsored"
+              className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+            >
+              Try {toolB.name}
+            </a>
+          </div>
         </section>
 
         <section className="space-y-8">
@@ -169,6 +230,24 @@ export default async function ComparisonPage({ params }: Props) {
               [toolB.name, toolB.pricing, toolB.cons[0]],
             ]}
           />
+          <div className="flex flex-wrap gap-3">
+            <a
+              href={toolA.website}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+            >
+              View {toolA.name} Pricing
+            </a>
+            <a
+              href={toolB.website}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+            >
+              View {toolB.name} Pricing
+            </a>
+          </div>
         </section>
 
         <section className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
@@ -190,6 +269,14 @@ export default async function ComparisonPage({ params }: Props) {
             >
               Read {toolB.name} review
             </Link>
+            <a
+              href={recommendation.winner.affiliateUrl}
+              target="_blank"
+              rel="noreferrer noopener sponsored"
+              className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+            >
+              Try {recommendation.winner.name}
+            </a>
           </div>
         </section>
 
@@ -222,7 +309,7 @@ export default async function ComparisonPage({ params }: Props) {
                   rel="noreferrer noopener"
                   className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
                 >
-                  Visit Website
+                  View Pricing
                 </a>
               </div>
             </article>

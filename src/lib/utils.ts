@@ -555,6 +555,46 @@ export const getFeaturedTools = () => tools.slice(0, 6);
 export const getTopToolsThisMonth = () =>
   [...tools].sort((a, b) => b.scores.overall - a.scores.overall).slice(0, 6);
 
+export const getIndustryQuickPicks = (industry: Industry) => {
+  const industryTools = getToolsForIndustry(industry);
+
+  const pickDistinct = (
+    sortKey: "overall" | "beginner" | "value",
+    used: Set<string>,
+  ) => {
+    const ordered = [...industryTools].sort(
+      (a, b) => b.scores[sortKey] - a.scores[sortKey],
+    );
+    return ordered.find((tool) => !used.has(tool.slug)) || ordered[0];
+  };
+
+  const used = new Set<string>();
+  const topPick = pickDistinct("overall", used);
+  if (topPick) used.add(topPick.slug);
+  const bestValue = pickDistinct("value", used);
+  if (bestValue) used.add(bestValue.slug);
+  const bestForBeginners = pickDistinct("beginner", used);
+
+  return [
+    topPick ? { label: "Top Pick", tool: topPick } : null,
+    bestValue ? { label: "Best Value", tool: bestValue } : null,
+    bestForBeginners ? { label: "Best for Beginners", tool: bestForBeginners } : null,
+  ].filter((item): item is { label: string; tool: Tool } => Boolean(item));
+};
+
+export const getToolRecommendationReason = (industry: Industry, tool: Tool) =>
+  `${tool.name} fits ${industry.name.toLowerCase()} particularly well because it helps teams ${industry.jobsToBeDone[0].toLowerCase()}, supports ${industry.jobsToBeDone[1].toLowerCase()}, and reduces friction around ${industry.painPoint.toLowerCase()}.`;
+
+export const getComparisonRecommendation = (toolA: Tool, toolB: Tool) => {
+  const winner = toolA.scores.overall >= toolB.scores.overall ? toolA : toolB;
+  const runnerUp = winner.slug === toolA.slug ? toolB : toolA;
+
+  return {
+    winner,
+    summary: `${winner.name} is the stronger all-around pick for most buyers, while ${runnerUp.name} is a better fit when your priority is ${runnerUp.bestUseCase.toLowerCase()}.`,
+  };
+};
+
 export const allComparisonSlugs = tools.flatMap((tool, index) =>
   tools.slice(index + 1).map((otherTool) => getComparisonSlug(tool.slug, otherTool.slug)),
 );

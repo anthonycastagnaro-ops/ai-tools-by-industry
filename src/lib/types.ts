@@ -9,6 +9,8 @@ export type Tool = {
   pricing: string;
   affiliateUrl: string;
   website: string;
+  popularityNote: string;
+  businessUsage: string;
   scores: {
     overall: number;
     beginner: number;

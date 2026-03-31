@@ -21,6 +21,11 @@ export function SiteFooter() {
             Independent buyer guides for finding the best AI tools for specific
             industries, workflows, and growth stages.
           </p>
+          <div className="flex flex-wrap gap-3 pt-2 text-xs font-medium text-slate-500">
+            <span>Updated monthly</span>
+            <span>Researched tools</span>
+            <span>Independent recommendations</span>
+          </div>
         </div>
         <div className="grid grid-cols-2 gap-3 text-sm">
           {footerLinks.map((item) => (

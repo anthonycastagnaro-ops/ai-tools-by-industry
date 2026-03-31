@@ -24,21 +24,41 @@ export default function AboutPage() {
       />
       <div className="grid gap-6 lg:grid-cols-2">
         <article className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+          <h2 className="text-2xl font-semibold text-slate-950">Mission</h2>
+          <p className="mt-4 text-sm leading-8 text-slate-600">
+            The mission is to make AI software research clearer for business
+            owners and operators who do not have time to sort through generic
+            roundups, unclear vendor claims, or scattered recommendations.
+          </p>
+        </article>
+        <article className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+          <h2 className="text-2xl font-semibold text-slate-950">Editorial buyer guide positioning</h2>
+          <p className="mt-4 text-sm leading-8 text-slate-600">
+            Recommendations are framed around likely use cases, operational fit,
+            and workflow impact. Pages are written to be clear enough for
+            readers and credible enough for affiliate partners reviewing the
+            site before approval.
+          </p>
+        </article>
+      </div>
+      <div className="grid gap-6 lg:grid-cols-2">
+        <article className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+          <h2 className="text-2xl font-semibold text-slate-950">How we test tools</h2>
+          <p className="mt-4 text-sm leading-8 text-slate-600">
+            The site evaluates tools by looking at workflow fit, buyer intent,
+            clarity of use case, pricing posture, and how often a tool appears
+            in real-world shortlists for specific industries. The aim is not to
+            publish a lab-style benchmark, but to help buyers understand which
+            products deserve serious consideration.
+          </p>
+        </article>
+        <article className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
           <h2 className="text-2xl font-semibold text-slate-950">How the site is structured</h2>
           <p className="mt-4 text-sm leading-8 text-slate-600">
             Industry pages identify common bottlenecks, tool pages explain fit
             and tradeoffs, and comparison pages help buyers decide between
             overlapping options. That structure is meant to support real buying
             journeys, not just search traffic.
-          </p>
-        </article>
-        <article className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
-          <h2 className="text-2xl font-semibold text-slate-950">Editorial approach</h2>
-          <p className="mt-4 text-sm leading-8 text-slate-600">
-            Recommendations are framed around likely use cases, operational fit,
-            and workflow impact. Pages are written to be clear enough for
-            readers and credible enough for affiliate partners reviewing the
-            site before approval.
           </p>
         </article>
       </div>

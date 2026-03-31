@@ -14,6 +14,8 @@ export const tools: Tool[] = [
     pricing: "Free plan available; paid plans and team tiers available.",
     affiliateUrl: "https://your-affiliate-link.com/chatgpt",
     website: "https://chatgpt.com",
+    popularityNote: "Popular choice right now for teams adopting AI across multiple workflows.",
+    businessUsage: "Used by fast-moving businesses across marketing, operations, and service teams.",
     scores: { overall: 10, beginner: 10, value: 9 },
     features: [
       "Long-form drafting and editing support",
@@ -46,6 +48,8 @@ export const tools: Tool[] = [
     pricing: "Free plan available; pro tier available.",
     affiliateUrl: "https://your-affiliate-link.com/perplexity",
     website: "https://www.perplexity.ai",
+    popularityNote: "Growing quickly with buyers who care about research speed and source visibility.",
+    businessUsage: "Used by research-heavy teams that need faster market, competitor, and pricing insights.",
     scores: { overall: 8, beginner: 8, value: 9 },
     features: [
       "Source-backed search answers",
@@ -78,6 +82,8 @@ export const tools: Tool[] = [
     pricing: "Paid plans available for individuals and teams.",
     affiliateUrl: "https://your-affiliate-link.com/jasper",
     website: "https://www.jasper.ai",
+    popularityNote: "Well-known among marketing teams that need stronger brand consistency.",
+    businessUsage: "Used by content and campaign teams publishing at scale.",
     scores: { overall: 8, beginner: 7, value: 6 },
     features: [
       "Brand voice and style guidance",
@@ -110,6 +116,8 @@ export const tools: Tool[] = [
     pricing: "Free plan available; paid plans for teams.",
     affiliateUrl: "https://your-affiliate-link.com/copy-ai",
     website: "https://www.copy.ai",
+    popularityNote: "Common short-list pick for lean go-to-market teams.",
+    businessUsage: "Used by sales and marketing teams creating outbound and campaign copy.",
     scores: { overall: 8, beginner: 8, value: 8 },
     features: [
       "Outbound and sales writing templates",
@@ -142,6 +150,8 @@ export const tools: Tool[] = [
     pricing: "Workspace plans available with AI add-ons or bundled tiers.",
     affiliateUrl: "https://your-affiliate-link.com/notion-ai",
     website: "https://www.notion.so/product/ai",
+    popularityNote: "Popular with teams already centralizing docs and process inside Notion.",
+    businessUsage: "Used by operators and internal teams to organize knowledge and recurring workflows.",
     scores: { overall: 8, beginner: 7, value: 8 },
     features: [
       "Summaries and writing support inside docs",
@@ -174,6 +184,8 @@ export const tools: Tool[] = [
     pricing: "Free plan available; premium and business plans available.",
     affiliateUrl: "https://your-affiliate-link.com/grammarly",
     website: "https://www.grammarly.com",
+    popularityNote: "Steady favorite for teams that want a simple upgrade to client communication.",
+    businessUsage: "Used by businesses that rely on clean proposals, email, and customer-facing writing.",
     scores: { overall: 8, beginner: 10, value: 9 },
     features: [
       "Grammar and clarity suggestions",
@@ -206,6 +218,8 @@ export const tools: Tool[] = [
     pricing: "Free plan available; paid plans for higher usage.",
     affiliateUrl: "https://your-affiliate-link.com/claude",
     website: "https://claude.ai",
+    popularityNote: "Frequently compared by buyers who want polished long-form output.",
+    businessUsage: "Used by service businesses and knowledge teams working with dense documents and nuanced writing.",
     scores: { overall: 9, beginner: 8, value: 8 },
     features: [
       "Strong long-form writing support",
@@ -238,6 +252,8 @@ export const tools: Tool[] = [
     pricing: "Paid plans available.",
     affiliateUrl: "https://your-affiliate-link.com/midjourney",
     website: "https://www.midjourney.com",
+    popularityNote: "Popular among visual-first teams exploring concepts and creative directions.",
+    businessUsage: "Used by creators and design-led businesses to speed up concept generation.",
     scores: { overall: 7, beginner: 6, value: 7 },
     features: [
       "High-quality image generation",
@@ -270,6 +286,8 @@ export const tools: Tool[] = [
     pricing: "Free plan available; paid plans for teams and advanced assets.",
     affiliateUrl: "https://your-affiliate-link.com/canva",
     website: "https://www.canva.com",
+    popularityNote: "One of the most common design picks for small business teams.",
+    businessUsage: "Used by local businesses, creators, and marketing teams that need fast visual output.",
     scores: { overall: 9, beginner: 10, value: 9 },
     features: [
       "Ready-made templates for many formats",
@@ -302,6 +320,8 @@ export const tools: Tool[] = [
     pricing: "Free plan available; paid plans based on tasks and complexity.",
     affiliateUrl: "https://your-affiliate-link.com/zapier",
     website: "https://zapier.com",
+    popularityNote: "Still one of the most widely recognized automation tools for non-technical teams.",
+    businessUsage: "Used by businesses automating lead routing, notifications, and repetitive admin work.",
     scores: { overall: 9, beginner: 9, value: 8 },
     features: [
       "Large app integration library",
@@ -334,6 +354,8 @@ export const tools: Tool[] = [
     pricing: "Free plan available; paid plans scale with operations and features.",
     affiliateUrl: "https://your-affiliate-link.com/make",
     website: "https://www.make.com",
+    popularityNote: "A strong short-list option for buyers who need deeper workflow logic.",
+    businessUsage: "Used by operations-heavy teams building more customized automations.",
     scores: { overall: 9, beginner: 6, value: 9 },
     features: [
       "Visual workflow builder",
@@ -366,6 +388,8 @@ export const tools: Tool[] = [
     pricing: "HubSpot plan pricing varies by hub, seats, and features.",
     affiliateUrl: "https://your-affiliate-link.com/hubspot-ai",
     website: "https://www.hubspot.com/artificial-intelligence",
+    popularityNote: "Popular among revenue teams that want AI support inside an existing CRM.",
+    businessUsage: "Used by businesses managing lifecycle marketing, sales follow-up, and customer pipelines.",
     scores: { overall: 8, beginner: 6, value: 7 },
     features: [
       "AI assistance inside CRM workflows",
@@ -398,6 +422,8 @@ export const tools: Tool[] = [
     pricing: "Paid plans available.",
     affiliateUrl: "https://your-affiliate-link.com/surfer-seo",
     website: "https://surferseo.com",
+    popularityNote: "Frequently shortlisted by SEO-focused publishers and agencies.",
+    businessUsage: "Used by teams that treat organic search as a repeatable acquisition channel.",
     scores: { overall: 8, beginner: 6, value: 7 },
     features: [
       "SEO content editor and optimization guidance",
@@ -430,6 +456,8 @@ export const tools: Tool[] = [
     pricing: "Free plan available; paid creator and business plans available.",
     affiliateUrl: "https://your-affiliate-link.com/descript",
     website: "https://www.descript.com",
+    popularityNote: "A popular pick for teams that want faster content production without heavy editing tools.",
+    businessUsage: "Used by creators, agencies, and media teams producing recurring audio and video content.",
     scores: { overall: 8, beginner: 8, value: 8 },
     features: [
       "Transcript-based editing",
@@ -462,6 +490,8 @@ export const tools: Tool[] = [
     pricing: "Free plan available; paid plans for deeper team needs.",
     affiliateUrl: "https://your-affiliate-link.com/fireflies",
     website: "https://fireflies.ai",
+    popularityNote: "Common meeting assistant choice for service and sales teams.",
+    businessUsage: "Used by businesses that want searchable call history, summaries, and follow-up capture.",
     scores: { overall: 8, beginner: 8, value: 8 },
     features: [
       "Automated meeting transcription",

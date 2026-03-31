@@ -92,6 +92,14 @@ export default async function ToolPage({ params }: Props) {
               Best for: {tool.bestUseCase} if you want to save time, automate
               repeatable work, and improve output quality faster.
             </p>
+            <div className="flex flex-wrap gap-3 text-sm text-slate-600">
+              <span className="rounded-full bg-[var(--surface-alt)] px-4 py-2">
+                {tool.businessUsage}
+              </span>
+              <span className="rounded-full bg-[var(--surface-alt)] px-4 py-2">
+                {tool.popularityNote}
+              </span>
+            </div>
           </div>
           <div className="rounded-[1.75rem] bg-[var(--surface-alt)] p-6">
             <p className="text-sm font-semibold text-slate-900">Quick take</p>
@@ -115,9 +123,58 @@ export default async function ToolPage({ params }: Props) {
                 rel="noreferrer noopener"
                 className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
               >
-                Visit Website
+                View Pricing
               </a>
+              <Link
+                href={getComparisonUrl(
+                  tool.slug,
+                  comparisonCandidates[0]?.slug || alternatives[0]?.slug || tool.slug,
+                )}
+                className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+              >
+                Compare Top Picks
+              </Link>
             </div>
+          </div>
+        </section>
+
+        <section className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+          <SectionHeading
+            eyebrow="Why We Recommend It"
+            title={`Why we recommend ${tool.name}`}
+            description={`${tool.name} makes the site because it solves a clear workflow problem, has a defined buyer fit, and continues to show up in serious buying decisions.`}
+          />
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {[
+              tool.businessUsage,
+              tool.popularityNote,
+              `It stands out most when buyers need ${tool.bestUseCase.toLowerCase()}.`,
+            ].map((item) => (
+              <div
+                key={item}
+                className="rounded-3xl bg-[var(--surface-alt)] p-6 text-sm leading-7 text-slate-700"
+              >
+                {item}
+              </div>
+            ))}
+          </div>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href={tool.affiliateUrl}
+              target="_blank"
+              rel="noreferrer noopener sponsored"
+              className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+            >
+              Try {tool.name}
+            </a>
+            <a
+              href={tool.website}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+            >
+              View Pricing
+            </a>
           </div>
         </section>
 
@@ -213,6 +270,24 @@ export default async function ToolPage({ params }: Props) {
                 {tool.name} vs {candidate.name}
               </Link>
             ))}
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <a
+              href={tool.affiliateUrl}
+              target="_blank"
+              rel="noreferrer noopener sponsored"
+              className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+            >
+              Try {tool.name}
+            </a>
+            <a
+              href={tool.website}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+            >
+              View Pricing
+            </a>
           </div>
         </section>
 
