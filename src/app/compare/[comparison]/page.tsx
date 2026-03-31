@@ -100,7 +100,7 @@ export default async function ComparisonPage({ params }: Props) {
             {toolA.name} vs {toolB.name}
           </h1>
           <div className="mt-4 inline-flex rounded-full bg-[var(--surface-alt)] px-4 py-2 text-sm font-semibold text-slate-900">
-            Winner: {recommendation.winner.name}
+            Clear Winner: {recommendation.winner.name}
           </div>
           <p className="mt-5 max-w-4xl text-lg leading-8 text-slate-600">
             Compare these tools across features, pricing posture, and buyer fit
@@ -117,7 +117,7 @@ export default async function ComparisonPage({ params }: Props) {
               rel="noreferrer noopener sponsored"
               className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
-              Try {recommendation.winner.name}
+              Start Free Trial
             </a>
             <Link
               href={getToolUrl(recommendation.winner.slug)}
@@ -162,7 +162,7 @@ export default async function ComparisonPage({ params }: Props) {
               rel="noreferrer noopener sponsored"
               className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
-              Try {recommendation.winner.name}
+              Try This Tool
             </a>
             <Link
               href={getToolUrl(toolA.slug)}
@@ -179,7 +179,7 @@ export default async function ComparisonPage({ params }: Props) {
               Choose {toolA.name} if...
             </h2>
             <p className="mt-4 text-sm leading-8 text-slate-600">
-              {toolA.name} is the better fit for teams that need {toolA.bestUseCase.toLowerCase()} and care more about that workflow than about {toolB.bestUseCase.toLowerCase()}.
+              Choose {toolA.name} if your team needs {toolA.bestUseCase.toLowerCase()} and that matters more than {toolB.bestUseCase.toLowerCase()}.
             </p>
           </article>
           <article className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
@@ -187,7 +187,7 @@ export default async function ComparisonPage({ params }: Props) {
               Choose {toolB.name} if...
             </h2>
             <p className="mt-4 text-sm leading-8 text-slate-600">
-              {toolB.name} wins when your team cares more about {toolB.bestUseCase.toLowerCase()} and is comfortable trading away some of what makes {toolA.name} more broadly attractive.
+              Choose {toolB.name} if cost, simplicity, or focus around {toolB.bestUseCase.toLowerCase()} matters more than the broader upside of {toolA.name}.
             </p>
           </article>
         </section>
@@ -215,7 +215,7 @@ export default async function ComparisonPage({ params }: Props) {
               rel="noreferrer noopener sponsored"
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
-              Try {toolA.name}
+              Try This Tool
             </a>
             <a
               href={toolB.affiliateUrl}
@@ -223,7 +223,7 @@ export default async function ComparisonPage({ params }: Props) {
               rel="noreferrer noopener sponsored"
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
-              Try {toolB.name}
+              Try This Tool
             </a>
           </div>
         </section>
@@ -286,7 +286,7 @@ export default async function ComparisonPage({ params }: Props) {
               rel="noreferrer noopener sponsored"
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
-              Try {recommendation.winner.name}
+              Start Free Trial
             </a>
           </div>
         </section>
@@ -312,7 +312,7 @@ export default async function ComparisonPage({ params }: Props) {
                   rel="noreferrer noopener sponsored"
                   className="rounded-full bg-slate-950 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-800"
                 >
-                  Try {tool.name}
+                  Try This Tool
                 </a>
                 <a
                   href={tool.website}

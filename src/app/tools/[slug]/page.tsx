@@ -99,6 +99,9 @@ export default async function ToolPage({ params }: Props) {
               <span className="rounded-full bg-[var(--surface-alt)] px-4 py-2">
                 {tool.popularityNote}
               </span>
+              <span className="rounded-full bg-[var(--surface-alt)] px-4 py-2">
+                Popular right now
+              </span>
             </div>
           </div>
           <div className="rounded-[1.75rem] bg-[var(--surface-alt)] p-6">
@@ -115,7 +118,7 @@ export default async function ToolPage({ params }: Props) {
                 rel="noreferrer noopener sponsored"
                 className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
               >
-                Try {tool.name}
+                Start Free Trial
               </a>
               <a
                 href={tool.website}
@@ -165,7 +168,7 @@ export default async function ToolPage({ params }: Props) {
               rel="noreferrer noopener sponsored"
               className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
-              Try {tool.name}
+              Try This Tool
             </a>
             <a
               href={tool.website}
@@ -201,7 +204,7 @@ export default async function ToolPage({ params }: Props) {
               rel="noreferrer noopener sponsored"
               className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
-              Try {tool.name}
+              Start Free Trial
             </a>
             <a
               href={tool.website}
@@ -296,7 +299,7 @@ export default async function ToolPage({ params }: Props) {
               rel="noreferrer noopener sponsored"
               className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
-              Try {tool.name}
+              Start Free Trial
             </a>
             <a
               href={tool.website}

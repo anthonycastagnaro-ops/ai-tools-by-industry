@@ -1191,8 +1191,8 @@ export const getToolHighlightsForIndustry = (industry: Industry, tool: Tool) => 
   const useCaseSeed = jobs[0] || `save time in ${industry.name.toLowerCase()}`;
 
   return {
-    description: `${tool.name} helps ${industry.name.toLowerCase()} teams ${useCaseSeed.toLowerCase()} without adding another complicated system to manage.`,
-    bestUseCase: `${tool.name} is strongest for ${industry.audience.toLowerCase()} teams that need to ${jobs[1]?.toLowerCase() || jobs[0].toLowerCase()} and still keep quality high.`,
+    description: `${tool.name} is one of the best choices for ${industry.name.toLowerCase()} teams that need to ${useCaseSeed.toLowerCase()} without adding another complicated system to manage.`,
+    bestUseCase: `Best choice if you want to ${jobs[1]?.toLowerCase() || jobs[0].toLowerCase()} and still keep quality high.`,
     pros: [
       `Fits ${industry.name.toLowerCase()} workflows where speed and consistency both matter.`,
       `Reduces manual work around ${industry.painPoint.toLowerCase()}.`,
@@ -1265,7 +1265,7 @@ export const getIndustryQuickPicks = (industry: Industry) => {
 
 export const getToolRecommendationReason = (industry: Industry, tool: Tool) =>
   industryToolOverrides[industry.slug]?.[tool.slug]?.reason ||
-  `${tool.name} fits ${industry.name.toLowerCase()} particularly well because it helps teams ${industry.jobsToBeDone[0].toLowerCase()}, supports ${industry.jobsToBeDone[1].toLowerCase()}, and reduces friction around ${industry.painPoint.toLowerCase()}.`;
+  `Most ${industry.name.toLowerCase()} businesses should start with ${tool.name} if they need help with ${industry.jobsToBeDone[0].toLowerCase()}, ${industry.jobsToBeDone[1].toLowerCase()}, and reducing friction around ${industry.painPoint.toLowerCase()}.`;
 
 export const getComparisonQuickPicks = (toolA: Tool, toolB: Tool) => {
   const freeBias = (tool: Tool) => (tool.pricing.toLowerCase().includes("free") ? 1 : 0);
@@ -1312,20 +1312,20 @@ export const getComparisonRecommendation = (toolA: Tool, toolB: Tool) => {
   if (sameCategory && gap <= 1) {
     return {
       winner,
-      summary: `This is a close call. ${winner.name} has the slightly stronger all-around case, but ${runnerUp.name} is still the better pick if your day-to-day priority is ${runnerUp.bestUseCase.toLowerCase()}.`,
+      summary: `This is a close call, but ${winner.name} is the better all-around pick for most teams. Choose ${runnerUp.name} only if your day-to-day priority is ${runnerUp.bestUseCase.toLowerCase()}.`,
     };
   }
 
   if (sameCategory) {
     return {
       winner,
-      summary: `${winner.name} is the more complete option for most buyers in this category, while ${runnerUp.name} makes more sense when the deciding factor is ${runnerUp.bestUseCase.toLowerCase()}.`,
+      summary: `${winner.name} is the stronger recommendation for most buyers in this category. Choose ${runnerUp.name} if the deciding factor is ${runnerUp.bestUseCase.toLowerCase()}.`,
     };
   }
 
   return {
     winner,
-    summary: `${winner.name} is the stronger recommendation if you need broader impact right away, but ${runnerUp.name} is the smarter buy when your main constraint is ${runnerUp.bestUseCase.toLowerCase()}.`,
+    summary: `${winner.name} is the better pick if you want broader impact right away. Choose ${runnerUp.name} if your main constraint is ${runnerUp.bestUseCase.toLowerCase()}.`,
   };
 };
 

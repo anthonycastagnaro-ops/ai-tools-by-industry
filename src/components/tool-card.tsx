@@ -31,7 +31,7 @@ export function ToolCard({
           rel="noreferrer noopener sponsored"
           className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
         >
-          Try {tool.name}
+          Start Free Trial
         </a>
         <a
           href={tool.website}
@@ -45,7 +45,7 @@ export function ToolCard({
           href={getToolUrl(tool.slug)}
           className="rounded-full bg-slate-950 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-800"
         >
-          Read review
+          See Why It&apos;s #1
         </Link>
       </div>
     </article>

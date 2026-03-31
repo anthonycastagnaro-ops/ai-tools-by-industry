@@ -122,9 +122,29 @@ export default async function IndustryPage({ params }: Props) {
             <p className="text-base leading-8 text-slate-600">
               This guide is written for {industry.audience.toLowerCase()} dealing
               with {industry.painPoint}. The aim is to help you identify which
-              tools create meaningful leverage now, not just add one more tool
+              tools are actually worth trying first, not just add one more tool
               to evaluate.
             </p>
+            <div className="flex flex-wrap gap-3">
+              {primaryRecommendation ? (
+                <>
+                  <Link
+                    href={getToolUrl(primaryRecommendation.slug)}
+                    className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+                  >
+                    Most Businesses Should Start Here
+                  </Link>
+                  <a
+                    href={primaryRecommendation.website}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+                  >
+                    View Pricing
+                  </a>
+                </>
+              ) : null}
+            </div>
           </div>
           <div className="rounded-[1.75rem] bg-[var(--surface-alt)] p-6">
             <p className="text-sm font-semibold text-slate-900">
@@ -152,7 +172,7 @@ export default async function IndustryPage({ params }: Props) {
                 key={`${label}-${tool.slug}`}
                 className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
               >
-                <p className="text-xs font-semibold tracking-[0.2em] text-[var(--brand)] uppercase">
+                <p className="inline-flex rounded-full bg-[var(--brand)] px-3 py-1 text-xs font-semibold tracking-[0.16em] text-white uppercase">
                   {label}
                 </p>
                 <h2 className="mt-3 text-2xl font-semibold text-slate-950">{tool.name}</h2>
@@ -173,6 +193,14 @@ export default async function IndustryPage({ params }: Props) {
                     className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
                   >
                     View Pricing
+                  </a>
+                  <a
+                    href={tool.affiliateUrl}
+                    target="_blank"
+                    rel="noreferrer noopener sponsored"
+                    className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+                  >
+                    Try This Tool
                   </a>
                 </div>
               </article>
@@ -251,6 +279,9 @@ export default async function IndustryPage({ params }: Props) {
                       <p className="text-sm font-medium leading-7 text-slate-800">
                         Best use case: {highlights.bestUseCase}
                       </p>
+                      <p className="text-sm font-semibold leading-7 text-slate-900">
+                        Popular right now for {industry.name.toLowerCase()} teams that need faster execution.
+                      </p>
                     </div>
                     <div className="flex flex-wrap gap-3">
                       <Link
@@ -265,7 +296,7 @@ export default async function IndustryPage({ params }: Props) {
                         rel="noreferrer noopener sponsored"
                         className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
                       >
-                        Try {tool.name}
+                        Start Free Trial
                       </a>
                       <a
                         href={tool.website}
@@ -274,6 +305,14 @@ export default async function IndustryPage({ params }: Props) {
                         className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
                       >
                         View Pricing
+                      </a>
+                      <a
+                        href={tool.affiliateUrl}
+                        target="_blank"
+                        rel="noreferrer noopener sponsored"
+                        className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+                      >
+                        Try This Tool
                       </a>
                     </div>
                   </div>
@@ -339,7 +378,7 @@ export default async function IndustryPage({ params }: Props) {
                 href={getToolUrl(primaryRecommendation.slug)}
                 className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
               >
-                See Why It&apos;s #1
+                If You Only Pick One Tool, Pick This
               </Link>
               <a
                 href={primaryRecommendation.website}
@@ -348,6 +387,14 @@ export default async function IndustryPage({ params }: Props) {
                 className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
               >
                 View Pricing
+              </a>
+              <a
+                href={primaryRecommendation.affiliateUrl}
+                target="_blank"
+                rel="noreferrer noopener sponsored"
+                className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+              >
+                Start Free Trial
               </a>
             </div>
           </section>
