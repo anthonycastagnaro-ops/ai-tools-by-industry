@@ -188,7 +188,11 @@ export default async function ToolPage({ params }: Props) {
               <AffiliateLink
                 href={affiliateLinks.fiverr}
                 toolSlug="fiverr"
+                toolName="Fiverr"
                 placement="tool_page_fiverr"
+                pageType="tool"
+                ctaType="fiverr"
+                ctaLocation="mid"
                 className="inline-flex rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
               >
                 Find an Expert on Fiverr
@@ -206,7 +210,11 @@ export default async function ToolPage({ params }: Props) {
               <AffiliateLink
                 href={affiliateLinks.systeme}
                 toolSlug="systeme"
+                toolName="Systeme.io"
                 placement="tool_page_systeme"
+                pageType="tool"
+                ctaType="systeme"
+                ctaLocation="mid"
                 className="inline-flex rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
               >
                 Start Free with Systeme.io

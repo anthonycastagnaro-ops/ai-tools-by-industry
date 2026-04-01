@@ -196,7 +196,11 @@ export default async function IndustryPage({ params }: Props) {
                   <AffiliateLink
                     href={tool.affiliateUrl}
                     toolSlug={tool.slug}
+                    toolName={tool.name}
                     placement="industry_quick_picks"
+                    pageType="industry"
+                    ctaType="internal"
+                    ctaLocation="top"
                     className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
                   >
                     Try This Tool
@@ -292,7 +296,11 @@ export default async function IndustryPage({ params }: Props) {
                       <AffiliateLink
                         href={tool.affiliateUrl}
                         toolSlug={tool.slug}
+                        toolName={tool.name}
                         placement="industry_top_picks"
+                        pageType="industry"
+                        ctaType="internal"
+                        ctaLocation="mid"
                         className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
                       >
                         Start Free Trial
@@ -306,7 +314,11 @@ export default async function IndustryPage({ params }: Props) {
                       <AffiliateLink
                         href={tool.affiliateUrl}
                         toolSlug={tool.slug}
+                        toolName={tool.name}
                         placement="industry_top_picks"
+                        pageType="industry"
+                        ctaType="internal"
+                        ctaLocation="mid"
                         className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
                       >
                         Try This Tool
@@ -373,7 +385,11 @@ export default async function IndustryPage({ params }: Props) {
             <AffiliateLink
               href={affiliateLinks.fiverr}
               toolSlug="fiverr"
+              toolName="Fiverr"
               placement="industry_fiverr"
+              pageType="industry"
+              ctaType="fiverr"
+              ctaLocation="mid"
               className="inline-flex rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
               Browse Experts on Fiverr
@@ -391,7 +407,11 @@ export default async function IndustryPage({ params }: Props) {
             <AffiliateLink
               href={affiliateLinks.systeme}
               toolSlug="systeme"
+              toolName="Systeme.io"
               placement="industry_systeme"
+              pageType="industry"
+              ctaType="systeme"
+              ctaLocation="mid"
               className="inline-flex rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
               Start Free with Systeme.io
@@ -422,7 +442,11 @@ export default async function IndustryPage({ params }: Props) {
               <AffiliateLink
                 href={primaryRecommendation.affiliateUrl}
                 toolSlug={primaryRecommendation.slug}
+                toolName={primaryRecommendation.name}
                 placement="industry_final_recommendation"
+                pageType="industry"
+                ctaType="internal"
+                ctaLocation="bottom"
                 className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
               >
                 Start Free Trial

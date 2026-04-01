@@ -117,7 +117,11 @@ export default async function ComparisonPage({ params }: Props) {
             <AffiliateLink
               href={recommendation.winner.affiliateUrl}
               toolSlug={recommendation.winner.slug}
+              toolName={recommendation.winner.name}
               placement="comparison_hero"
+              pageType="comparison"
+              ctaType="internal"
+              ctaLocation="top"
               className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
               Start Free Trial
@@ -162,7 +166,11 @@ export default async function ComparisonPage({ params }: Props) {
             <AffiliateLink
               href={recommendation.winner.affiliateUrl}
               toolSlug={recommendation.winner.slug}
+              toolName={recommendation.winner.name}
               placement="comparison_quick_picks"
+              pageType="comparison"
+              ctaType="internal"
+              ctaLocation="top"
               className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
               Try This Tool
@@ -215,7 +223,11 @@ export default async function ComparisonPage({ params }: Props) {
             <AffiliateLink
               href={toolA.affiliateUrl}
               toolSlug={toolA.slug}
+              toolName={toolA.name}
               placement="comparison_feature_table"
+              pageType="comparison"
+              ctaType="internal"
+              ctaLocation="mid"
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
               Try This Tool
@@ -223,7 +235,11 @@ export default async function ComparisonPage({ params }: Props) {
             <AffiliateLink
               href={toolB.affiliateUrl}
               toolSlug={toolB.slug}
+              toolName={toolB.name}
               placement="comparison_feature_table"
+              pageType="comparison"
+              ctaType="internal"
+              ctaLocation="mid"
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
               Try This Tool
@@ -282,7 +298,11 @@ export default async function ComparisonPage({ params }: Props) {
             <AffiliateLink
               href={recommendation.winner.affiliateUrl}
               toolSlug={recommendation.winner.slug}
+              toolName={recommendation.winner.name}
               placement="comparison_verdict"
+              pageType="comparison"
+              ctaType="internal"
+              ctaLocation="bottom"
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
               Start Free Trial
@@ -300,7 +320,11 @@ export default async function ComparisonPage({ params }: Props) {
             <AffiliateLink
               href={affiliateLinks.fiverr}
               toolSlug="fiverr"
+              toolName="Fiverr"
               placement="comparison_fiverr"
+              pageType="comparison"
+              ctaType="fiverr"
+              ctaLocation="bottom"
               className="inline-flex rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
               Hire an Expert on Fiverr
@@ -318,7 +342,11 @@ export default async function ComparisonPage({ params }: Props) {
             <AffiliateLink
               href={affiliateLinks.systeme}
               toolSlug="systeme"
+              toolName="Systeme.io"
               placement="comparison_systeme"
+              pageType="comparison"
+              ctaType="systeme"
+              ctaLocation="bottom"
               className="inline-flex rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
               Start Free with Systeme.io
@@ -344,7 +372,11 @@ export default async function ComparisonPage({ params }: Props) {
                 <AffiliateLink
                   href={tool.affiliateUrl}
                   toolSlug={tool.slug}
+                  toolName={tool.name}
                   placement="comparison_tool_card"
+                  pageType="comparison"
+                  ctaType="internal"
+                  ctaLocation="bottom"
                   className="rounded-full bg-slate-950 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-800"
                 >
                   Try This Tool
