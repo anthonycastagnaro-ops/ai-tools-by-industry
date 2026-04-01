@@ -385,7 +385,7 @@ export default async function IndustryPage({ params }: Props) {
           <SectionHeading
             eyebrow="All-In-One Option"
             title="Prefer one platform instead of stitching tools together?"
-            description="Many businesses prefer using one platform for funnels, email marketing, and automations. Systeme.io is a simple all-in-one option."
+            description="Many businesses prefer using one platform for funnels, email marketing, and automations. Systeme.io is a simple all-in-one option with a free starting point and less setup friction."
           />
           <div className="mt-8">
             <AffiliateLink
@@ -394,7 +394,7 @@ export default async function IndustryPage({ params }: Props) {
               placement="industry_systeme"
               className="inline-flex rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
-              Explore Systeme.io
+              Start Free with Systeme.io
             </AffiliateLink>
           </div>
         </section>

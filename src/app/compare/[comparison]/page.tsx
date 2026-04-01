@@ -312,7 +312,7 @@ export default async function ComparisonPage({ params }: Props) {
           <SectionHeading
             eyebrow="All-In-One Platform"
             title="Need an all-in-one business platform?"
-            description="Systeme.io combines funnels, email marketing, automations, and online business tools in one place."
+            description="Systeme.io combines funnels, email marketing, automations, and online business tools in one place, with a simple setup path and a free way to get started."
           />
           <div className="mt-8">
             <AffiliateLink
@@ -321,7 +321,7 @@ export default async function ComparisonPage({ params }: Props) {
               placement="comparison_systeme"
               className="inline-flex rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
-              Try Systeme.io
+              Start Free with Systeme.io
             </AffiliateLink>
           </div>
         </section>

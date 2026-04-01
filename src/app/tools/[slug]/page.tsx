@@ -194,21 +194,23 @@ export default async function ToolPage({ params }: Props) {
                 Find an Expert on Fiverr
               </AffiliateLink>
             </div>
-            <div className="mt-4 rounded-3xl bg-[var(--surface-alt)] p-6">
-              <p className="text-sm leading-7 text-slate-700">
-                Want an all-in-one platform for funnels, email marketing, and
-                automation?
-              </p>
-              <div className="mt-4">
-                <AffiliateLink
-                  href={affiliateLinks.systeme}
-                  toolSlug="systeme"
-                  placement="tool_page_systeme"
-                  className="inline-flex rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
-                >
-                  Try Systeme.io
-                </AffiliateLink>
-              </div>
+          </div>
+          <div className="mt-4 rounded-3xl bg-[var(--surface-alt)] p-6">
+            <p className="text-sm leading-7 text-slate-700">
+              Want an all-in-one platform for funnels, email marketing, and
+              automation with a low-friction way to start? Systeme.io combines
+              landing pages, email campaigns, and automations in one place, and
+              you can start free.
+            </p>
+            <div className="mt-4">
+              <AffiliateLink
+                href={affiliateLinks.systeme}
+                toolSlug="systeme"
+                placement="tool_page_systeme"
+                className="inline-flex rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+              >
+                Start Free with Systeme.io
+              </AffiliateLink>
             </div>
           </div>
         </section>
