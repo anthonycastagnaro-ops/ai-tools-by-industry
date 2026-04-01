@@ -681,6 +681,116 @@ const industryToolOverrides: Record<
         "It earns a spot when positioning, market commentary, and polished communication matter as much as speed.",
     },
   },
+  ecommerce: {
+    chatgpt: {
+      description:
+        "ChatGPT is a strong default pick for ecommerce teams that need faster product-page drafts, campaign ideas, merchandising support, and quick internal problem-solving across many workflows.",
+      bestUseCase:
+        "Best when an ecommerce team wants one flexible assistant for product copy, campaign planning, and day-to-day execution support.",
+      pros: [
+        "Useful for product descriptions, promo angles, and merchandising ideas.",
+        "Helps lean teams move faster when launches and campaign calendars pile up.",
+        "Strong first AI tool if the business wants broad leverage before adding specialist software.",
+      ],
+      cons: [
+        "Still needs brand and conversion review before copy goes live.",
+        "Less structured than a specialist marketing or SEO tool.",
+        "Can produce generic ecommerce copy if prompts are thin.",
+      ],
+      reason:
+        "Most ecommerce teams should start with ChatGPT when they need one tool that can support copy, planning, and execution without forcing a new workflow.",
+    },
+    jasper: {
+      description:
+        "Jasper fits ecommerce brands that care about brand consistency across product launches, lifecycle campaigns, and paid-traffic landing pages.",
+      bestUseCase:
+        "Best for ecommerce marketing teams that need more structured campaign production than a general assistant usually provides.",
+      pros: [
+        "Useful for campaigns where brand voice has to stay consistent across channels.",
+        "Better fit than broad AI assistants when repeatable marketing workflows matter.",
+        "Helpful for teams shipping offers, launches, and promotional assets at scale.",
+      ],
+      cons: [
+        "Less compelling if the brand mostly needs flexible everyday support.",
+        "Can be harder to justify for smaller stores with limited marketing volume.",
+        "Still needs a conversion-minded marketer to guide final output.",
+      ],
+      reason:
+        "It fits ecommerce best when the bottleneck is not just writing faster, but keeping campaigns and product messaging aligned across channels.",
+    },
+    "surfer-seo": {
+      description:
+        "Surfer SEO earns its place for ecommerce teams that publish collection content, buying guides, and search-driven landing pages that need a clearer optimization process.",
+      bestUseCase:
+        "Best for ecommerce brands using organic search as a meaningful acquisition channel rather than a side project.",
+      pros: [
+        "Useful for planning and improving search-focused category and editorial content.",
+        "Helps content teams prioritize structure and on-page coverage more consistently.",
+        "A strong support tool for stores investing in SEO-led growth.",
+      ],
+      cons: [
+        "Less useful if the brand does not publish enough search content to justify it.",
+        "Does not replace product positioning or broader SEO strategy.",
+        "Can lead to formulaic content if used too mechanically.",
+      ],
+      reason:
+        "It is the better fit when ecommerce growth depends on winning more qualified search traffic, not just writing copy faster.",
+    },
+    canva: {
+      description:
+        "Canva works well for ecommerce teams producing promo graphics, email assets, ad creative, and landing-page visuals without waiting on a designer for every request.",
+      bestUseCase:
+        "Best for fast-moving brands that need a steady stream of usable creative across campaigns and merchandising moments.",
+      pros: [
+        "Makes campaign asset production faster for small in-house teams.",
+        "Useful for social, email, offers, and lightweight landing-page creative.",
+        "Easy to keep using across promotions, launches, and seasonal pushes.",
+      ],
+      cons: [
+        "Creative can feel repetitive without stronger brand direction.",
+        "Not a substitute for higher-end design systems or art direction.",
+        "Less important than copy or lifecycle tools if design is not the bottleneck.",
+      ],
+      reason:
+        "It fits ecommerce because most brands need more creative velocity long before they need more design complexity.",
+    },
+    zapier: {
+      description:
+        "Zapier is a practical choice for ecommerce teams that want to connect forms, customer notifications, spreadsheets, support tools, and lightweight retention workflows without engineering help.",
+      bestUseCase:
+        "Best for automating repetitive operational work across common ecommerce tools.",
+      pros: [
+        "Useful for reducing manual handoffs between marketing, ops, and support.",
+        "Can improve speed around alerts, reporting, and simple lifecycle workflows.",
+        "Often the fastest way to prove ROI from automation in a small store.",
+      ],
+      cons: [
+        "Only worth it if the business already has repeatable workflows to automate.",
+        "More advanced logic can become harder to manage over time.",
+        "Some brands should fix process issues before layering on automations.",
+      ],
+      reason:
+        "It makes the most sense when the store is losing time to repetitive operational work rather than a pure copy or creative bottleneck.",
+    },
+    "hubspot-ai": {
+      description:
+        "HubSpot AI fits ecommerce businesses that treat email capture, lead nurture, and customer lifecycle marketing as structured revenue channels rather than one-off campaigns.",
+      bestUseCase:
+        "Best for ecommerce teams that need a more organized lifecycle and CRM layer around repeat purchase or lead-driven revenue.",
+      pros: [
+        "Useful for brands with more complex retention, nurture, or lead-capture flows.",
+        "Can bring follow-up, segmentation, and campaign execution into one system.",
+        "Better fit than lighter tools when ecommerce revenue depends on lifecycle discipline.",
+      ],
+      cons: [
+        "Too much platform for many smaller stores.",
+        "Needs real process ownership to justify the cost and complexity.",
+        "Less attractive if the brand mainly needs better product copy or creative.",
+      ],
+      reason:
+        "It belongs on the list for ecommerce brands that are past basic campaign execution and now need a more structured lifecycle engine.",
+    },
+  },
   "law-firms": {
     claude: {
       description:
@@ -1307,6 +1417,17 @@ export const getComparisonQuickPicks = (toolA: Tool, toolB: Tool) => {
 };
 
 export const getComparisonRecommendation = (toolA: Tool, toolB: Tool) => {
+  const pair = [toolA.slug, toolB.slug].sort().join(":");
+  if (pair === "chatgpt:claude") {
+    const winner = toolA.slug === "chatgpt" ? toolA : toolB;
+    const runnerUp = winner.slug === toolA.slug ? toolB : toolA;
+
+    return {
+      winner,
+      summary: `${winner.name} is the safer default for most teams that want one AI assistant for drafting, brainstorming, and everyday business work. Choose ${runnerUp.name} if your priority is cleaner long-form writing, document-heavy workflows, and a more measured first draft.`,
+    };
+  }
+
   const winner = toolA.scores.overall >= toolB.scores.overall ? toolA : toolB;
   const runnerUp = winner.slug === toolA.slug ? toolB : toolA;
   const gap = Math.abs(toolA.scores.overall - toolB.scores.overall);

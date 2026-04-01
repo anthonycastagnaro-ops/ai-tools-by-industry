@@ -6,7 +6,7 @@ export const industries: Industry[] = [
     name: "Restaurants",
     audience: "restaurant operators",
     intro:
-      "Restaurants need tools that help them market consistently, manage customer communication, and reduce time spent on repetitive back-office work.",
+      "Restaurants need AI tools that help them keep tables full, respond faster, and run tighter operations without adding more work for already stretched teams.",
     painPoint:
       "thin margins, staffing pressure, and inconsistent marketing follow-through",
     jobsToBeDone: [
@@ -23,7 +23,7 @@ export const industries: Industry[] = [
     name: "Real Estate",
     audience: "real estate teams",
     intro:
-      "Real estate businesses need AI tools that keep lead follow-up moving, make listings more compelling, and help agents stay responsive without burning out.",
+      "Real estate teams need AI tools that help them move faster on listings, follow up before leads cool off, and stay visible without sounding generic.",
     painPoint:
       "slow lead follow-up, repetitive listing work, and constant client communication",
     jobsToBeDone: [
@@ -108,7 +108,7 @@ export const industries: Industry[] = [
     name: "Ecommerce",
     audience: "ecommerce teams",
     intro:
-      "Ecommerce brands need AI tools that help them ship product content faster, improve conversion, and automate the repetitive work behind merchandising and retention.",
+      "Ecommerce brands need AI tools that help them launch pages faster, improve conversion efficiency, and reduce the manual work behind merchandising, retention, and campaign execution.",
     painPoint:
       "content bottlenecks, rising acquisition costs, and operational complexity",
     jobsToBeDone: [

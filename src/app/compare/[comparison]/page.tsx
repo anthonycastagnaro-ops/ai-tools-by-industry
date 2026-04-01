@@ -71,10 +71,14 @@ export default async function ComparisonPage({ params }: Props) {
 
   const { toolA, toolB } = pair;
   const recommendation = getComparisonRecommendation(toolA, toolB);
+  const pairKey = [toolA.slug, toolB.slug].sort().join(":");
   const sameCategory = toolA.category === toolB.category;
-  const verdict = sameCategory
-    ? `If you want the safer all-around recommendation, start with ${recommendation.winner.name}. If your workflow leans more heavily toward ${toolA.name === recommendation.winner.name ? toolB.bestUseCase.toLowerCase() : toolA.bestUseCase.toLowerCase()}, the other tool deserves a serious look.`
-    : `${toolA.name} and ${toolB.name} are not really substitutes in the purest sense. The better choice depends on whether you need broader day-to-day leverage or a tool built around a narrower, more specific workflow.`;
+  const verdict =
+    pairKey === "chatgpt:claude"
+      ? `${recommendation.winner.name} is the better starting point for most businesses because it covers more day-to-day tasks well. ${toolA.slug === "claude" || toolB.slug === "claude" ? "Claude becomes the better choice when polished long-form writing, document synthesis, and calmer first drafts matter more than breadth." : ""}`
+      : sameCategory
+        ? `If you want the safer all-around recommendation, start with ${recommendation.winner.name}. If your workflow leans more heavily toward ${toolA.name === recommendation.winner.name ? toolB.bestUseCase.toLowerCase() : toolA.bestUseCase.toLowerCase()}, the other tool deserves a serious look.`
+        : `${toolA.name} and ${toolB.name} are not really substitutes in the purest sense. The better choice depends on whether you need broader day-to-day leverage or a tool built around a narrower, more specific workflow.`;
   const quickPicks = getComparisonQuickPicks(toolA, toolB);
   const linkedIndustries = Array.from(
     new Map(

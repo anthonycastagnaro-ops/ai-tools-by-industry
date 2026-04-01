@@ -10,7 +10,7 @@ export const tools: Tool[] = [
     description:
       "ChatGPT is a versatile AI assistant that helps teams write, brainstorm, analyze, and automate common business work faster.",
     overview:
-      "ChatGPT works well as the everyday AI layer for teams that need faster content creation, clearer internal documentation, and better first drafts across many workflows.",
+      "ChatGPT works best as the default AI workspace for teams that want one place to draft, summarize, brainstorm, and unblock day-to-day work across departments.",
     bestUseCase: "Drafting content, summarizing information, and building repeatable prompt-based workflows.",
     pricing: "Free plan available; paid plans and team tiers available.",
     affiliateUrl: affiliateLinks.chatgpt,
@@ -22,12 +22,12 @@ export const tools: Tool[] = [
       "Long-form drafting and editing support",
       "Brainstorming, ideation, and strategy help",
       "Document summarization and synthesis",
-      "Custom GPT and workflow support for repeated tasks",
+      "Reusable workflows for repeated business tasks",
     ],
     pros: [
-      "Useful across nearly every department",
-      "Strong for first drafts and idea generation",
-      "Easy entry point for businesses adopting AI",
+      "Handles a wider range of business tasks than most specialist tools",
+      "Strong starting point for drafting, analysis, and brainstorming",
+      "Easy for small teams to adopt before building a larger stack",
     ],
     cons: [
       "Output quality depends on prompt clarity",
@@ -76,9 +76,9 @@ export const tools: Tool[] = [
     category: "AI marketing",
     tagline: "Brand-aware AI writing platform for marketing teams.",
     description:
-      "Jasper is built for teams that need on-brand campaign copy, landing pages, and channel-specific messaging at scale.",
+      "Jasper is built for teams that need brand-consistent campaign copy, landing pages, and channel-specific messaging at scale.",
     overview:
-      "Jasper is strongest when a business needs structured marketing output with repeatable templates, team collaboration, and tighter brand control than a generic assistant.",
+      "Jasper is strongest when a business needs a more structured marketing workflow than a general assistant can provide, especially when brand consistency matters across campaigns.",
     bestUseCase: "Campaign copy, landing page copy, and multi-channel marketing production.",
     pricing: "Paid plans available for individuals and teams.",
     affiliateUrl: affiliateLinks.jasper,
@@ -212,9 +212,9 @@ export const tools: Tool[] = [
     category: "AI assistant",
     tagline: "Strong long-form reasoning assistant for analysis and polished drafts.",
     description:
-      "Claude is well suited for businesses that need thoughtful writing, document analysis, and clearer outputs from long source material.",
+      "Claude is well suited for businesses that need thoughtful writing, document analysis, and calmer first drafts from long source material.",
     overview:
-      "Claude tends to shine in workflows that involve synthesis, structured thinking, and turning dense notes or documents into polished responses.",
+      "Claude tends to shine when teams are working from dense notes, messy transcripts, or long documents and want a cleaner, more measured draft on the first pass.",
     bestUseCase: "Long-form writing, document analysis, and nuanced internal planning.",
     pricing: "Free plan available; paid plans for higher usage.",
     affiliateUrl: affiliateLinks.claude,
@@ -229,9 +229,9 @@ export const tools: Tool[] = [
       "Good fit for teams that work with dense documents",
     ],
     pros: [
-      "Often produces polished first drafts",
-      "Helpful for synthesis and summarization",
-      "Good fit for service businesses with complex communication",
+      "Often delivers cleaner long-form drafts with less editing",
+      "Helpful for synthesis, summaries, and document-heavy work",
+      "Good fit for teams where tone and clarity matter as much as speed",
     ],
     cons: [
       "Broader workflow tooling may be lighter than specialized apps",
@@ -282,7 +282,7 @@ export const tools: Tool[] = [
     description:
       "Canva combines templates, collaboration, and AI features to help teams produce graphics, decks, and short-form assets quickly.",
     overview:
-      "Canva is one of the easiest ways for small businesses to create polished visuals without waiting on a dedicated designer for every task.",
+      "Canva is one of the easiest ways for small businesses to produce polished visual assets quickly without building a full creative workflow first.",
     bestUseCase: "Social graphics, presentations, print collateral, and lightweight brand design.",
     pricing: "Free plan available; paid plans for teams and advanced assets.",
     affiliateUrl: affiliateLinks.canva,
@@ -316,7 +316,7 @@ export const tools: Tool[] = [
     description:
       "Zapier lets teams move lead data, trigger follow-ups, and automate admin tasks across the tools they already use.",
     overview:
-      "Zapier is an easy entry point for businesses that want measurable ROI from automation without building custom integrations from scratch.",
+      "Zapier is an easy entry point for businesses that want to remove repetitive handoffs and admin work without building custom integrations from scratch.",
     bestUseCase: "Simple no-code automations between common business apps.",
     pricing: "Free plan available; paid plans based on tasks and complexity.",
     affiliateUrl: affiliateLinks.zapier,
@@ -384,7 +384,7 @@ export const tools: Tool[] = [
     description:
       "HubSpot AI helps businesses enrich CRM workflows with smarter content, follow-up support, and customer pipeline visibility.",
     overview:
-      "HubSpot AI is a good fit for businesses where lead management, lifecycle marketing, and sales follow-up are central to revenue growth.",
+      "HubSpot AI is a good fit for businesses where lead management, lifecycle marketing, and sales follow-up are central to revenue growth and already worth systematizing.",
     bestUseCase: "Lead nurturing, CRM workflows, and sales-enablement content.",
     pricing: "HubSpot plan pricing varies by hub, seats, and features.",
     affiliateUrl: affiliateLinks["hubspot-ai"],
@@ -418,7 +418,7 @@ export const tools: Tool[] = [
     description:
       "Surfer SEO helps teams plan, optimize, and refresh content with search visibility in mind.",
     overview:
-      "Surfer SEO is useful for publishers, agencies, and in-house teams that treat organic search as a repeatable acquisition channel and want better briefs and optimization guidance.",
+      "Surfer SEO is useful for teams that treat organic search as a repeatable acquisition channel and want clearer briefs, optimization guidance, and refresh workflows.",
     bestUseCase: "SEO briefs, on-page optimization, and content refresh workflows.",
     pricing: "Paid plans available.",
     affiliateUrl: affiliateLinks["surfer-seo"],
