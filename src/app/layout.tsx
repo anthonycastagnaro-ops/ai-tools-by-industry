@@ -9,7 +9,7 @@ import "./globals.css";
 
 export const metadata: Metadata = sharedMetadata;
 
-const GA_MEASUREMENT_ID = "G-XXXXXXXXXX";
+const GA_MEASUREMENT_ID = "G-NJ01E9Y2BF";
 
 export default function RootLayout({
   children,
