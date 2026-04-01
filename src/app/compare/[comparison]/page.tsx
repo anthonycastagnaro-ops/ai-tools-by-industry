@@ -308,6 +308,24 @@ export default async function ComparisonPage({ params }: Props) {
           </div>
         </section>
 
+        <section className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+          <SectionHeading
+            eyebrow="All-In-One Platform"
+            title="Need an all-in-one business platform?"
+            description="Systeme.io combines funnels, email marketing, automations, and online business tools in one place."
+          />
+          <div className="mt-8">
+            <AffiliateLink
+              href={affiliateLinks.systeme}
+              toolSlug="systeme"
+              placement="comparison_systeme"
+              className="inline-flex rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+            >
+              Try Systeme.io
+            </AffiliateLink>
+          </div>
+        </section>
+
         <section className="grid gap-6 md:grid-cols-2">
           {[toolA, toolB].map((tool) => (
             <article

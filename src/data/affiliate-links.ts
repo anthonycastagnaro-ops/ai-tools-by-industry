@@ -1,5 +1,6 @@
 export const affiliateLinks = {
   fiverr: "https://www.fiverr.com/",
+  systeme: "https://systeme.io/?sa=sa0267595660bdc40583a41526bcf0adbf1dbb02bd",
   chatgpt: "/tools/chatgpt",
   perplexity: "/tools/perplexity",
   jasper: "/tools/jasper",

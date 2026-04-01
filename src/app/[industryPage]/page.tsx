@@ -381,6 +381,24 @@ export default async function IndustryPage({ params }: Props) {
           </div>
         </section>
 
+        <section className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+          <SectionHeading
+            eyebrow="All-In-One Option"
+            title="Prefer one platform instead of stitching tools together?"
+            description="Many businesses prefer using one platform for funnels, email marketing, and automations. Systeme.io is a simple all-in-one option."
+          />
+          <div className="mt-8">
+            <AffiliateLink
+              href={affiliateLinks.systeme}
+              toolSlug="systeme"
+              placement="industry_systeme"
+              className="inline-flex rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+            >
+              Explore Systeme.io
+            </AffiliateLink>
+          </div>
+        </section>
+
         {primaryRecommendation ? (
           <section className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
             <SectionHeading
