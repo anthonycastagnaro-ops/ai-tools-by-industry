@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { Container } from "@/components/container";
 import { EmailCapture } from "@/components/email-capture";
+import { AffiliateLink } from "@/components/affiliate-link";
 import { SectionHeading } from "@/components/section-heading";
 import { tools } from "@/data/tools";
 import { buildAbsoluteUrl } from "@/lib/site";
@@ -112,14 +113,12 @@ export default async function ToolPage({ params }: Props) {
             <p className="mt-6 text-sm font-semibold text-slate-900">Pricing</p>
             <p className="mt-2 text-sm leading-7 text-slate-700">{tool.pricing}</p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <a
+              <AffiliateLink
                 href={tool.affiliateUrl}
-                target="_blank"
-                rel="noreferrer noopener sponsored"
                 className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
               >
                 Start Free Trial
-              </a>
+              </AffiliateLink>
               <a
                 href={tool.website}
                 target="_blank"
@@ -162,14 +161,12 @@ export default async function ToolPage({ params }: Props) {
             ))}
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a
+            <AffiliateLink
               href={tool.affiliateUrl}
-              target="_blank"
-              rel="noreferrer noopener sponsored"
               className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
               Try This Tool
-            </a>
+            </AffiliateLink>
             <a
               href={tool.website}
               target="_blank"
@@ -198,14 +195,12 @@ export default async function ToolPage({ params }: Props) {
             ))}
           </div>
           <div className="flex flex-wrap gap-3">
-            <a
+            <AffiliateLink
               href={tool.affiliateUrl}
-              target="_blank"
-              rel="noreferrer noopener sponsored"
               className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
               Start Free Trial
-            </a>
+            </AffiliateLink>
             <a
               href={tool.website}
               target="_blank"
@@ -293,14 +288,12 @@ export default async function ToolPage({ params }: Props) {
             description={`${tool.name} is worth serious consideration if your team needs ${tool.bestUseCase.toLowerCase()} and wants a tool that already shows up in real buyer shortlists. If your needs are narrower or more budget-sensitive, the alternative and comparison links above are the best next click.`}
           />
           <div className="mt-8 flex flex-wrap gap-3">
-            <a
+            <AffiliateLink
               href={tool.affiliateUrl}
-              target="_blank"
-              rel="noreferrer noopener sponsored"
               className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
               Start Free Trial
-            </a>
+            </AffiliateLink>
             <a
               href={tool.website}
               target="_blank"
@@ -330,14 +323,12 @@ export default async function ToolPage({ params }: Props) {
             ))}
           </div>
           <div className="flex flex-wrap gap-3">
-            <a
+            <AffiliateLink
               href={tool.affiliateUrl}
-              target="_blank"
-              rel="noreferrer noopener sponsored"
               className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
               Try {tool.name}
-            </a>
+            </AffiliateLink>
             <a
               href={tool.website}
               target="_blank"

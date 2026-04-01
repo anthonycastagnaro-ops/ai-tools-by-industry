@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { AffiliateLink } from "@/components/affiliate-link";
 import type { Tool } from "@/lib/types";
 import { getToolUrl } from "@/lib/utils";
 
@@ -25,14 +26,12 @@ export function ToolCard({
         {tool.popularityNote}
       </p>
       <div className="mt-5 flex flex-wrap gap-3">
-        <a
+        <AffiliateLink
           href={tool.affiliateUrl}
-          target="_blank"
-          rel="noreferrer noopener sponsored"
           className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
         >
           Start Free Trial
-        </a>
+        </AffiliateLink>
         <a
           href={tool.website}
           target="_blank"

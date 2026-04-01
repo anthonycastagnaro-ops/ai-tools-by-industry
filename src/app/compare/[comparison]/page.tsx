@@ -6,6 +6,7 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { ComparisonTable } from "@/components/comparison-table";
 import { Container } from "@/components/container";
 import { EmailCapture } from "@/components/email-capture";
+import { AffiliateLink } from "@/components/affiliate-link";
 import { SectionHeading } from "@/components/section-heading";
 import { buildAbsoluteUrl } from "@/lib/site";
 import {
@@ -111,14 +112,12 @@ export default async function ComparisonPage({ params }: Props) {
             {recommendation.summary}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a
+            <AffiliateLink
               href={recommendation.winner.affiliateUrl}
-              target="_blank"
-              rel="noreferrer noopener sponsored"
               className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
               Start Free Trial
-            </a>
+            </AffiliateLink>
             <Link
               href={getToolUrl(recommendation.winner.slug)}
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
@@ -156,14 +155,12 @@ export default async function ComparisonPage({ params }: Props) {
             ))}
           </div>
           <div className="flex flex-wrap gap-3">
-            <a
+            <AffiliateLink
               href={recommendation.winner.affiliateUrl}
-              target="_blank"
-              rel="noreferrer noopener sponsored"
               className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
               Try This Tool
-            </a>
+            </AffiliateLink>
             <Link
               href={getToolUrl(toolA.slug)}
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
@@ -209,22 +206,18 @@ export default async function ComparisonPage({ params }: Props) {
             ]}
           />
           <div className="flex flex-wrap gap-3">
-            <a
+            <AffiliateLink
               href={toolA.affiliateUrl}
-              target="_blank"
-              rel="noreferrer noopener sponsored"
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
               Try This Tool
-            </a>
-            <a
+            </AffiliateLink>
+            <AffiliateLink
               href={toolB.affiliateUrl}
-              target="_blank"
-              rel="noreferrer noopener sponsored"
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
               Try This Tool
-            </a>
+            </AffiliateLink>
           </div>
         </section>
 
@@ -280,14 +273,12 @@ export default async function ComparisonPage({ params }: Props) {
             >
               Read {toolB.name} review
             </Link>
-            <a
+            <AffiliateLink
               href={recommendation.winner.affiliateUrl}
-              target="_blank"
-              rel="noreferrer noopener sponsored"
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
               Start Free Trial
-            </a>
+            </AffiliateLink>
           </div>
         </section>
 
@@ -306,14 +297,12 @@ export default async function ComparisonPage({ params }: Props) {
                 >
                   Full review
                 </Link>
-                <a
+                <AffiliateLink
                   href={tool.affiliateUrl}
-                  target="_blank"
-                  rel="noreferrer noopener sponsored"
                   className="rounded-full bg-slate-950 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-800"
                 >
                   Try This Tool
-                </a>
+                </AffiliateLink>
                 <a
                   href={tool.website}
                   target="_blank"

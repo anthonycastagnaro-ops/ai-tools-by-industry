@@ -7,6 +7,7 @@ import { ComparisonTable } from "@/components/comparison-table";
 import { Container } from "@/components/container";
 import { EmailCapture } from "@/components/email-capture";
 import { FaqList } from "@/components/faq-list";
+import { AffiliateLink } from "@/components/affiliate-link";
 import { SectionHeading } from "@/components/section-heading";
 import { WhyTrust } from "@/components/why-trust";
 import { industries } from "@/data/industries";
@@ -194,14 +195,12 @@ export default async function IndustryPage({ params }: Props) {
                   >
                     View Pricing
                   </a>
-                  <a
+                  <AffiliateLink
                     href={tool.affiliateUrl}
-                    target="_blank"
-                    rel="noreferrer noopener sponsored"
                     className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
                   >
                     Try This Tool
-                  </a>
+                  </AffiliateLink>
                 </div>
               </article>
             ))}
@@ -290,14 +289,12 @@ export default async function IndustryPage({ params }: Props) {
                       >
                         See Why It&apos;s #1
                       </Link>
-                      <a
+                      <AffiliateLink
                         href={tool.affiliateUrl}
-                        target="_blank"
-                        rel="noreferrer noopener sponsored"
                         className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
                       >
                         Start Free Trial
-                      </a>
+                      </AffiliateLink>
                       <a
                         href={tool.website}
                         target="_blank"
@@ -306,14 +303,12 @@ export default async function IndustryPage({ params }: Props) {
                       >
                         View Pricing
                       </a>
-                      <a
+                      <AffiliateLink
                         href={tool.affiliateUrl}
-                        target="_blank"
-                        rel="noreferrer noopener sponsored"
                         className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
                       >
                         Try This Tool
-                      </a>
+                      </AffiliateLink>
                     </div>
                   </div>
                   <div className="mt-8 grid gap-6 md:grid-cols-2">
@@ -388,14 +383,12 @@ export default async function IndustryPage({ params }: Props) {
               >
                 View Pricing
               </a>
-              <a
+              <AffiliateLink
                 href={primaryRecommendation.affiliateUrl}
-                target="_blank"
-                rel="noreferrer noopener sponsored"
                 className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
               >
                 Start Free Trial
-              </a>
+              </AffiliateLink>
             </div>
           </section>
         ) : null}
