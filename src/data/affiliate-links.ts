@@ -1,0 +1,17 @@
+export const affiliateLinks = {
+  chatgpt: "/tools/chatgpt",
+  perplexity: "/tools/perplexity",
+  jasper: "/tools/jasper",
+  "copy-ai": "/tools/copy-ai",
+  "notion-ai": "/tools/notion-ai",
+  grammarly: "/tools/grammarly",
+  claude: "/tools/claude",
+  midjourney: "/tools/midjourney",
+  canva: "/tools/canva",
+  zapier: "/tools/zapier",
+  make: "/tools/make",
+  "hubspot-ai": "/tools/hubspot-ai",
+  "surfer-seo": "/tools/surfer-seo",
+  descript: "/tools/descript",
+  fireflies: "/tools/fireflies",
+} as const;

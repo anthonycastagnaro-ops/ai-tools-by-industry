@@ -115,6 +115,8 @@ export default async function ComparisonPage({ params }: Props) {
           <div className="mt-8 flex flex-wrap gap-3">
             <AffiliateLink
               href={recommendation.winner.affiliateUrl}
+              toolSlug={recommendation.winner.slug}
+              placement="comparison_hero"
               className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
               Start Free Trial
@@ -158,6 +160,8 @@ export default async function ComparisonPage({ params }: Props) {
           <div className="flex flex-wrap gap-3">
             <AffiliateLink
               href={recommendation.winner.affiliateUrl}
+              toolSlug={recommendation.winner.slug}
+              placement="comparison_quick_picks"
               className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
               Try This Tool
@@ -209,12 +213,16 @@ export default async function ComparisonPage({ params }: Props) {
           <div className="flex flex-wrap gap-3">
             <AffiliateLink
               href={toolA.affiliateUrl}
+              toolSlug={toolA.slug}
+              placement="comparison_feature_table"
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
               Try This Tool
             </AffiliateLink>
             <AffiliateLink
               href={toolB.affiliateUrl}
+              toolSlug={toolB.slug}
+              placement="comparison_feature_table"
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
               Try This Tool
@@ -272,6 +280,8 @@ export default async function ComparisonPage({ params }: Props) {
             </Link>
             <AffiliateLink
               href={recommendation.winner.affiliateUrl}
+              toolSlug={recommendation.winner.slug}
+              placement="comparison_verdict"
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
               Start Free Trial
@@ -296,6 +306,8 @@ export default async function ComparisonPage({ params }: Props) {
                 </Link>
                 <AffiliateLink
                   href={tool.affiliateUrl}
+                  toolSlug={tool.slug}
+                  placement="comparison_tool_card"
                   className="rounded-full bg-slate-950 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-800"
                 >
                   Try This Tool

@@ -28,6 +28,8 @@ export function ToolCard({
       <div className="mt-5 flex flex-wrap gap-3">
         <AffiliateLink
           href={tool.affiliateUrl}
+          toolSlug={tool.slug}
+          placement="tool_card"
           className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
         >
           Start Free Trial

@@ -194,6 +194,8 @@ export default async function IndustryPage({ params }: Props) {
                   </Link>
                   <AffiliateLink
                     href={tool.affiliateUrl}
+                    toolSlug={tool.slug}
+                    placement="industry_quick_picks"
                     className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
                   >
                     Try This Tool
@@ -288,6 +290,8 @@ export default async function IndustryPage({ params }: Props) {
                       </Link>
                       <AffiliateLink
                         href={tool.affiliateUrl}
+                        toolSlug={tool.slug}
+                        placement="industry_top_picks"
                         className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
                       >
                         Start Free Trial
@@ -300,6 +304,8 @@ export default async function IndustryPage({ params }: Props) {
                       </Link>
                       <AffiliateLink
                         href={tool.affiliateUrl}
+                        toolSlug={tool.slug}
+                        placement="industry_top_picks"
                         className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
                       >
                         Try This Tool
@@ -378,6 +384,8 @@ export default async function IndustryPage({ params }: Props) {
               </Link>
               <AffiliateLink
                 href={primaryRecommendation.affiliateUrl}
+                toolSlug={primaryRecommendation.slug}
+                placement="industry_final_recommendation"
                 className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
               >
                 Start Free Trial
