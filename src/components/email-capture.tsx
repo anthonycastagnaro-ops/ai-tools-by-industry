@@ -19,18 +19,19 @@ export function EmailCapture({
             {description}
           </p>
         </div>
-        <form className="grid gap-3 sm:grid-cols-[1fr_auto]">
+        <form action="/contact" method="get" className="grid gap-3 sm:grid-cols-[1fr_auto]">
           <label className="sr-only" htmlFor="email">
             Email address
           </label>
           <input
             id="email"
+            name="email"
             type="email"
             placeholder="Enter your email"
             className="h-12 rounded-full border border-slate-300 bg-slate-50 px-5 text-sm text-slate-900 outline-none transition focus:border-slate-950"
           />
           <button
-            type="button"
+            type="submit"
             className="h-12 rounded-full bg-slate-950 px-6 text-sm font-semibold text-white transition hover:bg-slate-800"
           >
             Get the list

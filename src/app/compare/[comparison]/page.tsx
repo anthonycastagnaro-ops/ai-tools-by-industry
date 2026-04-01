@@ -16,6 +16,7 @@ import {
   getComparisonRecommendation,
   getComparisonPairFromSlug,
   getIndustryUrl,
+  getToolPricingUrl,
   getToolUrl,
 } from "@/lib/utils";
 
@@ -235,22 +236,18 @@ export default async function ComparisonPage({ params }: Props) {
             ]}
           />
           <div className="flex flex-wrap gap-3">
-            <a
-              href={toolA.website}
-              target="_blank"
-              rel="noreferrer noopener"
+            <Link
+              href={getToolPricingUrl(toolA.slug)}
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
               View {toolA.name} Pricing
-            </a>
-            <a
-              href={toolB.website}
-              target="_blank"
-              rel="noreferrer noopener"
+            </Link>
+            <Link
+              href={getToolPricingUrl(toolB.slug)}
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
               View {toolB.name} Pricing
-            </a>
+            </Link>
           </div>
         </section>
 
@@ -303,14 +300,12 @@ export default async function ComparisonPage({ params }: Props) {
                 >
                   Try This Tool
                 </AffiliateLink>
-                <a
-                  href={tool.website}
-                  target="_blank"
-                  rel="noreferrer noopener"
+                <Link
+                  href={getToolPricingUrl(tool.slug)}
                   className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
                 >
                   View Pricing
-                </a>
+                </Link>
               </div>
             </article>
           ))}

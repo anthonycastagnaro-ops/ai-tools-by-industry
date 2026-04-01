@@ -19,6 +19,7 @@ import {
   getIndustryQuickPicks,
   getIndustryPainPoints,
   getIndustryUrl,
+  getToolPricingUrl,
   getToolRecommendationReason,
   getToolHighlightsForIndustry,
   getToolUrl,
@@ -135,14 +136,12 @@ export default async function IndustryPage({ params }: Props) {
                   >
                     Most Businesses Should Start Here
                   </Link>
-                  <a
-                    href={primaryRecommendation.website}
-                    target="_blank"
-                    rel="noreferrer noopener"
+                  <Link
+                    href={getToolPricingUrl(primaryRecommendation.slug)}
                     className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
                   >
                     View Pricing
-                  </a>
+                  </Link>
                 </>
               ) : null}
             </div>
@@ -187,14 +186,12 @@ export default async function IndustryPage({ params }: Props) {
                   >
                     See Why It&apos;s #1
                   </Link>
-                  <a
-                    href={tool.website}
-                    target="_blank"
-                    rel="noreferrer noopener"
+                  <Link
+                    href={getToolPricingUrl(tool.slug)}
                     className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
                   >
                     View Pricing
-                  </a>
+                  </Link>
                   <AffiliateLink
                     href={tool.affiliateUrl}
                     className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
@@ -295,14 +292,12 @@ export default async function IndustryPage({ params }: Props) {
                       >
                         Start Free Trial
                       </AffiliateLink>
-                      <a
-                        href={tool.website}
-                        target="_blank"
-                        rel="noreferrer noopener"
+                      <Link
+                        href={getToolPricingUrl(tool.slug)}
                         className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
                       >
                         View Pricing
-                      </a>
+                      </Link>
                       <AffiliateLink
                         href={tool.affiliateUrl}
                         className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
@@ -375,14 +370,12 @@ export default async function IndustryPage({ params }: Props) {
               >
                 If You Only Pick One Tool, Pick This
               </Link>
-              <a
-                href={primaryRecommendation.website}
-                target="_blank"
-                rel="noreferrer noopener"
+              <Link
+                href={getToolPricingUrl(primaryRecommendation.slug)}
                 className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
               >
                 View Pricing
-              </a>
+              </Link>
               <AffiliateLink
                 href={primaryRecommendation.affiliateUrl}
                 className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"

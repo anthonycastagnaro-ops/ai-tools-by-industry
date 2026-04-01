@@ -1136,6 +1136,9 @@ export const getIndustryUrl = (industrySlug: string) =>
 
 export const getToolUrl = (toolSlug: string) => `/tools/${toolSlug}`;
 
+export const getToolPricingUrl = (toolSlug: string) =>
+  `${getToolUrl(toolSlug)}#pricing`;
+
 export const getComparisonSlug = (a: string, b: string) => {
   const firstIndex = tools.findIndex((tool) => tool.slug === a);
   const secondIndex = tools.findIndex((tool) => tool.slug === b);

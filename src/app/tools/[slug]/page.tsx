@@ -5,7 +5,6 @@ import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { Container } from "@/components/container";
 import { EmailCapture } from "@/components/email-capture";
-import { AffiliateLink } from "@/components/affiliate-link";
 import { SectionHeading } from "@/components/section-heading";
 import { tools } from "@/data/tools";
 import { buildAbsoluteUrl } from "@/lib/site";
@@ -13,6 +12,7 @@ import {
   getAlternativesForTool,
   getBestIndustriesForTool,
   getComparisonUrl,
+  getIndustryUrl,
   getToolBySlug,
   getToolUrl,
 } from "@/lib/utils";
@@ -68,6 +68,12 @@ export default async function ToolPage({ params }: Props) {
   const bestIndustries = getBestIndustriesForTool(tool.slug);
   const alternatives = getAlternativesForTool(tool);
   const comparisonCandidates = alternatives.slice(0, 3);
+  const primaryActionHref = comparisonCandidates[0]
+    ? getComparisonUrl(tool.slug, comparisonCandidates[0].slug)
+    : bestIndustries[0]
+      ? getIndustryUrl(bestIndustries[0].slug)
+      : `${getToolUrl(tool.slug)}#pricing`;
+  const pricingHref = `${getToolUrl(tool.slug)}#pricing`;
 
   return (
     <div className="pb-20">
@@ -105,7 +111,7 @@ export default async function ToolPage({ params }: Props) {
               </span>
             </div>
           </div>
-          <div className="rounded-[1.75rem] bg-[var(--surface-alt)] p-6">
+          <div id="pricing" className="rounded-[1.75rem] bg-[var(--surface-alt)] p-6">
             <p className="text-sm font-semibold text-slate-900">Quick take</p>
             <p className="mt-3 text-sm leading-7 text-slate-700">
               {tool.tagline}
@@ -113,20 +119,18 @@ export default async function ToolPage({ params }: Props) {
             <p className="mt-6 text-sm font-semibold text-slate-900">Pricing</p>
             <p className="mt-2 text-sm leading-7 text-slate-700">{tool.pricing}</p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <AffiliateLink
-                href={tool.affiliateUrl}
+              <Link
+                href={primaryActionHref}
                 className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
               >
                 Start Free Trial
-              </AffiliateLink>
-              <a
-                href={tool.website}
-                target="_blank"
-                rel="noreferrer noopener"
+              </Link>
+              <Link
+                href={pricingHref}
                 className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
               >
                 View Pricing
-              </a>
+              </Link>
               <Link
                 href={getComparisonUrl(
                   tool.slug,
@@ -161,20 +165,18 @@ export default async function ToolPage({ params }: Props) {
             ))}
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
-            <AffiliateLink
-              href={tool.affiliateUrl}
+            <Link
+              href={primaryActionHref}
               className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
               Try This Tool
-            </AffiliateLink>
-            <a
-              href={tool.website}
-              target="_blank"
-              rel="noreferrer noopener"
+            </Link>
+            <Link
+              href={pricingHref}
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
               View Pricing
-            </a>
+            </Link>
           </div>
         </section>
 
@@ -195,20 +197,18 @@ export default async function ToolPage({ params }: Props) {
             ))}
           </div>
           <div className="flex flex-wrap gap-3">
-            <AffiliateLink
-              href={tool.affiliateUrl}
+            <Link
+              href={primaryActionHref}
               className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
               Start Free Trial
-            </AffiliateLink>
-            <a
-              href={tool.website}
-              target="_blank"
-              rel="noreferrer noopener"
+            </Link>
+            <Link
+              href={pricingHref}
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
               View Pricing
-            </a>
+            </Link>
           </div>
         </section>
 
@@ -288,24 +288,25 @@ export default async function ToolPage({ params }: Props) {
             description={`${tool.name} is worth serious consideration if your team needs ${tool.bestUseCase.toLowerCase()} and wants a tool that already shows up in real buyer shortlists. If your needs are narrower or more budget-sensitive, the alternative and comparison links above are the best next click.`}
           />
           <div className="mt-8 flex flex-wrap gap-3">
-            <AffiliateLink
-              href={tool.affiliateUrl}
+            <Link
+              href={primaryActionHref}
               className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
               Start Free Trial
-            </AffiliateLink>
-            <a
-              href={tool.website}
-              target="_blank"
-              rel="noreferrer noopener"
+            </Link>
+            <Link
+              href={pricingHref}
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
               View Pricing
-            </a>
+            </Link>
           </div>
         </section>
 
-        <section className="space-y-6 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+        <section
+          id="compare"
+          className="space-y-6 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm"
+        >
           <SectionHeading
             eyebrow="Compare"
             title={`Head-to-head pages for ${tool.name}`}
@@ -323,20 +324,18 @@ export default async function ToolPage({ params }: Props) {
             ))}
           </div>
           <div className="flex flex-wrap gap-3">
-            <AffiliateLink
-              href={tool.affiliateUrl}
+            <Link
+              href={primaryActionHref}
               className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
               Try {tool.name}
-            </AffiliateLink>
-            <a
-              href={tool.website}
-              target="_blank"
-              rel="noreferrer noopener"
+            </Link>
+            <Link
+              href={pricingHref}
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
               View Pricing
-            </a>
+            </Link>
           </div>
         </section>
 

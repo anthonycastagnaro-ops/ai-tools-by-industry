@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { AffiliateLink } from "@/components/affiliate-link";
 import type { Tool } from "@/lib/types";
-import { getToolUrl } from "@/lib/utils";
+import { getToolPricingUrl, getToolUrl } from "@/lib/utils";
 
 export function ToolCard({
   tool,
@@ -32,14 +32,12 @@ export function ToolCard({
         >
           Start Free Trial
         </AffiliateLink>
-        <a
-          href={tool.website}
-          target="_blank"
-          rel="noreferrer noopener"
+        <Link
+          href={getToolPricingUrl(tool.slug)}
           className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
         >
-          Visit Website
-        </a>
+          View Pricing
+        </Link>
         <Link
           href={getToolUrl(tool.slug)}
           className="rounded-full bg-slate-950 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-800"
