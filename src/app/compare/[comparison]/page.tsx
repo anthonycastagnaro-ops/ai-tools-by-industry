@@ -8,6 +8,7 @@ import { Container } from "@/components/container";
 import { EmailCapture } from "@/components/email-capture";
 import { AffiliateLink } from "@/components/affiliate-link";
 import { SectionHeading } from "@/components/section-heading";
+import { affiliateLinks } from "@/data/affiliate-links";
 import { buildAbsoluteUrl } from "@/lib/site";
 import {
   allComparisonSlugs,
@@ -285,6 +286,24 @@ export default async function ComparisonPage({ params }: Props) {
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
               Start Free Trial
+            </AffiliateLink>
+          </div>
+        </section>
+
+        <section className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+          <SectionHeading
+            eyebrow="Done-For-You Help"
+            title="Don&apos;t want to do this yourself?"
+            description="Hire a freelancer on Fiverr to set this up for you."
+          />
+          <div className="mt-8">
+            <AffiliateLink
+              href={affiliateLinks.fiverr}
+              toolSlug="fiverr"
+              placement="comparison_fiverr"
+              className="inline-flex rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+            >
+              Hire an Expert on Fiverr
             </AffiliateLink>
           </div>
         </section>

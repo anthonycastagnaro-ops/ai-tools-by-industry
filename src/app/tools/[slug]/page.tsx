@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { AffiliateLink } from "@/components/affiliate-link";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { Container } from "@/components/container";
 import { EmailCapture } from "@/components/email-capture";
 import { SectionHeading } from "@/components/section-heading";
+import { affiliateLinks } from "@/data/affiliate-links";
 import { tools } from "@/data/tools";
 import { buildAbsoluteUrl } from "@/lib/site";
 import {
@@ -177,6 +179,21 @@ export default async function ToolPage({ params }: Props) {
             >
               View Pricing
             </Link>
+          </div>
+          <div className="mt-8 rounded-3xl bg-[var(--surface-alt)] p-6">
+            <p className="text-sm leading-7 text-slate-700">
+              Need help setting this up? Hire an expert on Fiverr.
+            </p>
+            <div className="mt-4">
+              <AffiliateLink
+                href={affiliateLinks.fiverr}
+                toolSlug="fiverr"
+                placement="tool_page_fiverr"
+                className="inline-flex rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+              >
+                Find an Expert on Fiverr
+              </AffiliateLink>
+            </div>
           </div>
         </section>
 

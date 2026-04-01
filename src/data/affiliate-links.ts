@@ -1,4 +1,5 @@
 export const affiliateLinks = {
+  fiverr: "https://www.fiverr.com/",
   chatgpt: "/tools/chatgpt",
   perplexity: "/tools/perplexity",
   jasper: "/tools/jasper",

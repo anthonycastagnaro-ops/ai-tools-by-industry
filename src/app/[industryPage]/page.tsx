@@ -10,6 +10,7 @@ import { FaqList } from "@/components/faq-list";
 import { AffiliateLink } from "@/components/affiliate-link";
 import { SectionHeading } from "@/components/section-heading";
 import { WhyTrust } from "@/components/why-trust";
+import { affiliateLinks } from "@/data/affiliate-links";
 import { industries } from "@/data/industries";
 import { buildAbsoluteUrl } from "@/lib/site";
 import {
@@ -360,6 +361,24 @@ export default async function IndustryPage({ params }: Props) {
             headers={["Tool", "Best Use Case", "Category", "Pricing"]}
             rows={comparisonRows}
           />
+        </section>
+
+        <section className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+          <SectionHeading
+            eyebrow="Implementation Help"
+            title="Need someone to set this up for you?"
+            description="Many businesses hire freelancers to implement these tools. Fiverr is a fast way to get this done for you."
+          />
+          <div className="mt-8">
+            <AffiliateLink
+              href={affiliateLinks.fiverr}
+              toolSlug="fiverr"
+              placement="industry_fiverr"
+              className="inline-flex rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+            >
+              Browse Experts on Fiverr
+            </AffiliateLink>
+          </div>
         </section>
 
         {primaryRecommendation ? (
