@@ -19,6 +19,9 @@ export const sharedMetadata: Metadata = {
   },
   description: siteConfig.description,
   applicationName: siteConfig.name,
+  verification: {
+    google: "GOOGLE_VERIFICATION_CODE_HERE",
+  },
   alternates: {
     canonical: "/",
   },
