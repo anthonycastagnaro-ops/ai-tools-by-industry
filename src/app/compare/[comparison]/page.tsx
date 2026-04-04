@@ -196,7 +196,7 @@ export default async function ComparisonPage({ params }: Props) {
               ctaLocation="top"
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
-              Read both reviews
+              Read {toolA.name} review
             </AffiliateLink>
           </div>
         </section>

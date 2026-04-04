@@ -41,6 +41,8 @@ const curatedTopToolNotes: Record<string, string> = {
   make: "Best value automation option for teams that need more logic than simple trigger tools allow.",
   grammarly: "Best lightweight upgrade for teams that want stronger client-facing communication immediately.",
 };
+const defaultTopToolNote =
+  "Worth reviewing early if you want a credible, high-utility tool that shows up often in real buyer shortlists.";
 
 export default function HomePage() {
   return (
@@ -236,7 +238,7 @@ export default function HomePage() {
               <div key={tool.slug} className="space-y-4">
                 <ToolCard tool={tool} />
                 <p className="px-2 text-sm leading-7 text-slate-600">
-                  {curatedTopToolNotes[tool.slug]}
+                  {curatedTopToolNotes[tool.slug] ?? defaultTopToolNote}
                 </p>
               </div>
             ))}

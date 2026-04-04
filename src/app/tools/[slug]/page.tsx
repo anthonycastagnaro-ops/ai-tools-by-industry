@@ -74,6 +74,7 @@ export default async function ToolPage({ params }: Props) {
   const alternatives = getAlternativesForTool(tool);
   const comparisonCandidates = alternatives.slice(0, 3);
   const pricingHref = getToolPricingHref(tool);
+  const cleanBestUseCase = tool.bestUseCase.replace(/[.]+$/, "");
   const compareHref = comparisonCandidates[0]
     ? getComparisonUrl(tool.slug, comparisonCandidates[0].slug)
     : getDefaultComparisonUrl(tool);
@@ -99,7 +100,7 @@ export default async function ToolPage({ params }: Props) {
             </h1>
             <p className="text-lg leading-8 text-slate-600">{tool.overview}</p>
             <p className="text-base leading-8 text-slate-600">
-              Best for: {tool.bestUseCase} when your priority is faster output,
+              Best for: {cleanBestUseCase} when your priority is faster output,
               less repetitive work, and a tool your team will actually keep
               using after the trial period.
             </p>
@@ -185,7 +186,7 @@ export default async function ToolPage({ params }: Props) {
             {[
               tool.businessUsage,
               tool.popularityNote,
-              `It stands out most when buyers need ${tool.bestUseCase.toLowerCase()}.`,
+              `It stands out most when buyers need ${cleanBestUseCase.toLowerCase()}.`,
             ].map((item) => (
               <div
                 key={item}
@@ -441,7 +442,7 @@ export default async function ToolPage({ params }: Props) {
           <SectionHeading
             eyebrow="Bottom Line"
             title={`Should you seriously consider ${tool.name}?`}
-            description={`${tool.name} is a strong choice if your team needs ${tool.bestUseCase.toLowerCase()} and wants a tool that already earns a place on real business shortlists. If you want a lighter, cheaper, or more specialized option, use the comparison paths above before you commit.`}
+            description={`${tool.name} is a strong choice if your team needs ${cleanBestUseCase.toLowerCase()} and wants a tool that already earns a place on real business shortlists. If you want a lighter, cheaper, or more specialized option, use the comparison paths above before you commit.`}
           />
           <div className="mt-8 flex flex-wrap gap-3">
             <AffiliateLink
