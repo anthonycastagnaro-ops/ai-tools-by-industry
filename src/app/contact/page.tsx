@@ -13,7 +13,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ContactPage() {
+type ContactPageProps = {
+  searchParams?: Promise<{ intent?: string; email?: string }>;
+};
+
+export default async function ContactPage({ searchParams }: ContactPageProps) {
+  const params = (await searchParams) || {};
+  const requestedUpdates = params.intent === "updates";
+
   return (
     <Container className="space-y-10 py-16">
       <SectionHeading
@@ -21,6 +28,13 @@ export default function ContactPage() {
         title="Editorial feedback, corrections, and partnership inquiries"
         description="Use this page if you need to suggest a correction, recommend a tool for review, or reach out about a legitimate partnership or affiliate program relationship."
       />
+      {requestedUpdates ? (
+        <div className="rounded-[2rem] border border-slate-200 bg-[var(--surface-alt)] p-6 text-sm leading-7 text-slate-700 shadow-sm">
+          You asked for updates from the site. The newsletter flow is not live
+          yet, so use the email below if you want to request future updates or
+          partnership news directly.
+        </div>
+      ) : null}
       <p className="text-sm font-medium text-slate-500">
         Editorial inbox reviewed monthly. Last updated March 2026.
       </p>

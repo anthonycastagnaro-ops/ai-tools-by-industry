@@ -20,6 +20,7 @@ export function EmailCapture({
           </p>
         </div>
         <form action="/contact" method="get" className="grid gap-3 sm:grid-cols-[1fr_auto]">
+          <input type="hidden" name="intent" value="updates" />
           <label className="sr-only" htmlFor="email">
             Email address
           </label>
@@ -34,9 +35,13 @@ export function EmailCapture({
             type="submit"
             className="h-12 rounded-full bg-slate-950 px-6 text-sm font-semibold text-white transition hover:bg-slate-800"
           >
-            Get the list
+            Get updates
           </button>
         </form>
+        <p className="text-xs leading-6 text-slate-500">
+          This currently opens the contact page so you can request updates while
+          the newsletter flow is being finalized.
+        </p>
       </div>
     </section>
   );

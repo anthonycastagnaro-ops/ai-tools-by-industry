@@ -5,6 +5,7 @@ import { Container } from "@/components/container";
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/industries", label: "Industries" },
+  { href: "/compare/chatgpt-vs-claude", label: "Top Comparison" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
@@ -19,7 +20,7 @@ export function SiteHeader() {
           <span>Independent recommendations</span>
         </Container>
       </div>
-      <Container className="flex h-18 items-center justify-between gap-6">
+      <Container className="flex flex-col gap-4 py-4 md:h-18 md:flex-row md:items-center md:justify-between md:py-0">
         <Link href="/" className="flex items-center gap-3">
           <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[var(--brand)] text-sm font-bold text-white">
             AI
@@ -28,7 +29,7 @@ export function SiteHeader() {
             AI Tools by Industry
           </span>
         </Link>
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav className="flex flex-wrap items-center gap-x-5 gap-y-2">
           {navItems.map((item) => (
             <Link
               key={item.href}

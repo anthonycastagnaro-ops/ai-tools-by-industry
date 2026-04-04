@@ -3,6 +3,9 @@ import Link from "next/link";
 import { Container } from "@/components/container";
 
 const footerLinks = [
+  { href: "/industries", label: "Browse industries" },
+  { href: "/compare/chatgpt-vs-claude", label: "Top comparison" },
+  { href: "/tools/chatgpt", label: "Top tool review" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
   { href: "/privacy", label: "Privacy" },
@@ -20,6 +23,10 @@ export function SiteFooter() {
           <p className="max-w-2xl text-sm leading-7 text-slate-600">
             Independent buyer guides for finding the best AI tools for specific
             industries, workflows, and growth stages.
+          </p>
+          <p className="max-w-2xl text-sm leading-7 text-slate-600">
+            Start with an industry guide, open a tool review, then use a
+            comparison page when you are choosing between finalists.
           </p>
           <div className="flex flex-wrap gap-3 pt-2 text-xs font-medium text-slate-500">
             <span>Updated monthly</span>
