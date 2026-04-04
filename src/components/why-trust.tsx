@@ -4,7 +4,7 @@ import { SectionHeading } from "@/components/section-heading";
 
 export function WhyTrust({
   title = "Why trust this site",
-  description = "The site is structured like an editorial buyer guide, not a thin directory. Recommendations are organized around workflow fit, real buying decisions, and practical next steps for serious software buyers.",
+  description = "The site is structured like an editorial buyer guide, not a thin directory. Recommendations are researched, compared across similar tools, and updated regularly so serious buyers can make a cleaner decision.",
   items,
 }: {
   title?: string;

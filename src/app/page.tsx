@@ -52,19 +52,20 @@ export default function HomePage() {
             </p>
             <div className="space-y-6">
               <h1 className="max-w-4xl font-serif text-5xl leading-tight tracking-tight text-slate-950 sm:text-6xl">
-                Find the best AI tools to save time, grow revenue, and run your business more efficiently
+                Find the AI tools most businesses should evaluate first if they want faster execution, better margins, and less operational drag
               </h1>
               <p className="max-w-2xl text-lg leading-8 text-slate-600">
-                This site helps business owners, operators, freelancers, and
-                agencies find the right AI tools for their specific workflow,
-                not just browse a generic software list. Start with your
-                industry, review the strongest options, and use comparisons when
-                you are down to finalists.
+                This site is built for business owners, operators, freelancers,
+                and agencies who want researched recommendations, not another
+                bloated software roundup. Start with your industry, narrow your
+                shortlist fast, and use comparison pages when you are close to
+                a decision.
               </p>
               <p className="max-w-2xl text-sm leading-7 text-slate-500">
-                Recommendations are organized like an editorial buyer guide:
-                clear fit, realistic tradeoffs, and practical next clicks for
-                people who are actually evaluating software.
+                Recommendations are based on real-world use cases, compared
+                across similar tools, and curated to help serious buyers move
+                from research to action without wasting time on weak-fit
+                options.
               </p>
             </div>
             <div className="flex flex-wrap gap-4">
@@ -114,15 +115,15 @@ export default function HomePage() {
           {[
             {
               title: "Who this is for",
-              body: "Business owners, operators, service firms, and lean teams that want help choosing software without reading generic roundups.",
+              body: "Business owners, operators, service firms, and lean teams that want clear software recommendations without sorting through generic AI hype.",
             },
             {
               title: "How tools are evaluated",
-              body: "Pages are organized around workflow fit, likely tradeoffs, and whether a tool deserves a place on a real shortlist.",
+              body: "Tools are judged on workflow fit, decision-stage usefulness, likely tradeoffs, and whether they deserve a place on a serious shortlist.",
             },
             {
               title: "Where to start",
-              body: "Open your industry page first, then move to one tool review and one comparison page before making a decision.",
+              body: "Most buyers should start with their industry page, open one tool review, then use a comparison page to pressure-test the final choice.",
             },
           ].map((item) => (
             <article
@@ -156,25 +157,25 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="How To Use The Site"
             title="How this site works"
-            description="The site is designed to move buyers from broad research to a focused shortlist without making the process feel overwhelming."
+            description="The site is designed to help real buyers move from broad research to a confident shortlist without getting lost in generic AI recommendations."
           />
           <div className="grid gap-4 md:grid-cols-3">
             {[
               {
                 title: "1. Pick your industry",
-                body: "Open the page closest to your business model so the recommendations are tied to your actual bottlenecks, not general AI hype.",
+                body: "Open the page closest to how you actually make money so the recommendations match your bottlenecks, team setup, and buying priorities.",
                 href: "/industries",
                 label: "See best tools by industry",
               },
               {
                 title: "2. Review the top tools",
-                body: "Tool pages explain who each product is really for, what tradeoffs to expect, and when an alternative is the smarter choice.",
+                body: "Tool pages explain who each product is best for, where it earns a place on a shortlist, and when you should move to an alternative instead.",
                 href: "/tools/chatgpt",
                 label: "Review a top tool",
               },
               {
                 title: "3. Use a comparison page",
-                body: "Comparison pages are built for buyers who are close to a decision and need a more specific recommendation.",
+                body: "Comparison pages are built for buyers who are close to choosing and need a direct recommendation, not another vague feature list.",
                 href: "/compare/chatgpt-vs-claude",
                 label: "Compare top picks",
               },
@@ -200,11 +201,11 @@ export default function HomePage() {
       <section className="py-20">
         <Container>
           <WhyTrust
-            description="The site is built to feel like an editorial buyer-guide brand: researched, commercial in intent, but still useful enough to help a real buyer make a smarter decision."
+            description="This site is built like an editorial buyer guide, not a generic tool directory. Recommendations are researched, curated, and updated regularly so buyers can compare serious options with more confidence."
             items={[
-              "Recommendations are organized around workflows, fit, tradeoffs, and buyer intent rather than generic software roundups.",
-              "Tool and comparison pages are written to help buyers choose, not just skim features.",
-              "Trust pages are visible and professional so readers and affiliate partners can evaluate the site like a real publication.",
+              "Recommendations are organized around workflow fit, real-world use cases, and practical tradeoffs instead of broad list-post filler.",
+              "Tool and comparison pages are written to help buyers choose between credible options, not just skim features and bounce.",
+              "Trust pages, editorial context, and clear next steps are visible site-wide so readers and partners can evaluate the site like a real publication.",
             ]}
           />
         </Container>
@@ -215,7 +216,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="Top Tools This Month"
             title="Top AI tools this month"
-            description="This shortlist is curated, not exhaustive. These are the tools most often worth reviewing first when a buyer wants practical upside, strong fit, and a realistic path to ROI rather than a bloated stack."
+            description="This shortlist is curated, not exhaustive. These are the tools most buyers should review first when they want proven utility, cleaner workflow fit, and a realistic path to ROI."
           />
           <div className="grid gap-6 lg:grid-cols-3">
             {topToolsThisMonth.map((tool) => (
