@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import { AffiliateLink } from "@/components/affiliate-link";
 import type { Tool } from "@/lib/types";
 import { getPrimaryToolCtaUrl, getToolPricingHref, getToolUrl } from "@/lib/utils";
@@ -32,24 +30,36 @@ export function ToolCard({
           toolName={tool.name}
           placement="tool_card"
           pageType="home"
-          ctaType="internal"
+          ctaType="primary"
           ctaLocation="bottom"
           className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
         >
           Start Free Trial
         </AffiliateLink>
-        <Link
+        <AffiliateLink
           href={getToolPricingHref(tool)}
+          toolSlug={tool.slug}
+          toolName={tool.name}
+          placement="tool_card_pricing"
+          pageType="home"
+          ctaType="pricing"
+          ctaLocation="bottom"
           className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
         >
           View Pricing
-        </Link>
-        <Link
+        </AffiliateLink>
+        <AffiliateLink
           href={getToolUrl(tool.slug)}
+          toolSlug={tool.slug}
+          toolName={tool.name}
+          placement="tool_card_review"
+          pageType="home"
+          ctaType="primary"
+          ctaLocation="bottom"
           className="rounded-full bg-slate-950 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-800"
         >
           See Why It&apos;s #1
-        </Link>
+        </AffiliateLink>
       </div>
     </article>
   );

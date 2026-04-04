@@ -132,18 +132,30 @@ export default async function IndustryPage({ params }: Props) {
             <div className="flex flex-wrap gap-3">
               {primaryRecommendation ? (
                 <>
-                  <Link
+                  <AffiliateLink
                     href={getToolUrl(primaryRecommendation.slug)}
+                    toolSlug={primaryRecommendation.slug}
+                    toolName={primaryRecommendation.name}
+                    placement="industry_hero_primary"
+                    pageType="industry"
+                    ctaType="primary"
+                    ctaLocation="top"
                     className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
                   >
                     Most Businesses Should Start Here
-                  </Link>
-                  <Link
+                  </AffiliateLink>
+                  <AffiliateLink
                     href={getToolPricingUrl(primaryRecommendation.slug)}
+                    toolSlug={primaryRecommendation.slug}
+                    toolName={primaryRecommendation.name}
+                    placement="industry_hero_pricing"
+                    pageType="industry"
+                    ctaType="pricing"
+                    ctaLocation="top"
                     className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
                   >
                     View Pricing
-                  </Link>
+                  </AffiliateLink>
                 </>
               ) : null}
             </div>
@@ -182,25 +194,37 @@ export default async function IndustryPage({ params }: Props) {
                   {getToolRecommendationReason(industry, tool)}
                 </p>
                 <div className="mt-5 flex flex-wrap gap-3">
-                  <Link
+                  <AffiliateLink
                     href={getToolUrl(tool.slug)}
+                    toolSlug={tool.slug}
+                    toolName={tool.name}
+                    placement="industry_quick_picks_review"
+                    pageType="industry"
+                    ctaType="primary"
+                    ctaLocation="top"
                     className="rounded-full bg-slate-950 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-800"
                   >
                     See Why It&apos;s #1
-                  </Link>
-                  <Link
+                  </AffiliateLink>
+                  <AffiliateLink
                     href={getToolPricingUrl(tool.slug)}
+                    toolSlug={tool.slug}
+                    toolName={tool.name}
+                    placement="industry_quick_picks_pricing"
+                    pageType="industry"
+                    ctaType="pricing"
+                    ctaLocation="top"
                     className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
                   >
                     View Pricing
-                  </Link>
+                  </AffiliateLink>
                   <AffiliateLink
                     href={getPrimaryToolCtaUrl(tool)}
                     toolSlug={tool.slug}
                     toolName={tool.name}
                     placement="industry_quick_picks"
                     pageType="industry"
-                    ctaType="internal"
+                    ctaType="primary"
                     ctaLocation="top"
                     className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
                   >
@@ -288,37 +312,49 @@ export default async function IndustryPage({ params }: Props) {
                       </p>
                     </div>
                     <div className="flex flex-wrap gap-3">
-                      <Link
+                      <AffiliateLink
                         href={getToolUrl(tool.slug)}
+                        toolSlug={tool.slug}
+                        toolName={tool.name}
+                        placement="industry_top_picks_review"
+                        pageType="industry"
+                        ctaType="primary"
+                        ctaLocation="mid"
                         className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
                       >
                         See Why It&apos;s #1
-                      </Link>
+                      </AffiliateLink>
                       <AffiliateLink
                         href={getPrimaryToolCtaUrl(tool)}
                         toolSlug={tool.slug}
                         toolName={tool.name}
                         placement="industry_top_picks"
                         pageType="industry"
-                        ctaType="internal"
+                        ctaType="primary"
                         ctaLocation="mid"
                         className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
                       >
                         Start Free Trial
                       </AffiliateLink>
-                      <Link
+                      <AffiliateLink
                         href={getToolPricingUrl(tool.slug)}
+                        toolSlug={tool.slug}
+                        toolName={tool.name}
+                        placement="industry_top_picks_pricing"
+                        pageType="industry"
+                        ctaType="pricing"
+                        ctaLocation="mid"
                         className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
                       >
                         View Pricing
-                      </Link>
+                      </AffiliateLink>
                       <AffiliateLink
                         href={getPrimaryToolCtaUrl(tool)}
                         toolSlug={tool.slug}
                         toolName={tool.name}
                         placement="industry_top_picks"
                         pageType="industry"
-                        ctaType="internal"
+                        ctaType="primary"
                         ctaLocation="mid"
                         className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
                       >
@@ -428,25 +464,37 @@ export default async function IndustryPage({ params }: Props) {
               description={`${primaryRecommendation.name} is the best place to start for most ${industry.name.toLowerCase()} teams because it offers the broadest upside without forcing a heavy implementation process on day one.`}
             />
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link
+              <AffiliateLink
                 href={getToolUrl(primaryRecommendation.slug)}
+                toolSlug={primaryRecommendation.slug}
+                toolName={primaryRecommendation.name}
+                placement="industry_final_recommendation_review"
+                pageType="industry"
+                ctaType="primary"
+                ctaLocation="bottom"
                 className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
               >
                 If You Only Pick One Tool, Pick This
-              </Link>
-              <Link
+              </AffiliateLink>
+              <AffiliateLink
                 href={getToolPricingUrl(primaryRecommendation.slug)}
+                toolSlug={primaryRecommendation.slug}
+                toolName={primaryRecommendation.name}
+                placement="industry_final_recommendation_pricing"
+                pageType="industry"
+                ctaType="pricing"
+                ctaLocation="bottom"
                 className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
               >
                 View Pricing
-              </Link>
+              </AffiliateLink>
               <AffiliateLink
                 href={getPrimaryToolCtaUrl(primaryRecommendation)}
                 toolSlug={primaryRecommendation.slug}
                 toolName={primaryRecommendation.name}
                 placement="industry_final_recommendation"
                 pageType="industry"
-                ctaType="internal"
+                ctaType="primary"
                 ctaLocation="bottom"
                 className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
               >
@@ -464,23 +512,35 @@ export default async function IndustryPage({ params }: Props) {
           />
           <div className="mt-8 flex flex-wrap gap-3">
             {primaryRecommendation ? (
-              <Link
+              <AffiliateLink
                 href={getToolUrl(primaryRecommendation.slug)}
+                toolSlug={primaryRecommendation.slug}
+                toolName={primaryRecommendation.name}
+                placement="industry_next_step_review"
+                pageType="industry"
+                ctaType="primary"
+                ctaLocation="bottom"
                 className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
               >
                 Read the top recommendation
-              </Link>
+              </AffiliateLink>
             ) : null}
             {industry.featuredComparisonSlugs[0] ? (
-              <Link
+              <AffiliateLink
                 href={getComparisonUrl(
                   industry.featuredComparisonSlugs[0].split("-vs-")[0],
                   industry.featuredComparisonSlugs[0].split("-vs-")[1],
                 )}
+                toolSlug={industry.featuredComparisonSlugs[0]}
+                toolName={formatComparisonLabel(industry.featuredComparisonSlugs[0])}
+                placement="industry_next_step_compare"
+                pageType="industry"
+                ctaType="compare"
+                ctaLocation="bottom"
                 className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
               >
                 Open the top comparison
-              </Link>
+              </AffiliateLink>
             ) : null}
             <Link
               href="/industries"

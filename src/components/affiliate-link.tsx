@@ -41,7 +41,7 @@ export function AffiliateLink({
     pageType || placement.split("_")[0] || (isInternal ? "internal" : "external");
   const inferredCtaType =
     ctaType ||
-    (toolSlug === "fiverr" ? "fiverr" : toolSlug === "systeme" ? "systeme" : "internal");
+    (toolSlug === "fiverr" ? "fiverr" : toolSlug === "systeme" ? "systeme" : "primary");
   const inferredCtaLocation =
     ctaLocation ||
     (placement.includes("hero") || placement.includes("quick_picks")

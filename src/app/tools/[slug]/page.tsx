@@ -141,24 +141,36 @@ export default async function ToolPage({ params }: Props) {
                 toolName={tool.name}
                 placement="tool_hero"
                 pageType="tool"
-                ctaType="internal"
+                ctaType="primary"
                 ctaLocation="top"
                 className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
               >
                 Start Free Trial
               </AffiliateLink>
-              <Link
+              <AffiliateLink
                 href={pricingHref}
+                toolSlug={tool.slug}
+                toolName={tool.name}
+                placement="tool_hero_pricing"
+                pageType="tool"
+                ctaType="pricing"
+                ctaLocation="top"
                 className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
               >
                 View Pricing
-              </Link>
-              <Link
+              </AffiliateLink>
+              <AffiliateLink
                 href={compareHref}
+                toolSlug={tool.slug}
+                toolName={tool.name}
+                placement="tool_hero_compare"
+                pageType="tool"
+                ctaType="compare"
+                ctaLocation="top"
                 className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
               >
                 Compare Top Picks
-              </Link>
+              </AffiliateLink>
             </div>
           </div>
         </section>
@@ -190,18 +202,24 @@ export default async function ToolPage({ params }: Props) {
               toolName={tool.name}
               placement="tool_recommendation"
               pageType="tool"
-              ctaType="internal"
+              ctaType="primary"
               ctaLocation="mid"
               className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
               Try This Tool
             </AffiliateLink>
-            <Link
+            <AffiliateLink
               href={pricingHref}
+              toolSlug={tool.slug}
+              toolName={tool.name}
+              placement="tool_recommendation_pricing"
+              pageType="tool"
+              ctaType="pricing"
+              ctaLocation="mid"
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
               View Pricing
-            </Link>
+            </AffiliateLink>
           </div>
           <div className="mt-8 rounded-3xl bg-[var(--surface-alt)] p-6">
             <p className="text-sm leading-7 text-slate-700">
@@ -275,12 +293,18 @@ export default async function ToolPage({ params }: Props) {
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               {comparisonCandidates[0] ? (
-                <Link
+                <AffiliateLink
                   href={getComparisonUrl(tool.slug, comparisonCandidates[0].slug)}
+                  toolSlug={tool.slug}
+                  toolName={tool.name}
+                  placement="tool_decision_compare"
+                  pageType="tool"
+                  ctaType="compare"
+                  ctaLocation="mid"
                   className="rounded-full bg-slate-950 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-800"
                 >
                   Compare top alternative
-                </Link>
+                </AffiliateLink>
               ) : null}
               {bestIndustries[0] ? (
                 <Link
@@ -317,18 +341,24 @@ export default async function ToolPage({ params }: Props) {
               toolName={tool.name}
               placement="tool_features"
               pageType="tool"
-              ctaType="internal"
+              ctaType="primary"
               ctaLocation="mid"
               className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
               Start Free Trial
             </AffiliateLink>
-            <Link
+            <AffiliateLink
               href={pricingHref}
+              toolSlug={tool.slug}
+              toolName={tool.name}
+              placement="tool_features_pricing"
+              pageType="tool"
+              ctaType="pricing"
+              ctaLocation="mid"
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
               View Pricing
-            </Link>
+            </AffiliateLink>
           </div>
         </section>
 
@@ -389,13 +419,19 @@ export default async function ToolPage({ params }: Props) {
             </div>
             <div className="flex flex-wrap gap-3">
               {comparisonCandidates.map((candidate) => (
-                <Link
+                <AffiliateLink
                   key={`alt-${candidate.slug}`}
                   href={getComparisonUrl(tool.slug, candidate.slug)}
+                  toolSlug={tool.slug}
+                  toolName={`${tool.name} vs ${candidate.name}`}
+                  placement="tool_alternatives_compare"
+                  pageType="tool"
+                  ctaType="compare"
+                  ctaLocation="bottom"
                   className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
                 >
                   {tool.name} vs {candidate.name}
-                </Link>
+                </AffiliateLink>
               ))}
             </div>
           </div>
@@ -414,18 +450,24 @@ export default async function ToolPage({ params }: Props) {
               toolName={tool.name}
               placement="tool_bottom_line"
               pageType="tool"
-              ctaType="internal"
+              ctaType="primary"
               ctaLocation="bottom"
               className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
               Start Free Trial
             </AffiliateLink>
-            <Link
+            <AffiliateLink
               href={pricingHref}
+              toolSlug={tool.slug}
+              toolName={tool.name}
+              placement="tool_bottom_line_pricing"
+              pageType="tool"
+              ctaType="pricing"
+              ctaLocation="bottom"
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
               View Pricing
-            </Link>
+            </AffiliateLink>
           </div>
         </section>
 
@@ -456,18 +498,24 @@ export default async function ToolPage({ params }: Props) {
               toolName={tool.name}
               placement="tool_compare"
               pageType="tool"
-              ctaType="internal"
+              ctaType="primary"
               ctaLocation="bottom"
               className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
               Try {tool.name}
             </AffiliateLink>
-            <Link
+            <AffiliateLink
               href={pricingHref}
+              toolSlug={tool.slug}
+              toolName={tool.name}
+              placement="tool_compare_pricing"
+              pageType="tool"
+              ctaType="pricing"
+              ctaLocation="bottom"
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
               View Pricing
-            </Link>
+            </AffiliateLink>
           </div>
         </section>
 

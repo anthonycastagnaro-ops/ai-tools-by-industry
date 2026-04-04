@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { AffiliateLink } from "@/components/affiliate-link";
 import { Container } from "@/components/container";
 import { EmailCapture } from "@/components/email-capture";
 import { IndustryCard } from "@/components/industry-card";
@@ -69,18 +70,30 @@ export default function HomePage() {
               </p>
             </div>
             <div className="flex flex-wrap gap-4">
-              <Link
+              <AffiliateLink
                 href="/industries"
+                toolSlug="industries"
+                toolName="Industries"
+                placement="home_hero_industries"
+                pageType="home"
+                ctaType="primary"
+                ctaLocation="top"
                 className="rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
               >
                 See Best Tools
-              </Link>
-              <Link
+              </AffiliateLink>
+              <AffiliateLink
                 href="/compare/chatgpt-vs-claude"
+                toolSlug="chatgpt-vs-claude"
+                toolName="ChatGPT vs Claude"
+                placement="home_hero_compare"
+                pageType="home"
+                ctaType="compare"
+                ctaLocation="top"
                 className="rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
               >
                 Compare Top Picks
-              </Link>
+              </AffiliateLink>
             </div>
           </div>
           <div className="grid gap-4 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-xl shadow-slate-200/60">
@@ -246,12 +259,18 @@ export default function HomePage() {
               >
                 <h3 className="text-2xl font-semibold text-slate-950">{item.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-600">{item.body}</p>
-                <Link
+                <AffiliateLink
                   href={item.href}
+                  toolSlug={item.title.toLowerCase().replaceAll(" ", "-")}
+                  toolName={item.title}
+                  placement="home_featured_comparison"
+                  pageType="home"
+                  ctaType="compare"
+                  ctaLocation="mid"
                   className="mt-5 inline-flex rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
                 >
                   Open comparison
-                </Link>
+                </AffiliateLink>
               </article>
             ))}
           </div>

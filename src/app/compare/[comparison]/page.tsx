@@ -125,18 +125,24 @@ export default async function ComparisonPage({ params }: Props) {
               toolName={recommendation.winner.name}
               placement="comparison_hero"
               pageType="comparison"
-              ctaType="internal"
+              ctaType="primary"
               ctaLocation="top"
               className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
               Start Free Trial
             </AffiliateLink>
-            <Link
+            <AffiliateLink
               href={getToolUrl(recommendation.winner.slug)}
+              toolSlug={recommendation.winner.slug}
+              toolName={recommendation.winner.name}
+              placement="comparison_hero_review"
+              pageType="comparison"
+              ctaType="primary"
+              ctaLocation="top"
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
               See Why It&apos;s #1
-            </Link>
+            </AffiliateLink>
           </div>
         </section>
 
@@ -174,18 +180,24 @@ export default async function ComparisonPage({ params }: Props) {
               toolName={recommendation.winner.name}
               placement="comparison_quick_picks"
               pageType="comparison"
-              ctaType="internal"
+              ctaType="primary"
               ctaLocation="top"
               className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
               Try This Tool
             </AffiliateLink>
-            <Link
+            <AffiliateLink
               href={getToolUrl(toolA.slug)}
+              toolSlug={toolA.slug}
+              toolName={`${toolA.name} and ${toolB.name}`}
+              placement="comparison_quick_picks_reviews"
+              pageType="comparison"
+              ctaType="compare"
+              ctaLocation="top"
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
               Read both reviews
-            </Link>
+            </AffiliateLink>
           </div>
         </section>
 
@@ -231,7 +243,7 @@ export default async function ComparisonPage({ params }: Props) {
               toolName={toolA.name}
               placement="comparison_feature_table"
               pageType="comparison"
-              ctaType="internal"
+              ctaType="primary"
               ctaLocation="mid"
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
@@ -243,7 +255,7 @@ export default async function ComparisonPage({ params }: Props) {
               toolName={toolB.name}
               placement="comparison_feature_table"
               pageType="comparison"
-              ctaType="internal"
+              ctaType="primary"
               ctaLocation="mid"
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
@@ -266,18 +278,30 @@ export default async function ComparisonPage({ params }: Props) {
             ]}
           />
           <div className="flex flex-wrap gap-3">
-            <Link
+            <AffiliateLink
               href={getToolPricingHref(toolA)}
+              toolSlug={toolA.slug}
+              toolName={toolA.name}
+              placement="comparison_pricing"
+              pageType="comparison"
+              ctaType="pricing"
+              ctaLocation="mid"
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
               View {toolA.name} Pricing
-            </Link>
-            <Link
+            </AffiliateLink>
+            <AffiliateLink
               href={getToolPricingHref(toolB)}
+              toolSlug={toolB.slug}
+              toolName={toolB.name}
+              placement="comparison_pricing"
+              pageType="comparison"
+              ctaType="pricing"
+              ctaLocation="mid"
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
               View {toolB.name} Pricing
-            </Link>
+            </AffiliateLink>
           </div>
         </section>
 
@@ -288,25 +312,37 @@ export default async function ComparisonPage({ params }: Props) {
             description={verdict}
           />
           <div className="mt-8 flex flex-wrap gap-4">
-            <Link
+            <AffiliateLink
               href={getToolUrl(toolA.slug)}
+              toolSlug={toolA.slug}
+              toolName={toolA.name}
+              placement="comparison_verdict_review_a"
+              pageType="comparison"
+              ctaType="compare"
+              ctaLocation="bottom"
               className="rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
               Read {toolA.name} review
-            </Link>
-            <Link
+            </AffiliateLink>
+            <AffiliateLink
               href={getToolUrl(toolB.slug)}
+              toolSlug={toolB.slug}
+              toolName={toolB.name}
+              placement="comparison_verdict_review_b"
+              pageType="comparison"
+              ctaType="compare"
+              ctaLocation="bottom"
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
               Read {toolB.name} review
-            </Link>
+            </AffiliateLink>
             <AffiliateLink
               href={getPrimaryToolCtaUrl(recommendation.winner)}
               toolSlug={recommendation.winner.slug}
               toolName={recommendation.winner.name}
               placement="comparison_verdict"
               pageType="comparison"
-              ctaType="internal"
+              ctaType="primary"
               ctaLocation="bottom"
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
@@ -368,30 +404,42 @@ export default async function ComparisonPage({ params }: Props) {
               <h2 className="text-2xl font-semibold text-slate-950">{tool.name}</h2>
               <p className="mt-3 text-sm leading-7 text-slate-600">{tool.description}</p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <Link
+                <AffiliateLink
                   href={getToolUrl(tool.slug)}
+                  toolSlug={tool.slug}
+                  toolName={tool.name}
+                  placement="comparison_tool_card_review"
+                  pageType="comparison"
+                  ctaType="primary"
+                  ctaLocation="bottom"
                   className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
                 >
                   Full review
-                </Link>
+                </AffiliateLink>
                 <AffiliateLink
                   href={getPrimaryToolCtaUrl(tool)}
                   toolSlug={tool.slug}
                   toolName={tool.name}
                   placement="comparison_tool_card"
                   pageType="comparison"
-                  ctaType="internal"
+                  ctaType="primary"
                   ctaLocation="bottom"
                   className="rounded-full bg-slate-950 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-800"
                 >
                   Try This Tool
                 </AffiliateLink>
-                <Link
+                <AffiliateLink
                   href={getToolPricingHref(tool)}
+                  toolSlug={tool.slug}
+                  toolName={tool.name}
+                  placement="comparison_tool_card_pricing"
+                  pageType="comparison"
+                  ctaType="pricing"
+                  ctaLocation="bottom"
                   className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
                 >
                   View Pricing
-                </Link>
+                </AffiliateLink>
               </div>
             </article>
           ))}
