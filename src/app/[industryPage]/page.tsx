@@ -20,6 +20,7 @@ import {
   getIndustryQuickPicks,
   getIndustryPainPoints,
   getIndustryUrl,
+  getPrimaryToolCtaUrl,
   getToolPricingUrl,
   getToolRecommendationReason,
   getToolHighlightsForIndustry,
@@ -194,7 +195,7 @@ export default async function IndustryPage({ params }: Props) {
                     View Pricing
                   </Link>
                   <AffiliateLink
-                    href={tool.affiliateUrl}
+                    href={getPrimaryToolCtaUrl(tool)}
                     toolSlug={tool.slug}
                     toolName={tool.name}
                     placement="industry_quick_picks"
@@ -294,7 +295,7 @@ export default async function IndustryPage({ params }: Props) {
                         See Why It&apos;s #1
                       </Link>
                       <AffiliateLink
-                        href={tool.affiliateUrl}
+                        href={getPrimaryToolCtaUrl(tool)}
                         toolSlug={tool.slug}
                         toolName={tool.name}
                         placement="industry_top_picks"
@@ -312,7 +313,7 @@ export default async function IndustryPage({ params }: Props) {
                         View Pricing
                       </Link>
                       <AffiliateLink
-                        href={tool.affiliateUrl}
+                        href={getPrimaryToolCtaUrl(tool)}
                         toolSlug={tool.slug}
                         toolName={tool.name}
                         placement="industry_top_picks"
@@ -440,7 +441,7 @@ export default async function IndustryPage({ params }: Props) {
                 View Pricing
               </Link>
               <AffiliateLink
-                href={primaryRecommendation.affiliateUrl}
+                href={getPrimaryToolCtaUrl(primaryRecommendation)}
                 toolSlug={primaryRecommendation.slug}
                 toolName={primaryRecommendation.name}
                 placement="industry_final_recommendation"

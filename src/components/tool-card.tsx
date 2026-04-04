@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { AffiliateLink } from "@/components/affiliate-link";
 import type { Tool } from "@/lib/types";
-import { getToolPricingUrl, getToolUrl } from "@/lib/utils";
+import { getPrimaryToolCtaUrl, getToolPricingHref, getToolUrl } from "@/lib/utils";
 
 export function ToolCard({
   tool,
@@ -27,7 +27,7 @@ export function ToolCard({
       </p>
       <div className="mt-5 flex flex-wrap gap-3">
         <AffiliateLink
-          href={tool.affiliateUrl}
+          href={getPrimaryToolCtaUrl(tool)}
           toolSlug={tool.slug}
           toolName={tool.name}
           placement="tool_card"
@@ -39,7 +39,7 @@ export function ToolCard({
           Start Free Trial
         </AffiliateLink>
         <Link
-          href={getToolPricingUrl(tool.slug)}
+          href={getToolPricingHref(tool)}
           className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
         >
           View Pricing

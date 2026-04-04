@@ -16,8 +16,9 @@ import {
   getComparisonQuickPicks,
   getComparisonRecommendation,
   getComparisonPairFromSlug,
+  getPrimaryToolCtaUrl,
   getIndustryUrl,
-  getToolPricingUrl,
+  getToolPricingHref,
   getToolUrl,
 } from "@/lib/utils";
 
@@ -119,7 +120,7 @@ export default async function ComparisonPage({ params }: Props) {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <AffiliateLink
-              href={recommendation.winner.affiliateUrl}
+              href={getPrimaryToolCtaUrl(recommendation.winner)}
               toolSlug={recommendation.winner.slug}
               toolName={recommendation.winner.name}
               placement="comparison_hero"
@@ -168,7 +169,7 @@ export default async function ComparisonPage({ params }: Props) {
           </div>
           <div className="flex flex-wrap gap-3">
             <AffiliateLink
-              href={recommendation.winner.affiliateUrl}
+              href={getPrimaryToolCtaUrl(recommendation.winner)}
               toolSlug={recommendation.winner.slug}
               toolName={recommendation.winner.name}
               placement="comparison_quick_picks"
@@ -225,7 +226,7 @@ export default async function ComparisonPage({ params }: Props) {
           />
           <div className="flex flex-wrap gap-3">
             <AffiliateLink
-              href={toolA.affiliateUrl}
+              href={getPrimaryToolCtaUrl(toolA)}
               toolSlug={toolA.slug}
               toolName={toolA.name}
               placement="comparison_feature_table"
@@ -237,7 +238,7 @@ export default async function ComparisonPage({ params }: Props) {
               Try This Tool
             </AffiliateLink>
             <AffiliateLink
-              href={toolB.affiliateUrl}
+              href={getPrimaryToolCtaUrl(toolB)}
               toolSlug={toolB.slug}
               toolName={toolB.name}
               placement="comparison_feature_table"
@@ -266,13 +267,13 @@ export default async function ComparisonPage({ params }: Props) {
           />
           <div className="flex flex-wrap gap-3">
             <Link
-              href={getToolPricingUrl(toolA.slug)}
+              href={getToolPricingHref(toolA)}
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
               View {toolA.name} Pricing
             </Link>
             <Link
-              href={getToolPricingUrl(toolB.slug)}
+              href={getToolPricingHref(toolB)}
               className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
             >
               View {toolB.name} Pricing
@@ -300,7 +301,7 @@ export default async function ComparisonPage({ params }: Props) {
               Read {toolB.name} review
             </Link>
             <AffiliateLink
-              href={recommendation.winner.affiliateUrl}
+              href={getPrimaryToolCtaUrl(recommendation.winner)}
               toolSlug={recommendation.winner.slug}
               toolName={recommendation.winner.name}
               placement="comparison_verdict"
@@ -374,7 +375,7 @@ export default async function ComparisonPage({ params }: Props) {
                   Full review
                 </Link>
                 <AffiliateLink
-                  href={tool.affiliateUrl}
+                  href={getPrimaryToolCtaUrl(tool)}
                   toolSlug={tool.slug}
                   toolName={tool.name}
                   placement="comparison_tool_card"
@@ -386,7 +387,7 @@ export default async function ComparisonPage({ params }: Props) {
                   Try This Tool
                 </AffiliateLink>
                 <Link
-                  href={getToolPricingUrl(tool.slug)}
+                  href={getToolPricingHref(tool)}
                   className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
                 >
                   View Pricing

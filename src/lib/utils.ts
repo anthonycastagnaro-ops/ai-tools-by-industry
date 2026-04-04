@@ -1246,8 +1246,23 @@ export const getIndustryUrl = (industrySlug: string) =>
 
 export const getToolUrl = (toolSlug: string) => `/tools/${toolSlug}`;
 
-export const getToolPricingUrl = (toolSlug: string) =>
-  `${getToolUrl(toolSlug)}#pricing`;
+export const getPrimaryToolCtaUrl = (tool: Tool) =>
+  tool.affiliateUrl || tool.websiteUrl;
+
+export const getToolPricingHref = (tool: Tool) =>
+  tool.pricingUrl || tool.websiteUrl;
+
+export const getToolPricingUrl = (toolSlug: string) => {
+  const tool = getToolBySlug(toolSlug);
+  return tool ? getToolPricingHref(tool) : `${getToolUrl(toolSlug)}#pricing`;
+};
+
+export const getDefaultComparisonUrl = (tool: Tool) => {
+  const primaryAlternative = getAlternativesForTool(tool)[0];
+  return primaryAlternative
+    ? getComparisonUrl(tool.slug, primaryAlternative.slug)
+    : "/compare/chatgpt-vs-claude";
+};
 
 export const getComparisonSlug = (a: string, b: string) => {
   const firstIndex = tools.findIndex((tool) => tool.slug === a);

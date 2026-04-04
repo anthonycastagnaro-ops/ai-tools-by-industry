@@ -14,6 +14,7 @@ declare global {
 
 export function AffiliateLink({
   href,
+  fallbackHref = "/",
   className,
   children,
   toolSlug,
@@ -23,7 +24,8 @@ export function AffiliateLink({
   ctaType,
   ctaLocation,
 }: {
-  href: string;
+  href?: string | null;
+  fallbackHref?: string;
   className: string;
   children: React.ReactNode;
   toolSlug?: string;
@@ -33,7 +35,8 @@ export function AffiliateLink({
   ctaType?: string;
   ctaLocation?: string;
 }) {
-  const isInternal = href.startsWith("/");
+  const resolvedHref = href || fallbackHref;
+  const isInternal = resolvedHref.startsWith("/");
   const inferredPageType =
     pageType || placement.split("_")[0] || (isInternal ? "internal" : "external");
   const inferredCtaType =
@@ -55,8 +58,8 @@ export function AffiliateLink({
     window.gtag?.("event", "cta_click", {
       event_category: "affiliate_cta",
       event_label: label,
-      destination_url: href,
-      destination_type: isInternal ? "internal_placeholder" : "affiliate_outbound",
+      destination_url: resolvedHref,
+      destination_type: isInternal ? "internal_link" : "affiliate_outbound",
       placement,
       tool_slug: toolSlug || "unknown",
       tool_name: toolName || toolSlug || "unknown",
@@ -68,7 +71,7 @@ export function AffiliateLink({
 
   if (isInternal) {
     return (
-      <Link href={href} className={className} onClick={handleClick}>
+      <Link href={resolvedHref} className={className} onClick={handleClick}>
         {children}
       </Link>
     );
@@ -76,7 +79,7 @@ export function AffiliateLink({
 
   return (
     <a
-      href={href}
+      href={resolvedHref}
       target="_blank"
       rel="noreferrer noopener sponsored"
       className={className}

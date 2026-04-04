@@ -7,8 +7,9 @@ export type Tool = {
   overview: string;
   bestUseCase: string;
   pricing: string;
-  affiliateUrl: string;
-  website: string;
+  affiliateUrl: string | null;
+  websiteUrl: string;
+  pricingUrl: string;
   popularityNote: string;
   businessUsage: string;
   scores: {

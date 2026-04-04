@@ -14,7 +14,10 @@ import {
   getAlternativesForTool,
   getBestIndustriesForTool,
   getComparisonUrl,
+  getDefaultComparisonUrl,
+  getPrimaryToolCtaUrl,
   getToolBySlug,
+  getToolPricingHref,
   getToolUrl,
 } from "@/lib/utils";
 
@@ -69,7 +72,10 @@ export default async function ToolPage({ params }: Props) {
   const bestIndustries = getBestIndustriesForTool(tool.slug);
   const alternatives = getAlternativesForTool(tool);
   const comparisonCandidates = alternatives.slice(0, 3);
-  const pricingHref = `${getToolUrl(tool.slug)}#pricing`;
+  const pricingHref = getToolPricingHref(tool);
+  const compareHref = comparisonCandidates[0]
+    ? getComparisonUrl(tool.slug, comparisonCandidates[0].slug)
+    : getDefaultComparisonUrl(tool);
 
   return (
     <div className="pb-20">
@@ -107,7 +113,7 @@ export default async function ToolPage({ params }: Props) {
               </span>
             </div>
           </div>
-          <div id="pricing" className="rounded-[1.75rem] bg-[var(--surface-alt)] p-6">
+          <div className="rounded-[1.75rem] bg-[var(--surface-alt)] p-6">
             <p className="text-sm font-semibold text-slate-900">Quick take</p>
             <p className="mt-3 text-sm leading-7 text-slate-700">
               {tool.tagline}
@@ -116,7 +122,7 @@ export default async function ToolPage({ params }: Props) {
             <p className="mt-2 text-sm leading-7 text-slate-700">{tool.pricing}</p>
             <div className="mt-6 flex flex-wrap gap-3">
               <AffiliateLink
-                href={tool.affiliateUrl}
+                href={getPrimaryToolCtaUrl(tool)}
                 toolSlug={tool.slug}
                 toolName={tool.name}
                 placement="tool_hero"
@@ -134,10 +140,7 @@ export default async function ToolPage({ params }: Props) {
                 View Pricing
               </Link>
               <Link
-                href={getComparisonUrl(
-                  tool.slug,
-                  comparisonCandidates[0]?.slug || alternatives[0]?.slug || tool.slug,
-                )}
+                href={compareHref}
                 className="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
               >
                 Compare Top Picks
@@ -168,7 +171,7 @@ export default async function ToolPage({ params }: Props) {
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
             <AffiliateLink
-              href={tool.affiliateUrl}
+              href={getPrimaryToolCtaUrl(tool)}
               toolSlug={tool.slug}
               toolName={tool.name}
               placement="tool_recommendation"
@@ -247,7 +250,7 @@ export default async function ToolPage({ params }: Props) {
           </div>
           <div className="flex flex-wrap gap-3">
             <AffiliateLink
-              href={tool.affiliateUrl}
+              href={getPrimaryToolCtaUrl(tool)}
               toolSlug={tool.slug}
               toolName={tool.name}
               placement="tool_features"
@@ -344,7 +347,7 @@ export default async function ToolPage({ params }: Props) {
           />
           <div className="mt-8 flex flex-wrap gap-3">
             <AffiliateLink
-              href={tool.affiliateUrl}
+              href={getPrimaryToolCtaUrl(tool)}
               toolSlug={tool.slug}
               toolName={tool.name}
               placement="tool_bottom_line"
@@ -386,7 +389,7 @@ export default async function ToolPage({ params }: Props) {
           </div>
           <div className="flex flex-wrap gap-3">
             <AffiliateLink
-              href={tool.affiliateUrl}
+              href={getPrimaryToolCtaUrl(tool)}
               toolSlug={tool.slug}
               toolName={tool.name}
               placement="tool_compare"
