@@ -15,6 +15,7 @@ import {
   getBestIndustriesForTool,
   getComparisonUrl,
   getDefaultComparisonUrl,
+  getIndustryUrl,
   getPrimaryToolCtaUrl,
   getToolBySlug,
   getToolPricingHref,
@@ -232,6 +233,49 @@ export default async function ToolPage({ params }: Props) {
           </div>
         </section>
 
+        <section className="grid gap-6 md:grid-cols-3">
+          <article className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+            <h2 className="text-2xl font-semibold text-slate-950">Choose this if...</h2>
+            <p className="mt-4 text-sm leading-8 text-slate-600">
+              Choose {tool.name} if your team mainly needs {tool.bestUseCase.toLowerCase()} and
+              you want a tool that can earn a real place in your weekly workflow.
+            </p>
+          </article>
+          <article className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+            <h2 className="text-2xl font-semibold text-slate-950">Skip this if...</h2>
+            <p className="mt-4 text-sm leading-8 text-slate-600">
+              Skip {tool.name} if your main problem is closer to {alternatives[0]?.bestUseCase.toLowerCase() || "a different workflow"} or
+              if you need a much narrower specialist tool instead of a broader fit.
+            </p>
+          </article>
+          <article className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+            <h2 className="text-2xl font-semibold text-slate-950">What to click next</h2>
+            <p className="mt-4 text-sm leading-8 text-slate-600">
+              If you are still unsure, the best next click is usually a
+              head-to-head comparison or the industry page where this tool fits
+              best.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              {comparisonCandidates[0] ? (
+                <Link
+                  href={getComparisonUrl(tool.slug, comparisonCandidates[0].slug)}
+                  className="rounded-full bg-slate-950 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-800"
+                >
+                  Compare top alternative
+                </Link>
+              ) : null}
+              {bestIndustries[0] ? (
+                <Link
+                  href={getIndustryUrl(bestIndustries[0].slug)}
+                  className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+                >
+                  View best-fit industry
+                </Link>
+              ) : null}
+            </div>
+          </article>
+        </section>
+
         <section className="space-y-8">
           <SectionHeading
             eyebrow="Features"
@@ -410,7 +454,7 @@ export default async function ToolPage({ params }: Props) {
         </section>
 
         <EmailCapture
-          description={`Get more buyer guides like this one plus side-by-side recommendations that help you pick tools with clearer ROI.`}
+          description={`If you want future buyer guides, tool updates, or comparison pages like this one, request updates here and the message will route through the editorial contact flow.`}
         />
       </Container>
     </div>

@@ -1,6 +1,6 @@
 export function EmailCapture({
-  title = "Get the best AI tools for your business",
-  description = "Join for curated buyer guides, top tool picks, and practical ways to save time, automate operations, and increase revenue.",
+  title = "Request future updates from the site",
+  description = "If you want future buyer guides, tool updates, or partnership news, use this form to send your email through the contact page while the newsletter system is still being set up.",
 }: {
   title?: string;
   description?: string;
@@ -35,12 +35,12 @@ export function EmailCapture({
             type="submit"
             className="h-12 rounded-full bg-slate-950 px-6 text-sm font-semibold text-white transition hover:bg-slate-800"
           >
-            Get updates
+            Request updates
           </button>
         </form>
         <p className="text-xs leading-6 text-slate-500">
-          This currently opens the contact page so you can request updates while
-          the newsletter flow is being finalized.
+          This is not a live newsletter signup yet. It opens the contact page
+          with your email prefilled so you can request updates directly.
         </p>
       </div>
     </section>

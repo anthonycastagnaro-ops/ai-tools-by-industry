@@ -61,6 +61,11 @@ export default function HomePage() {
                 industry, review the strongest options, and use comparisons when
                 you are down to finalists.
               </p>
+              <p className="max-w-2xl text-sm leading-7 text-slate-500">
+                Recommendations are organized like an editorial buyer guide:
+                clear fit, realistic tradeoffs, and practical next clicks for
+                people who are actually evaluating software.
+              </p>
             </div>
             <div className="flex flex-wrap gap-4">
               <Link
@@ -101,6 +106,33 @@ export default function HomePage() {
               </p>
             </div>
           </div>
+        </Container>
+      </section>
+
+      <section className="py-16">
+        <Container className="grid gap-4 md:grid-cols-3">
+          {[
+            {
+              title: "Who this is for",
+              body: "Business owners, operators, service firms, and lean teams that want help choosing software without reading generic roundups.",
+            },
+            {
+              title: "How tools are evaluated",
+              body: "Pages are organized around workflow fit, likely tradeoffs, and whether a tool deserves a place on a real shortlist.",
+            },
+            {
+              title: "Where to start",
+              body: "Open your industry page first, then move to one tool review and one comparison page before making a decision.",
+            },
+          ].map((item) => (
+            <article
+              key={item.title}
+              className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
+            >
+              <h2 className="text-xl font-semibold text-slate-950">{item.title}</h2>
+              <p className="mt-3 text-sm leading-7 text-slate-600">{item.body}</p>
+            </article>
+          ))}
         </Container>
       </section>
 
@@ -183,7 +215,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="Top Tools This Month"
             title="Top AI tools this month"
-            description="This shortlist is curated, not exhaustive. These are the tools most often worth reviewing first when a buyer wants practical upside, strong fit, and a realistic path to ROI."
+            description="This shortlist is curated, not exhaustive. These are the tools most often worth reviewing first when a buyer wants practical upside, strong fit, and a realistic path to ROI rather than a bloated stack."
           />
           <div className="grid gap-6 lg:grid-cols-3">
             {topToolsThisMonth.map((tool) => (
