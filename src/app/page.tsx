@@ -33,6 +33,26 @@ const featuredComparisons = [
     body: "Best for marketing teams comparing brand control against faster go-to-market execution.",
   },
 ];
+const quickStartRoutes = [
+  {
+    href: "/best-ai-tools-for-restaurants",
+    label: "Most popular industry",
+    title: "Best AI tools for restaurants",
+    body: "Start here if you want a fast example of how the site helps a real business pick tools.",
+  },
+  {
+    href: "/tools/chatgpt",
+    label: "Top tool review",
+    title: "Why ChatGPT makes so many shortlists",
+    body: "Best next click if you want one broad-use tool that helps across writing, research, and execution.",
+  },
+  {
+    href: "/compare/chatgpt-vs-claude",
+    label: "Fastest comparison",
+    title: "ChatGPT vs Claude",
+    body: "Best next click if you already know the category and want help choosing between two strong options.",
+  },
+];
 const curatedTopToolNotes: Record<string, string> = {
   chatgpt: "Best broad-use pick for businesses that want one tool to cover content, research, and internal execution.",
   canva: "Best design-side pick for teams that need fast visual output without hiring extra help.",
@@ -48,30 +68,42 @@ export default function HomePage() {
   return (
     <div className="pb-20">
       <section className="relative overflow-hidden border-b border-slate-200/70">
-        <Container className="grid gap-16 py-20 lg:grid-cols-[1.2fr_0.8fr] lg:py-28">
-          <div className="space-y-8">
+        <Container className="grid gap-10 py-14 sm:gap-12 sm:py-16 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16 lg:py-24">
+          <div className="space-y-6 sm:space-y-8">
             <p className="text-sm font-semibold tracking-[0.24em] text-[var(--brand)] uppercase">
-              AI buyer guides for operators who want faster growth
+              Best AI tools for real businesses
             </p>
-            <div className="space-y-6">
-              <h1 className="max-w-4xl font-serif text-5xl leading-tight tracking-tight text-slate-950 sm:text-6xl">
-                Find the AI tools most businesses should evaluate first if they want faster execution, better margins, and less operational drag
+            <div className="space-y-5">
+              <h1 className="max-w-4xl font-serif text-4xl leading-tight tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+                Find the best AI tools for your business before you waste time testing the wrong ones
               </h1>
-              <p className="max-w-2xl text-lg leading-8 text-slate-600">
-                This site is built for business owners, operators, freelancers,
-                and agencies who want researched recommendations, not another
-                bloated software roundup. Start with your industry, narrow your
-                shortlist fast, and use comparison pages when you are close to
-                a decision.
+              <p className="max-w-2xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
+                This site helps business owners, operators, freelancers, and
+                agencies go from curiosity to shortlist fast. Start with your
+                industry, open the strongest tool review, and use comparison
+                pages when you are deciding between finalists.
               </p>
+              <div className="flex flex-wrap gap-2 text-sm text-slate-600">
+                {[
+                  "Researched and curated",
+                  "Built around real use cases",
+                  "Made to help you choose faster",
+                ].map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full bg-[var(--surface-alt)] px-3 py-2 font-medium"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
               <p className="max-w-2xl text-sm leading-7 text-slate-500">
-                Recommendations are based on real-world use cases, compared
-                across similar tools, and curated to help serious buyers move
-                from research to action without wasting time on weak-fit
-                options.
+                Recommendations are compared across similar tools and written to
+                help buyers take the next click with more confidence, not keep
+                reading generic software content.
               </p>
             </div>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
               <AffiliateLink
                 href="/industries"
                 toolSlug="industries"
@@ -80,7 +112,7 @@ export default function HomePage() {
                 pageType="home"
                 ctaType="primary"
                 ctaLocation="top"
-                className="rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+                className="w-full rounded-full bg-slate-950 px-6 py-3 text-center text-sm font-semibold text-white transition hover:bg-slate-800 sm:w-auto"
               >
                 See Best Tools
               </AffiliateLink>
@@ -92,13 +124,49 @@ export default function HomePage() {
                 pageType="home"
                 ctaType="compare"
                 ctaLocation="top"
-                className="rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950"
+                className="w-full rounded-full border border-slate-300 bg-white px-6 py-3 text-center text-sm font-semibold text-slate-700 transition hover:border-slate-950 hover:text-slate-950 sm:w-auto"
               >
                 Compare Top Picks
               </AffiliateLink>
             </div>
+            <div className="space-y-4 rounded-[1.75rem] border border-slate-200 bg-white p-5 shadow-sm">
+              <div className="space-y-1">
+                <p className="text-xs font-semibold tracking-[0.18em] text-[var(--brand)] uppercase">
+                  Start Here
+                </p>
+                <p className="text-sm leading-7 text-slate-600">
+                  If you are new here, these are the fastest paths into the
+                  site.
+                </p>
+              </div>
+              <div className="grid gap-3">
+                {quickStartRoutes.map((item, index) => (
+                  <AffiliateLink
+                    key={item.href}
+                    href={item.href}
+                    toolSlug={item.title}
+                    toolName={item.title}
+                    placement={`home_quick_start_${index + 1}`}
+                    pageType="home"
+                    ctaType={item.href.startsWith("/compare/") ? "compare" : "primary"}
+                    ctaLocation="top"
+                    className="rounded-2xl border border-slate-200 bg-[var(--surface-alt)] px-4 py-4 text-left transition hover:border-slate-300 hover:bg-white"
+                  >
+                    <span className="block text-xs font-semibold tracking-[0.16em] text-slate-500 uppercase">
+                      {item.label}
+                    </span>
+                    <span className="mt-2 block text-base font-semibold text-slate-950">
+                      {item.title}
+                    </span>
+                    <span className="mt-2 block text-sm leading-6 text-slate-600">
+                      {item.body}
+                    </span>
+                  </AffiliateLink>
+                ))}
+              </div>
+            </div>
           </div>
-          <div className="grid gap-4 rounded-[2rem] border border-slate-200 bg-white p-6 shadow-xl shadow-slate-200/60">
+          <div className="grid gap-4 rounded-[2rem] border border-slate-200 bg-white p-5 shadow-xl shadow-slate-200/60 sm:p-6">
             {[
               "20 tailored industry buyer guides",
               "15 editorial-style tool reviews",
@@ -125,7 +193,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="py-16">
+      <section className="py-12 sm:py-16">
         <Container className="grid gap-4 md:grid-cols-3">
           {[
             {
@@ -152,7 +220,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="py-20">
+      <section className="py-14 sm:py-16 lg:py-20">
         <Container className="space-y-10">
           <SectionHeading
             eyebrow="Featured Industries"
@@ -167,7 +235,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="py-20">
+      <section className="py-14 sm:py-16 lg:py-20">
         <Container className="space-y-10">
           <SectionHeading
             eyebrow="How To Use The Site"
@@ -213,7 +281,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="py-20">
+      <section className="py-14 sm:py-16 lg:py-20">
         <Container>
           <WhyTrust
             description="This site is built like an editorial buyer guide, not a generic tool directory. Recommendations are researched, curated, and updated regularly so buyers can compare serious options with more confidence."
@@ -226,7 +294,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="py-20">
+      <section className="py-14 sm:py-16 lg:py-20">
         <Container className="space-y-10">
           <SectionHeading
             eyebrow="Top Tools This Month"
@@ -246,7 +314,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="py-20">
+      <section className="py-14 sm:py-16 lg:py-20">
         <Container className="space-y-10">
           <SectionHeading
             eyebrow="Featured Comparisons"
